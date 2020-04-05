@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Students extends Model
 {
     protected $fillable = ['first_name','last_name','date_of_birth','image_path','guardian_id','class_id','status'];
+
+    public function studentParent(){
+        return $this->belongsTo('App\UsersPackage\ParentsModel');
+    }
 }
