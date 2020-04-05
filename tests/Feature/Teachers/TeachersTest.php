@@ -8,15 +8,40 @@ use Tests\TestCase;
 
 class TeachersTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $response = $this->get('/');
+    use RefreshDatabase;
 
-        $response->assertStatus(200);
+    /** @test */
+    public function createClassTeacher(){
+
+    }
+
+    /** @test */
+    public function editClassTeacher(){
+
+    }
+
+    /** @test */
+    public function getAllClassTeachers(){
+
+    }
+
+    /** @test */
+    public function getAllTeachers(){
+
+    }
+
+    /** @test */
+    public function suspendTeacher(){
+
+    }
+
+    /** @test */
+    public function ExpelTeacher(){
+        
+    }
+
+    /** @test */
+    public function deleteTeacher(){
+        
     }
 }

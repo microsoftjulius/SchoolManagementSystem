@@ -25,3 +25,17 @@ Route::patch('/edit-class-name/{id}','ClassesPackage\ClassRooms@editClassRoomNam
 Route::get('/get-all-class-rooms','ClassesPackage\ClassRooms@getAllClassRooms');
 Route::patch('/delete-class/{id}','ClassesPackage\ClassRooms@deleteClassTemporarily');
 Route::delete('/parmanetly-delete-class/{id}','ClassesPackage\ClassRooms@deleteClassParmanetly');
+
+#######################General Person #########################################
+Route::post('/create-person','UsersPackage\GeneralPerson@createPerson');
+Route::patch('/edit-person/{id}','UsersPackage\GeneralPerson@editPerson');
+Route::patch('/suspend-person/{id}','UsersPackage\GeneralPerson@suspendPerson');
+Route::patch('/expel-person/{id}','UsersPackage\GeneralPerson@expelPerson');
+
+####################Students #################################################
+Route::post('/create-student','UsersPackage\Students@validatePerson');
+Route::patch('/edit-student/{id}','UsersPackage\Students@editStudent');
+Route::get('/get-all-students','UsersPackage\Students@getAllStudents');
+Route::patch('/suspend-student/{id}','UsersPackage\Students@suspendStudent');
+Route::patch('/expel-student/{id}','UsersPackage\Students@expellStudent');
+

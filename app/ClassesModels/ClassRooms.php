@@ -11,4 +11,8 @@ class ClassRooms extends Model
     public function streams(){
         return $this->hasMany('App\ClassesModels\Streams');
     }
+
+    public function students(){
+        return $this->hasMany('App\UsersPackage\Students');
+    }
 }
