@@ -37,7 +37,6 @@
                 <li>Submit CourseWork or Home work</li>
             </ul>
         </p>
-        
         <h3>4. Directors</h3>
         <p>
             A director is a person who owns a school, or a CEO. He overheads the all activities that take place in a school. The CEO, monitors all students perfomances perclass, class teachers performaces. He assigns the roles and permissions to all the System Users
