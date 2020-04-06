@@ -4,17 +4,23 @@ namespace App\Http\Controllers\UsersPackage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\UsersPackage\GeneralPerson;
 use App\Http\Resources\PersonsResources\ParentsResource;
 use App\UsersPackage\Parentsmodel;
+use App\User;
 
 class ParentsController extends Controller
 {
     public function __construct(){
         $this->person = new GeneralPerson();
+        $this->register = new RegistrationController();
     }
     protected function createParent(){
+        $this->register->registerUser();
+        $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
+                        ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
         $parent = new Parentsmodel();
+        $parent->user_id       = $user_id;
+        $parent->created_by    = 1;
         $parent->first_name    = $this->person->getFirstName();
         $parent->last_name     = $this->person->getLastname();
         $parent->date_of_birth = $this->person->getDateOfBirth();

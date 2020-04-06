@@ -21,7 +21,8 @@ class StudentsTest extends TestCase
             'last_name'     => 'Ssemakula',
             'date_of_birth' => '10/10/1994',
             'image'         => 'images/path',
-            'status'        => 'active'
+            'status'        => 'active',
+            'Telephone'     => '256702913451'
         ]);
         $this->assertDatabaseHas('students',['guardian_id'=>1]);
     }

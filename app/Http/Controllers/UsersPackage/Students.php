@@ -5,23 +5,33 @@ namespace App\Http\Controllers\UsersPackage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\UsersPackage\Students as Student;
-use App\Http\Controllers\UsersPackage\GeneralPerson;
 use App\Http\Resources\PersonsResources\StudentsResource;
+use App\User;
 
 class Students extends Controller
 {
     public function __construct(){
         $this->person = new GeneralPerson();
+        $this->register = new RegistrationController();
     }
 
     protected function createStudent(){
+        //Creating a user account to login
+        $this->register->registerUser();
+
+        //getting the account id and mapping it to the table
+        $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
+                        ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
+        
         $student = new Student(); // creating an object of student
-        $student->first_name    = $this->person->getFirstName();
-        $student->last_name     = $this->person->getLastname();
-        $student->date_of_birth = $this->person->getDateOfBirth();
-        $student->image_path    = $this->person->getUserPhoto();
-        $student->guardian_id   = request()->guardian_id;
-        $student->class_id      = request()->class_id;
+        $student->user_id        = $user_id;
+        $student->created_by     = 1;
+        $student->first_name     = $this->person->getFirstName();
+        $student->last_name      = $this->person->getLastname();
+        $student->date_of_birth  = $this->person->getDateOfBirth();
+        $student->image_path     = $this->person->getUserPhoto();
+        $student->guardian_id    = request()->guardian_id;
+        $student->class_id       = request()->class_id;
         $student->save(); 
     }
 

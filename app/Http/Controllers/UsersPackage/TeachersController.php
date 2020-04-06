@@ -7,16 +7,24 @@ use Illuminate\Http\Request;
 use App\UsersPackage\Teachersmodel as Teacher;
 use App\Http\Controllers\UsersPackage\GeneralPerson;
 use App\Http\Resources\PersonsResources\TeachersResource;
+use App\User;
 
 class TeachersController extends Controller
 {
     public function __construct(){
         $this->person = new GeneralPerson();
+        $this->register = new RegistrationController();
     }
 
     protected function createTeacher(){
+        $this->register->registerUser();
+        $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
+                        ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
+
         $teacher = new Teacher();
         $teacher->first_name    = $this->person->getFirstName();
+        $teacher->user_id        = $user_id;
+        $teacher->created_by     = 1;
         $teacher->last_name     = $this->person->getLastname();
         $teacher->date_of_birth = $this->person->getDateOfBirth();
         $teacher->image_path    = $this->person->getUserPhoto();     
