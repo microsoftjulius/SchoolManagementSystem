@@ -48,7 +48,7 @@ class Students extends Controller
         ));
     }
 
-    protected function validatePerson(){
+    protected function validateStudent(){
         if(empty($this->person->getFirstName())){ return redirect()->back()->withErrors("First Name is required"); }
         elseif(empty($this->person->getLastname())){ return redirect()->back()->withErrors("Last Name is required"); }
         elseif(empty($this->person->getDateOfBirth())){ return redirect()->back()->withErrors("Date Of Birth is required"); }

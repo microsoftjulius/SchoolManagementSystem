@@ -23,4 +23,24 @@ class GeneralPerson extends Controller
     public function getUserPhoto(){
         return request()->image;
     }
+
+    public function getRelationShip(){
+        return request()->RelationShip;
+    }
+
+    public function getDistrict(){
+        return request()->District;
+    }
+
+    public function getVillage(){
+        return request()->Village;
+    }
+
+    public function getNationalIdentificationNumber(){
+        return request()->NIN;
+    }
+
+    public function getTelephoneNumber(){
+        return request()->Telephone;
+    }
 }
