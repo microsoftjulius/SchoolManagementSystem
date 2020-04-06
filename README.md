@@ -43,6 +43,4 @@
         </p>
       <h2>Login Module</h2>
       <p>
-        The login credentials are created when ever a new account for person is created.Once a new account is being created, the User will login using the firstname concatenated with the telephone number(Students will be using there parents Numbers). the password will be the telephone number not concatenated anywhere.
-
-       </p>
+        The login credentials are created when ever a new account for person is created.Once a new account is being created, the User will login using the firstname concatenated with the telephone number(Students will be using there parents Numbers). the password will be the telephone number not concatenated anywhere.</p>
