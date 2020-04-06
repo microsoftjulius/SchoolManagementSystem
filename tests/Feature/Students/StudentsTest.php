@@ -62,4 +62,12 @@ class StudentsTest extends TestCase
         ]);
         $this->assertEquals('expelled',Students::first()->status);
     }
+
+    /** @test */
+    public function getParticularStudent(){
+        $this->createStudent();
+        $student = Students::first();
+        $response = $this->get('/get-particular-student/'.$student->id);
+        $response->assertOk();
+    }
 }

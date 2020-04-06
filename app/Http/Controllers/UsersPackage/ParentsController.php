@@ -35,6 +35,10 @@ class ParentsController extends Controller
         return ParentsResource::collection(Parentsmodel::all());
     }
 
+    protected function getIndividualParent($id){
+        return new ParentsResource(Parentsmodel::find($id));
+    }
+
     protected function validateParent(){
         if(empty($this->person->getFirstName())){ 
             return redirect()->back()->withErrors("First Name is required"); 

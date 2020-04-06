@@ -44,4 +44,12 @@ class ParentsTest extends TestCase
         $response = $this->get('/get-all-parents');
         $this->assertCount(1,Parents::all());
     }
+
+    /** @test */
+    public function getParticularParent(){
+        $this->createParent();
+        $parent = Parents::first();
+        $response = $this->get('/get-particular-parent/'.$parent->id);
+        $response->assertOk();
+    }
 }

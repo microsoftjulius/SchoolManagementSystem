@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\ClassesModels\ClassRooms;
 
-class ClassesRoomsTest extends TestCase
+class ClassRoomsTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -74,4 +74,12 @@ class TeachersTest extends TestCase
         ]);
         $this->assertEquals('4',Teacher::first()->role_id);
     }
+
+    /** @test */
+    public function getParticularTeacher(){
+        $this->createTeacher();
+        $teacher = Teacher::first();
+        $response = $this->get('/get-particular-teacher/'.$teacher->id);
+        $response->assertOk();
+    }
 }

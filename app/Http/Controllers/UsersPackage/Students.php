@@ -36,6 +36,10 @@ class Students extends Controller
         return StudentsResource::collection(Student::all());
     }
 
+    protected function getIndividualStudent($id){
+        return new StudentsResource(Student::find($id));
+    }
+
     protected function suspendStudent(Student $student, $id){
         $student->find($id)->update(array(
             'status' => 'suspended',

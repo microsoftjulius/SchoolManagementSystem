@@ -36,6 +36,10 @@ class TeachersController extends Controller
         return TeachersResource::collection(Teacher::all());
     }
 
+    protected function getIndividualTeacher($id){
+        return new TeachersResource(Teacher::find($id));
+    }
+
     protected function suspendTeacher(Teacher $teacher, $id){
         $teacher->find($id)->update(array('status' => 'suspended'));
     }
