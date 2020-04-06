@@ -23,6 +23,10 @@ class ClassRooms extends Controller
         return ClassesResource::collection(ClassRoomsModel::all());
     }
 
+    protected function getParticularClassRoom($id){
+        return new ClassesResource(ClassRoomsModel::find($id));
+    }
+
     protected function deleteClassTemporarily(ClassRoomsModel $class_name, $id){
         $editClassRoom = $class_name->find($id)->update(array(
             'status' => 'removed'

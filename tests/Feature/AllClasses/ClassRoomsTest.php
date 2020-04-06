@@ -58,4 +58,12 @@ class ClassRoomsTest extends TestCase
         $response = $this->delete('/parmanetly-delete-class/'.$class_id);
         $this->assertCount(0,ClassRooms::all());
     }
+
+    /** @test */
+    public function getParticularClassRoom(){
+        $this->createClassRoom();
+        $class_id = ClassRooms::first();
+        $response = $this->get('/get-particular-class-room/'.$class_id->id);
+        $response->assertOk();
+    }
 }

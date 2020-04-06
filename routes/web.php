@@ -18,6 +18,7 @@ Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
 Route::get('/get-all-streams','ClassesPackage\Streams@getAllStreams');
 Route::patch('/delete-stream/{id}','ClassesPackage\Streams@deleteStreamTemporarily');
 Route::delete('/parmanetly-delete-stream/{id}','ClassesPackage\Streams@deleteStreamParmanetly');
+Route::get('/get-particular-stream/{id}','ClassesPackage\Streams@getParticularStream');
 
 ######################Class Rooms routes #######################################
 Route::post('/create-class-room','ClassesPackage\ClassRooms@createClassRoom');
@@ -25,6 +26,7 @@ Route::patch('/edit-class-name/{id}','ClassesPackage\ClassRooms@editClassRoomNam
 Route::get('/get-all-class-rooms','ClassesPackage\ClassRooms@getAllClassRooms');
 Route::patch('/delete-class/{id}','ClassesPackage\ClassRooms@deleteClassTemporarily');
 Route::delete('/parmanetly-delete-class/{id}','ClassesPackage\ClassRooms@deleteClassParmanetly');
+Route::get('/get-particular-class-room/{id}','ClassesPackage\ClassRooms@getParticularClassRoom');
 
 #######################General Person #########################################
 Route::post('/create-person','UsersPackage\GeneralPerson@createPerson');

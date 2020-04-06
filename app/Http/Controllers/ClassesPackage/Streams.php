@@ -23,6 +23,10 @@ class Streams extends Controller
         return StreamsResource::collection(StreamsModel::all());
     }
 
+    protected function getParticularStream($id){
+        return new StreamsResource(StreamsModel::find($id));
+    }
+
     protected function deleteStreamTemporarily(StreamsModel $stream, $id){
         $editStream = $stream->find($id)->update(array(
             'status' => 'removed'

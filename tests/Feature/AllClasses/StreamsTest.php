@@ -42,8 +42,8 @@ class StreamsTest extends TestCase
     /** @test */
     public function temporalDeleteStream(){
         $this->createStream();
-        $class_id = Streams::first()->id;
-        $response = $this->patch('/delete-stream/'.$class_id,[
+        $stream_id = Streams::first()->id;
+        $response = $this->patch('/delete-stream/'.$stream_id,[
             'status' => 'removed'
         ]);
         $this->assertEquals('removed',Streams::first()->status);
@@ -52,8 +52,16 @@ class StreamsTest extends TestCase
     /** @test */
     public function parmanetlyDeleteStream(){
         $this->createStream();
-        $class_id = Streams::first()->id;
-        $response = $this->delete('/parmanetly-delete-stream/'.$class_id);
+        $stream_id = Streams::first()->id;
+        $response = $this->delete('/parmanetly-delete-stream/'.$stream_id);
         $this->assertCount(0,Streams::all());
+    }
+
+    /** @test */
+    public function getParticularStream(){
+        $this->createStream();
+        $stream_id = Streams::first();
+        $response = $this->get('/get-particular-stream/'.$stream_id->id);
+        $response->assertOk();
     }
 }
