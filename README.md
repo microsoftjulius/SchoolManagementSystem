@@ -41,3 +41,6 @@
         <p>
             A director is a person who owns a school, or a CEO. He overheads the all activities that take place in a school. The CEO, monitors all students perfomances perclass, class teachers performaces. He assigns the roles and permissions to all the System Users
         </p>
+      <h2>Login Module</h2>
+      <p>
+        The login credentials are created when ever a new account for person is created.Once a new account is being created, the User will login using the firstname concatenated with the telephone number(Students will be using there parents Numbers). the password will be the telephone number not concatenated anywhere. The students are required to know the parents numbers during creation of the accounts.</p>
