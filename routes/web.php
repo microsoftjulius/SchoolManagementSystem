@@ -43,3 +43,11 @@ Route::patch('/expel-student/{id}','UsersPackage\Students@expellStudent');
 Route::post('/create-parent','UsersPackage\ParentsController@validateParent');
 Route::patch('/edit-parent/{id}','UsersPackage\ParentsController@editParent');
 Route::get('/get-all-parents','UsersPackage\ParentsController@getAllParents');
+
+##################Teachers ###################################################
+Route::post('/create-teacher','UsersPackage\TeachersController@validateTeacher');
+Route::patch('/edit-teacher/{id}','UsersPackage\TeachersController@editTeacher');
+Route::get('/get-all-teachers','UsersPackage\TeachersController@getAllTeachers');
+Route::patch('/suspend-teacher/{id}','UsersPackage\TeachersController@suspendTeacher');
+Route::patch('/expel-teacher/{id}','UsersPackage\TeachersController@expelTeacher');
+Route::patch('/assign-role-to-teacher/{id}','UsersPackage\TeachersController@assignRole');

@@ -12,6 +12,6 @@ class Parentsmodel extends Model
                             'District','Village','NIN','Telephone'];
     
     public function students(){
-        return $this->belongsTo('App\UsersPackage\Students');
+        return $this->hasMany('App\UsersPackage\Students');
     }
 }

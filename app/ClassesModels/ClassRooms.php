@@ -15,4 +15,8 @@ class ClassRooms extends Model
     public function students(){
         return $this->hasMany('App\UsersPackage\Students');
     }
+
+    public function teachers(){
+        return $this->belongsToMany('App\UsersPackage\TeachersModel');
+    }
 }
