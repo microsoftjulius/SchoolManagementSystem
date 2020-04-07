@@ -48,11 +48,11 @@ Route::patch('/edit-parent/{id}','UsersPackage\ParentsController@editParent');
 Route::get('/get-all-parents','UsersPackage\ParentsController@getAllParents');
 Route::get('/get-particular-parent/{id}','UsersPackage\ParentsController@getIndividualParent');
 
-##################Teachers ###################################################
-Route::post('/create-teacher','UsersPackage\TeachersController@validateTeacher');
-Route::patch('/edit-teacher/{id}','UsersPackage\TeachersController@editTeacher');
-Route::get('/get-all-teachers','UsersPackage\TeachersController@getAllTeachers');
-Route::patch('/suspend-teacher/{id}','UsersPackage\TeachersController@suspendTeacher');
-Route::patch('/expel-teacher/{id}','UsersPackage\TeachersController@expelTeacher');
-Route::patch('/assign-role-to-teacher/{id}','UsersPackage\TeachersController@assignRole');
-Route::get('/get-particular-teacher/{id}','UsersPackage\TeachersController@getIndividualTeacher');
+##################Employees ###################################################
+Route::post('/create-employee','UsersPackage\EmployeesController@validateEmployee');
+Route::patch('/edit-employee/{id}','UsersPackage\EmployeesController@editEmployee');
+Route::get('/get-all-employees','UsersPackage\EmployeesController@getAllEmployees');
+Route::patch('/suspend-employee/{id}','UsersPackage\EmployeesController@suspendEmployee');
+Route::patch('/expel-employee/{id}','UsersPackage\EmployeesController@expelEmployee');
+Route::patch('/assign-role-to-employee/{id}','UsersPackage\EmployeesController@assignRole');
+Route::get('/get-particular-employee/{id}','UsersPackage\EmployeesController@getIndividualEmployee');

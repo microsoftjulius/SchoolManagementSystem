@@ -13,7 +13,7 @@ class CreateTeachersmodelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('teachers', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
             $table->bigInteger('created_by');
@@ -21,11 +21,13 @@ class CreateTeachersmodelsTable extends Migration
             $table->string('last_name');
             $table->string('date_of_birth');
             $table->string('image_path');
-            $table->string('role_id');
+            $table->bigInteger('role_id');
             $table->string('District');
             $table->string('Village');
             $table->string('NIN');
             $table->string('Telephone');
+            $table->string('level_of_education');
+            $table->string('certificates');
             $table->enum('status',['active','suspended','expelled'])->default('active');
             $table->timestamps();
         });

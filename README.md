@@ -44,3 +44,6 @@
       <h2>Login Module</h2>
       <p>
         The login credentials are created when ever a new account for person is created.Once a new account is being created, the User will login using the firstname concatenated with the telephone number(Students will be using there parents Numbers). the password will be the telephone number not concatenated anywhere. The students are required to know the parents numbers during creation of the accounts.</p>
+        <h4>Eployees</h4>
+        <p> Just like Other people such as the bursur, a teacher is also an employee who is just assigned a role. All employees are to enter their names, Application forms, level of education, certificates, etc.  The employee is given a role. These roles are created basing on the love of the administrator. The Director is a Super administrator
+        </p>
