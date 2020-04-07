@@ -26,6 +26,7 @@ class Students extends Controller
         $student = new Student(); // creating an object of student
         $student->user_id        = $user_id;
         $student->created_by     = 1;
+        $student->former_school  = request()->former_school;
         $student->first_name     = $this->person->getFirstName();
         $student->last_name      = $this->person->getLastname();
         $student->date_of_birth  = $this->person->getDateOfBirth();

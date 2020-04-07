@@ -27,7 +27,7 @@ class CreateTeachersmodelsTable extends Migration
             $table->string('NIN');
             $table->string('Telephone');
             $table->string('level_of_education');
-            $table->string('certificates');
+            $table->string('certificates')->nullable();
             $table->enum('status',['active','suspended','expelled'])->default('active');
             $table->timestamps();
         });

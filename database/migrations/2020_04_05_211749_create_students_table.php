@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('date_of_birth');
+            $table->string('former_school')->nullable();
             $table->string('image_path');
             $table->bigInteger('guardian_id');
             $table->bigInteger('class_id');

@@ -22,7 +22,8 @@ class StudentsTest extends TestCase
             'date_of_birth' => '10/10/1994',
             'image'         => 'images/path',
             'status'        => 'active',
-            'Telephone'     => '256702913451'
+            'Telephone'     => '256702913451',
+            'former_school' => 'Stephen Jota Children Center'
         ]);
         $this->assertDatabaseHas('students',['guardian_id'=>1]);
     }
