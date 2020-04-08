@@ -16,6 +16,6 @@ class Employeesmodel extends Model
     }
 
     public function subject(){
-        return $this->belongsToMany('App\AccademicsModel\Subjects');
+        return $this->hasMany('App\AccademicsModel\Subjects');
     }
 }

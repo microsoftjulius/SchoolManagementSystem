@@ -63,3 +63,11 @@ Route::patch('/remove-attendance/{students_id}','AccademicsPackage\AttendanceCon
 Route::get('/get-daily-attendance/{date}','AccademicsPackage\AttendanceController@getDailyAttendance');
 Route::get('/get-daily-absentees/{date}','AccademicsPackage\AttendanceController@getDailyAbsentees');
 Route::get('/get-daily-attendance-and-absentees/{date}','AccademicsPackage\AttendanceController@getDailyAtendeesAndAbsentees');
+
+################## Subjects Module ################################################
+Route::post('/create-subject','AccademicsPackage\SubjectsController@validateSubject');
+Route::patch('/edit-subject/{id}','AccademicsPackage\SubjectsController@editSubject');
+Route::get('/get-all-subjects','AccademicsPackage\SubjectsController@getAllSubjects');
+Route::get('/get-single-subject/{id}','AccademicsPackage\SubjectsController@getSingleSubject');
+Route::delete('/delete-subject/{id}','AccademicsPackage\SubjectsController@deleteSubject');
+
