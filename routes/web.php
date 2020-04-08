@@ -56,3 +56,10 @@ Route::patch('/suspend-employee/{id}','UsersPackage\EmployeesController@suspendE
 Route::patch('/expel-employee/{id}','UsersPackage\EmployeesController@expelEmployee');
 Route::patch('/assign-role-to-employee/{id}','UsersPackage\EmployeesController@assignRole');
 Route::get('/get-particular-employee/{id}','UsersPackage\EmployeesController@getIndividualEmployee');
+
+###############Attendance #######################################################
+Route::post('/mark-attendance','AccademicsPackage\AttendanceController@markAttendance');
+Route::patch('/remove-attendance/{students_id}','AccademicsPackage\AttendanceController@removeAttendance');
+Route::get('/get-daily-attendance/{date}','AccademicsPackage\AttendanceController@getDailyAttendance');
+Route::get('/get-daily-absentees/{date}','AccademicsPackage\AttendanceController@getDailyAbsentees');
+Route::get('/get-daily-attendance-and-absentees/{date}','AccademicsPackage\AttendanceController@getDailyAtendeesAndAbsentees');

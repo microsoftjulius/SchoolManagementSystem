@@ -14,4 +14,8 @@ class Employeesmodel extends Model
     public function classRoom(){
         return $this->belongsToMany('App\ClassesModels\ClassRooms');
     }
+
+    public function subject(){
+        return $this->belongsToMany('App\AccademicsModel\Subjects');
+    }
 }

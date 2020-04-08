@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Feature\DailyRoutines;
+namespace Tests\Feature\Equipments;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class DailyRoutinesTest extends TestCase
+class Furniture extends TestCase
 {
     /**
      * A basic feature test example.
