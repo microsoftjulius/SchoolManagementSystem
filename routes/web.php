@@ -80,7 +80,7 @@ Route::delete('/delete-single-exam-marks/{id}','AccademicsPackage\ExamsControlle
 
 ################### Past Papers Module ############################################
 Route::post('/create-past-paper','AccademicsPackage\PastPapersController@validatePastPapers');
-Route::patch('/update-past-paper','AccademicsPackage\PastPapersController@updatePastPapers');
+Route::patch('/update-past-paper/{id}','AccademicsPackage\PastPapersController@updatePastPapers');
 Route::get('/get-all-past-papers','AccademicsPackage\PastPapersController@getAllPastPapers');
 Route::get('/get-single-past-paper/{id}','AccademicsPackage\PastPapersController@getSinglePastPaper');
 Route::get('/download-past-paper/{id}','AccademicsPackage\PastPapersController@downloadSinglePastPaper');
