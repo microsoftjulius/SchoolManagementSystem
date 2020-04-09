@@ -4,6 +4,7 @@ namespace Tests\Feature\Accademics;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\AccademicsModel\ExamMarks;
 use Tests\TestCase;
 
 class ExamsTest extends TestCase
@@ -21,14 +22,14 @@ class ExamsTest extends TestCase
             'created_by' => 1,
             'class_id'   => 1
         ]);
-        $this->assertDatabaseHas('exams',['marks'=>78]);
+        $this->assertDatabaseHas('exam_marks',['marks'=>78]);
     }
 
     /** @test */
     public function editExamMarks(){
         $this->createExamMarks();
         $exam_marks = ExamMarks::first();
-        $response = $this->post('/update-exam-marks/'.$exam_marks->id,[
+        $response = $this->patch('/update-exam-marks/'.$exam_marks->id,[
             'subject_id' => 1,
             'student_id' => 1,
             'marks'      => 77,
@@ -58,6 +59,6 @@ class ExamsTest extends TestCase
         $this->createExamMarks();
         $exam_marks = ExamMarks::first();
         $response = $this->delete('/delete-single-exam-marks/'.$exam_marks->id);
-        $this->assertEquals(0, ExamMarks::all());
+        $this->assertCount(0, ExamMarks::all());
     }
 }
