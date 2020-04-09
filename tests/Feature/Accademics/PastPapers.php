@@ -47,7 +47,7 @@ class PastPapers extends TestCase
     public function getSinglePastPaper(){
         $this->createPastPaper();
         $past_paper = PastPapers::first();
-        $response = $this->get('/get-all-past-papers/'.$past_paper->id);
+        $response = $this->get('/get-single-past-paper/'.$past_paper->id);
         $response->assertOk();
     }
 

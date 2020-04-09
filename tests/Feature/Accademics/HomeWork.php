@@ -47,7 +47,7 @@ class HomeWork extends TestCase
     public function getSingleHomeWork(){
         $this->createHomeWork();
         $home_work = HomeWork::first();
-        $response = $this->get('/get-all-home-works/'.$home_work->id);
+        $response = $this->get('/get-single-home-work/'.$home_work->id);
         $response->assertOk();
     }
 

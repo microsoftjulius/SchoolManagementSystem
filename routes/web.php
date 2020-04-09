@@ -71,3 +71,40 @@ Route::get('/get-all-subjects','AccademicsPackage\SubjectsController@getAllSubje
 Route::get('/get-single-subject/{id}','AccademicsPackage\SubjectsController@getSingleSubject');
 Route::delete('/delete-subject/{id}','AccademicsPackage\SubjectsController@deleteSubject');
 
+################# Exams Module ####################################################
+Route::post('/create-exam-marks','AccademicsPackage\ExamsController@validateExam');
+Route::patch('/update-exam-marks/{id}','AccademicsPackage\ExamsController@updateExam');
+Route::get('/get-all-exam-marks-for-students','AccademicsPackage\ExamsController@getExamMarksForAstudent');
+Route::get('/get-single-exam-marks-for-one-student/{id}','AccademicsPackage\ExamsController@getMarksForParticularStudent');
+Route::delete('/delete-single-exam-marks/{id}','AccademicsPackage\ExamsController@getSingleMarksForStudent');
+
+################### Past Papers Module ############################################
+Route::post('/create-past-paper','AccademicsPackage\PastPapersController@validatePastPapers');
+Route::patch('/update-past-paper','AccademicsPackage\PastPapersController@updatePastPapers');
+Route::get('/get-all-past-papers','AccademicsPackage\PastPapersController@getAllPastPapers');
+Route::get('/get-single-past-paper/{id}','AccademicsPackage\PastPapersController@getSinglePastPaper');
+Route::get('/download-past-paper/{id}','AccademicsPackage\PastPapersController@downloadSinglePastPaper');
+Route::delete('/delete-past-paper/{id}','AccademicsPackage\PastPapersController@deletePastPaper');
+
+#################### Time Tables Module ############################################
+Route::post('/create-time-table','AccademicsPackage\TimeTablesController@validateTimeTable');
+Route::patch('/update-time-table','AccademicsPackage\TimeTablesController@updateTimeTable');
+Route::get('/get-all-time-tables','AccademicsPackage\TimeTablesController@getAllTimeTables');
+Route::get('/get-single-time-table/{id}','AccademicsPackage\TimeTablesController@getSingleTimeTable');
+Route::get('/download-time-table/{id}','AccademicsPackage\TimeTablesController@downloadTimeTable');
+Route::delete('/delete-time-table/{id}','AccademicsPackage\TimeTablesController@deleteTimeTable');
+
+################### Terms Module #################################################
+Route::post('/create-term','AccademicsPackage\TermsController@validateTerm');
+Route::patch('/update-term/{id}','AccademicsPackage\TermsController@updateTerm');
+Route::get('/get-all-terms','AccademicsPackage\TermsController@getAllTerms');
+Route::get('/get-single-term/{id}','AccademicsPackage\TermsController@getSingleTerm');
+Route::delete('/delete-single-term/{id}','AccademicsPackage\TermsController@deleteSingleTerm');
+
+################### Home Works Module ############################################
+Route::post('/create-home-work','AccademicsPackage\HomeWorksController@validateHomeWork');
+Route::patch('/update-home-work','AccademicsPackage\HomeWorksController@updateHomeWork');
+Route::get('/get-all-home-works','AccademicsPackage\HomeWorksController@getAllHomeWorks');
+Route::get('/get-single-home-work/{id}','AccademicsPackage\HomeWorksController@getSingleHomeWork');
+Route::get('/download-home-work/{id}','AccademicsPackage\HomeWorksController@downloadHomeWork');
+Route::delete('/delete-home-work/{id}','AccademicsPackage\HomeWorksController@deleteHomeWork');
