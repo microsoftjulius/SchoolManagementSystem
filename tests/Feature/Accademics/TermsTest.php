@@ -4,6 +4,7 @@ namespace Tests\Feature\Accademics;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\AccademicsModel\Term as Terms;
 use Tests\TestCase;
 
 class TermsTest extends TestCase
@@ -52,6 +53,6 @@ class TermsTest extends TestCase
         $this->createTerm();
         $term = Terms::first();
         $response = $this->delete('/delete-single-term/'.$term->id);
-        $response->assertCount(0, Terms::all());
+        $this->assertCount(0, Terms::all());
     }
 }
