@@ -19,4 +19,8 @@ class ClassRooms extends Model
     public function teachers(){
         return $this->belongsToMany('App\UsersPackage\TeachersModel');
     }
+
+    public function timeTables(){
+        return $this->hasOne('App\AccademicsModel\TimeTables');
+    }
 }

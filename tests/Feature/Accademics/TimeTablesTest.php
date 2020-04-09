@@ -4,6 +4,7 @@ namespace Tests\Feature\Accademics;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\AccademicsModel\TimeTables;
 use Tests\TestCase;
 
 class TimeTablesTest extends TestCase
@@ -18,14 +19,14 @@ class TimeTablesTest extends TestCase
             'created_by' => 1,
             'time_table' => 'path_to_time_table'
         ]);
-        $this->assertDatabaseHas('time_tables',['class_id',1]);
+        $this->assertDatabaseHas('time_tables',['class_id'=>1]);
     }
 
     /** @test */
     public function editTimeTable(){
         $this->createTimeTable();
         $timetable = TimeTables::first();
-        $response = $this->patch('/update-time-table.'.$timetable->id,[
+        $response = $this->patch('/update-time-table/'.$timetable->id,[
             'class_id'   => 2,
             'created_by' => 1,
             'time_table' => 'path_to_time_table2'
@@ -53,7 +54,7 @@ class TimeTablesTest extends TestCase
         $this->createTimeTable();
         $timetable = TimeTables::first();
         $response = $this->get('/download-time-table/'.$timetable->id);
-        $response->assertOk();
+        $response->assertStatus(302);
     }
 
     /** @test */
@@ -61,6 +62,6 @@ class TimeTablesTest extends TestCase
         $this->createTimeTable();
         $timetable = TimeTables::first();
         $response = $this->delete('/delete-time-table/'.$timetable->id);
-        $response->assertCount(0, TimeTables::all());
+        $this->assertCount(0, TimeTables::all());
     }
 }

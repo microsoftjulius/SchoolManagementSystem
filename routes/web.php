@@ -88,7 +88,7 @@ Route::delete('/delete-past-paper/{id}','AccademicsPackage\PastPapersController@
 
 #################### Time Tables Module ############################################
 Route::post('/create-time-table','AccademicsPackage\TimeTablesController@validateTimeTable');
-Route::patch('/update-time-table','AccademicsPackage\TimeTablesController@updateTimeTable');
+Route::patch('/update-time-table/{id}','AccademicsPackage\TimeTablesController@updateTimeTable');
 Route::get('/get-all-time-tables','AccademicsPackage\TimeTablesController@getAllTimeTables');
 Route::get('/get-single-time-table/{id}','AccademicsPackage\TimeTablesController@getSingleTimeTable');
 Route::get('/download-time-table/{id}','AccademicsPackage\TimeTablesController@downloadTimeTable');
