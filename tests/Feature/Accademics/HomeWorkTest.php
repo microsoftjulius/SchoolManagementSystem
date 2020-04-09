@@ -4,9 +4,10 @@ namespace Tests\Feature\Accademics;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\AccademicsModel\HomeWork;
 use Tests\TestCase;
 
-class HomeWork extends TestCase
+class HomeWorkTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -18,20 +19,21 @@ class HomeWork extends TestCase
             'class_id'   => 1,
             'subject_id' => 1,
             'created_by' => 1,
-            'paper_path' => 'path_to_past_paper'
+            'paper_path' => 'path_to_home_work'
         ]);
-        $this->assertDatabaseHas('past_papers',['year'=>2018]);
+        $this->assertDatabaseHas('home_works',['year'=>2018]);
     }
 
     /** @test */
     public function editHomeWork(){
         $this->createHomeWork();
-        $response = $this->patch('/update-home-work',[
+        $home_work = HomeWork::first();
+        $response = $this->patch('/update-home-work/'.$home_work->id,[
             'year'       => 2019,
             'class_id'   => 1,
             'subject_id' => 1,
             'created_by' => 1,
-            'paper_path' => 'path_to_past_paper'
+            'paper_path' => 'path_to_home_work'
         ]);
         $this->assertEquals('2019', HomeWork::first()->year);
     }
@@ -54,9 +56,9 @@ class HomeWork extends TestCase
     /** @test */
     public function downloadHomeWork(){
         $this->createHomeWork();
-        $home_work -> HomeWork::first();
+        $home_work = HomeWork::first();
         $response = $this->get('/download-home-work/'.$home_work->id);
-        $response->assertOk();
+        $response->assertStatus(302);
     }
 
     /** @test */

@@ -103,7 +103,7 @@ Route::delete('/delete-single-term/{id}','AccademicsPackage\TermsController@dele
 
 ################### Home Works Module ############################################
 Route::post('/create-home-work','AccademicsPackage\HomeWorksController@validateHomeWork');
-Route::patch('/update-home-work','AccademicsPackage\HomeWorksController@updateHomeWork');
+Route::patch('/update-home-work/{id}','AccademicsPackage\HomeWorksController@updateHomeWork');
 Route::get('/get-all-home-works','AccademicsPackage\HomeWorksController@getAllHomeWorks');
 Route::get('/get-single-home-work/{id}','AccademicsPackage\HomeWorksController@getSingleHomeWork');
 Route::get('/download-home-work/{id}','AccademicsPackage\HomeWorksController@downloadHomeWork');
