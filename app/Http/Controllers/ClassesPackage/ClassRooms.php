@@ -43,6 +43,7 @@ class ClassRooms extends Controller
             'class_teacher_id'  => 'required',
             'students_id'       => 'required',
             'stream_id'         => 'required',
+            'fees_amount'       => 'required',
             'status'            => ''
         ]);
     }

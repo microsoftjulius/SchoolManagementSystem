@@ -108,3 +108,9 @@ Route::get('/get-all-home-works','AccademicsPackage\HomeWorksController@getAllHo
 Route::get('/get-single-home-work/{id}','AccademicsPackage\HomeWorksController@getSingleHomeWork');
 Route::get('/download-home-work/{id}','AccademicsPackage\HomeWorksController@downloadHomeWork');
 Route::delete('/delete-home-work/{id}','AccademicsPackage\HomeWorksController@deleteHomeWork');
+
+################### Feed Module ##################################################
+Route::post('/make-fees-payment','AccountingPackage\FeesController@validateFeesPayment');
+Route::patch('/edit-fees-payment/{id}','AccountingPackage\FeesController@updateFees');
+Route::get('/get-all-fees-payments','AccountingPackage\FeesController@getAllFeesPayments');
+Route::get('/get-fees-for-particular-student/{id}','AccountingPackage\FeesController@getFeesForOneStudent');

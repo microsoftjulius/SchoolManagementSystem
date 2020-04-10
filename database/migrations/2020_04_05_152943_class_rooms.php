@@ -20,6 +20,7 @@ class ClassRooms extends Migration
             $table->bigInteger('class_teacher_id');
             $table->bigInteger('students_id');
             $table->bigInteger('stream_id');
+            $table->bigInteger('fees_amount');
             $table->enum('status',['active','removed'])->default('active');
             $table->timestamps();
         });

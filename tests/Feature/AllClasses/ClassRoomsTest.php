@@ -19,6 +19,7 @@ class ClassRoomsTest extends TestCase
             'class_teacher_id' => '1',
             'students_id' => '1',
             'stream_id' => 'East',
+            'fees_amount' => 500000,
             'status'    => 'active'
         ]);
         $this->assertDatabaseHas('class_rooms',['class_name'=>'Primary One']);
