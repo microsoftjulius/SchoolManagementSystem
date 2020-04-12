@@ -114,3 +114,21 @@ Route::post('/make-fees-payment','AccountingPackage\FeesController@validateFeesP
 Route::patch('/edit-fees-payment/{id}','AccountingPackage\FeesController@updateFees');
 Route::get('/get-all-fees-payments','AccountingPackage\FeesController@getAllFeesPayments');
 Route::get('/get-fees-for-particular-student/{id}','AccountingPackage\FeesController@getFeesForOneStudent');
+
+################## Co-Curricular activities #####################################
+Route::post('/create-co-curricular-activity','ActivitiesPackage\CocuricularActivitiesController@validateActivities');
+Route::patch('/update-co-curricular-activity/{id}','ActivitiesPackage\CocuricularActivitiesController@updateActivity');
+Route::get('/get-all-activities','ActivitiesPackage\CocuricularActivitiesController@getAllActivities');
+Route::delete('/delete-activity/{id}','ActivitiesPackage\CocuricularActivitiesController@deleteActivity');
+
+##################### Duties Module ############################################
+Route::post('/create-duty','ActivitiesPackage\DutiesController@validateDuty');
+Route::patch('/edit-duty-information/{id}','ActivitiesPackage\DutiesController@updateDuty');
+Route::get('/get-all-duties','ActivitiesPackage\DutiesController@getAllDuties');
+Route::delete('/delete-duty-information/{id}','ActivitiesPackage\DutiesController@deleteDuty');
+
+################## Public Days ################################################
+Route::post('/create-public-day','ActivitiesPackage\PublicDaysController@validatePublicDay');
+Route::patch('/update-public-day/{id}','ActivitiesPackage\PublicDaysController@updatePublicDay');
+Route::get('/get-all-public-days','ActivitiesPackage\PublicDaysController@getAllPublicDays');
+Route::delete('/delete-public-day/{id}','ActivitiesPackage\PublicDaysController@deletePublicDay');
