@@ -15,10 +15,13 @@ class CreateFeesTable extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('student_id');
-            $table->bigInteger('term_id');
+            $table->unsignedBigInteger('student_id');
+            //$table->foreign('student_id')->references('id')->on('students');
+            $table->unsignedBigInteger('term_id');
+            //$table->foreign('term_id')->references('id')->on('terms');
             $table->integer('amount');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

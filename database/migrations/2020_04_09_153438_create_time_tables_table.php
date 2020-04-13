@@ -15,8 +15,10 @@ class CreateTimeTablesTable extends Migration
     {
         Schema::create('time_tables', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('class_id');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('class_id');
+            //$table->foreign('class_id')->references('id')->on('class_rooms');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->string('time_table');
             $table->timestamps();
         });

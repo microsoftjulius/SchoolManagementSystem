@@ -16,9 +16,9 @@ class ClassRoomsTest extends TestCase
         $this->withoutExceptionHandling();
         $response = $this->post('/create-class-room',[
             'class_name' => 'Primary One',
-            'class_teacher_id' => '1',
-            'students_id' => '1',
-            'stream_id' => 'East',
+            'class_teacher_id' => '',
+            'students_id' => '',
+            'stream_id' => '',
             'fees_amount' => 500000,
             'status'    => 'active'
         ]);

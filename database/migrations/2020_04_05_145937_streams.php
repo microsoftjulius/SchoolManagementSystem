@@ -16,7 +16,8 @@ class Streams extends Migration
         Schema::create('streams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('stream_name');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users');
             $table->enum('status',['active','removed'])->default('active');
             $table->timestamps();
         });

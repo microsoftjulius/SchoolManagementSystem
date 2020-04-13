@@ -15,13 +15,16 @@ class CreateTeachersmodelsTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('date_of_birth');
             $table->string('image_path');
-            $table->bigInteger('role_id');
+            $table->unsignedBigInteger('role_id');
+            //$table->foreign('role_id')->references('id')->on('roles');
             $table->string('District');
             $table->string('Village');
             $table->string('NIN');

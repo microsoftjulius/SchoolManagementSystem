@@ -40,7 +40,7 @@ class Streams extends Controller
     protected function validateStreamOnCreation(){
         return request()->validate([
             'stream_name'        => 'required',
-            'created_by'         => 'required',
+            'created_by'         => '',
             'status'             => ''
         ]);
     }

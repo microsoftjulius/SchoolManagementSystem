@@ -17,7 +17,8 @@ class CreatePublicDaysModelsTable extends Migration
             $table->id();
             $table->string('public_day');
             $table->date('date');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

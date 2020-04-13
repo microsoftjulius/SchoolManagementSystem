@@ -15,10 +15,13 @@ class CreateDutiesModelsTable extends Migration
     {
         Schema::create('duties', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('teacher_id');
+            $table->unsignedBigInteger('teacher_id');
+            //$table->foreign('teacher_id')->references('id')->on('employees');
             $table->string('week');
-            $table->bigInteger('term_id');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('term_id');
+            //$table->foreign('term_id')->references('id')->on('terms');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

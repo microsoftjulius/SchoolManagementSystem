@@ -16,10 +16,14 @@ class ClassRooms extends Migration
         Schema::create('class_rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('class_name');
-            $table->bigInteger('created_by')->nullable();
-            $table->bigInteger('class_teacher_id');
-            $table->bigInteger('students_id');
-            $table->bigInteger('stream_id');
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->unsignedBigInteger('class_teacher_id')->nullable();
+            //$table->foreign('class_teacher_id')->references('id')->on('employees');
+            $table->unsignedBigInteger('students_id')->nullable();
+            //$table->foreign('students_id')->references('id')->on('students');
+            $table->unsignedBigInteger('stream_id')->nullable();
+            //$table->foreign('stream_id')->references('id')->on('streams');
             $table->bigInteger('fees_amount');
             $table->enum('status',['active','removed'])->default('active');
             $table->timestamps();

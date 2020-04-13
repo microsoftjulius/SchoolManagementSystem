@@ -16,9 +16,12 @@ class CreatePastPapersTable extends Migration
         Schema::create('past_papers', function (Blueprint $table) {
             $table->id();
             $table->Integer('year');
-            $table->bigInteger('class_id');
-            $table->bigInteger('subject_id');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('class_id');
+            //$table->foreign('class_id')->references('id')->on('class_rooms');
+            $table->unsignedBigInteger('subject_id');
+            //$table->foreign('subject_id')->references('id')->on('subjects');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->string('paper_path');
             $table->timestamps();
         });

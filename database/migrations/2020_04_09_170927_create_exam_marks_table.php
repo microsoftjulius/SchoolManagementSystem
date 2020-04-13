@@ -15,12 +15,16 @@ class CreateExamMarksTable extends Migration
     {
         Schema::create('exam_marks', function (Blueprint $table) {
             $table->id();
-            $table->biginteger('subject_id');
-            $table->bigInteger('student_id');
+            $table->unsignedBigInteger('subject_id');
+            //$table->foreign('subject_id')->references('id')->on('subjects');
+            $table->unsignedBigInteger('student_id');
+            //$table->foreign('student_id')->references('id')->on('students');
             $table->Integer('marks');
             $table->string('comment');
-            $table->bigInteger('created_by');
-            $table->bigInteger('class_id');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
+            $table->unsignedBigInteger('class_id');
+            //$table->foreign('class_id')->references('id')->on('class_rooms');
             $table->timestamps();
         });
     }

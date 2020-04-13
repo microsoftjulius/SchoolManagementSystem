@@ -17,7 +17,8 @@ class CreateCocuricularActivitesModelsTable extends Migration
             $table->id();
             $table->string('activity');
             $table->date('date');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

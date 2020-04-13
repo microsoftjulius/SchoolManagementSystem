@@ -40,9 +40,9 @@ class ClassRooms extends Controller
     protected function validateClassRoomOnCreation(){
         return request()->validate([
             'class_name'        => 'required',
-            'class_teacher_id'  => 'required',
-            'students_id'       => 'required',
-            'stream_id'         => 'required',
+            'class_teacher_id'  => '',
+            'students_id'       => '',
+            'stream_id'         => '',
             'fees_amount'       => 'required',
             'status'            => ''
         ]);

@@ -17,8 +17,10 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->string('subject_name');
             $table->string('subject_code');
-            $table->bigInteger('teacher_id');
-            $table->bigInteger('created_by');
+            $table->unsignedBigInteger('teacher_id');
+            //$table->foreign('teacher_id')->references('id')->on('employees');
+            $table->unsignedBigInteger('created_by');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

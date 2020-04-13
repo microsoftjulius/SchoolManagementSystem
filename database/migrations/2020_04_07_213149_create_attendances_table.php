@@ -15,10 +15,14 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('student_id');
-            $table->bigInteger('class_id');
-            $table->bigInteger('subject_id');
-            $table->bigInteger('teacher_id');
+            $table->unsignedBigInteger('student_id');
+            //$table->foreign('student_id')->references('id')->on('students');
+            $table->unsignedBigInteger('class_id');
+            //$table->foreign('class_id')->references('id')->on('class_rooms');
+            $table->unsignedBigInteger('subject_id');
+            //$table->foreign('subject_id')->references('id')->on('subjects');
+            $table->unsignedBigInteger('teacher_id');
+            //$table->foreign('teacher_id')->references('id')->on('employees');
             $table->enum('attendance_status',['yes','no'])->default('no');
             $table->timestamps();
         });

@@ -18,7 +18,8 @@ class CreateMessagesModelsTable extends Migration
             $table->longText('message');
             $table->date('date_of_sending');
             $table->string('recievers_group');
-            $table->bigInteger('senders_id');
+            $table->unsignedBigInteger('senders_id');
+            //$table->foreign('senders_id')->references('id')->on('users');
             $table->enum('status',['pending','sent','scheduled','deleted'])->default('pending');
             $table->timestamps();
         });

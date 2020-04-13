@@ -16,7 +16,7 @@ class StreamsTest extends TestCase
         $this->withoutExceptionHandling();
         $response = $this->post('/create-stream',[
             'stream_name' => 'West',
-            'created_by'  => '1',
+            'created_by'  => '',
             'status'      => 'active'
         ]);
         $this->assertDatabaseHas('streams',['stream_name'=>'West']);
