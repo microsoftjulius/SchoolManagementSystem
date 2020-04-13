@@ -8,7 +8,7 @@ class Parentsmodel extends Model
 {
     protected $table = 'parents';
     
-    protected $fillable = ['first_name','last_name','date_of_birth','image_path','status','RelationShip',
+    protected $fillable = ['first_name','last_name','date_of_birth','image_path','RelationShip',
                             'District','Village','NIN','Telephone','user_id','created_by'];
     
     public function students(){

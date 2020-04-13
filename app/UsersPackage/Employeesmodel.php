@@ -18,4 +18,8 @@ class Employeesmodel extends Model
     public function subject(){
         return $this->hasMany('App\AccademicsModel\Subjects');
     }
+
+    public function message(){
+        return $this->hasMany('App\MessagesPackage\MessagesModel');
+    }
 }
