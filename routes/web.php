@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+################### General Routes ############################################
+Route::get('/',function(){ return view('admin_pages.template');});
 ###################Streams Routes #############################################
 Route::post('/create-stream','ClassesPackage\Streams@createClassStream');
 Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
