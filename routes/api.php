@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
+Route::post('/create-stream','ClassesPackage\Streams@createClassStream');

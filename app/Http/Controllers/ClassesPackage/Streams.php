@@ -15,12 +15,12 @@ class Streams extends Controller
 
     protected function editStreamName(StreamsModel $stream, $id){
         $editStream = $stream->find($id)->update(array(
-            'stream_name' => 'East'
+            'stream_name' => request()->stream_name
         )); 
     }
 
     protected function getAllStreams(){
-        return StreamsResource::collection(StreamsModel::all());
+        return StreamsResource::collection(StreamsModel::join('users','users.id','streams.created_by')->get());
     }
 
     protected function getParticularStream($id){
