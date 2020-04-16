@@ -15,8 +15,8 @@ class ClassRooms extends JsonResource
     public function toArray($request)
     {
         return [
-            'stream_name'    => $this->stream_name,
-            'creators_name'  => $this->name,
+            'stream_name'    => $this->streams->stream_name,
+            'creators_name'  => $this->users->name,
             'status'         => $this->status
         ];
     }

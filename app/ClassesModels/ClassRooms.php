@@ -9,7 +9,7 @@ class ClassRooms extends Model
     protected $fillable = ['class_name','class_teacher_id','students_id','stream_id','status','fees_amount'];
 
     public function streams(){
-        return $this->hasMany('App\ClassesModels\Streams');
+        return $this->belongsTo('App\ClassesModels\Streams','stream_id');
     }
 
     public function students(){
@@ -23,4 +23,17 @@ class ClassRooms extends Model
     public function timeTables(){
         return $this->hasOne('App\AccademicsModel\TimeTables');
     }
+
+    public function users(){
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    public function attendaces(){
+        return $this->hasMany('App\AccademicsModel\Attendance');
+    }
+
+    public function examMarks(){
+        return $this->hasMany('App\AccademicsModel\ExamMarks');
+    }
+
 }

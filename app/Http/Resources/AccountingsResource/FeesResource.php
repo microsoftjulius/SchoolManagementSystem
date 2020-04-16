@@ -14,6 +14,22 @@ class FeesResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'first_name'  => $this->student->sfirst_name,
+            'last_name'   => $this->student->slast_name,
+            'term'        => $this->term->term,
+            'amount'      => $this->amount,
+            'recieved_by' => $this->user->name
+        ];
+    }
+
+    public function with($request)
+    {
+        
+        return [
+            'meta' => [
+                'key' => 'value',
+            ],
+        ];
     }
 }

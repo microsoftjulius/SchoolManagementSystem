@@ -28,10 +28,9 @@ class FeesController extends Controller
     }
 
     protected function getAllFeesPayments(){
-        return FeesResource::collection(Fees::join('students','students.id','fees.student_id')
-        ->join('terms','terms.id','fees.term_id')
-        ->join('users','users.id','fees.created_by')->get());
+        return FeesResource::collection(Fees::all());
     }
+
 
     protected function getFeesForOneStudent($id){
         return new FeesResource(Fees::find($id));

@@ -20,7 +20,7 @@ class Streams extends Controller
     }
 
     protected function getAllStreams(){
-        return StreamsResource::collection(StreamsModel::join('users','users.id','streams.created_by')->get());
+        return StreamsResource::collection(StreamsModel::all());
     }
 
     protected function getParticularStream($id){

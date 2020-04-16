@@ -30,9 +30,7 @@ class PastPapersController extends Controller
     }
 
     protected function getAllPastPapers(PastPaper $past_paper){
-        return PastPapersResource::collection(PastPaper::join('class_rooms','class_rooms.id','past_papers.class_id')
-        ->join('subjects','subjects.id','past_papers.subject_id')
-        ->join('users','users.id','past_papers.created_by')->get());
+        return PastPapersResource::collection(PastPaper::all());
     }
 
     protected function getSinglePastPaper($id){

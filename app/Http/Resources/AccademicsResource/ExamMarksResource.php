@@ -15,13 +15,13 @@ class ExamMarksResource extends JsonResource
     public function toArray($request)
     {
         return [
-        'subject_name'  => $this->subject_name,
-        'student_fname' => $this->first_name,
-        'student_lname' => $this->first_name,
+        'subject_name'  => $this->subjects->subject_name,
+        'student_fname' => $this->students->sfirst_name,
+        'student_lname' => $this->students->slast_name,
         'marks'         => $this->marks,
         'comment'       => $this->comment,
-        'created_by'    => $this->created_by,
-        'class_id'      => $this->class_id,
+        'created_by'    => $this->users->name,
+        'class_id'      => $this->classRooms->class_name,
         ];
     }
 }

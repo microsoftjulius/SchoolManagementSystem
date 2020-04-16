@@ -15,10 +15,13 @@ class AttendanceResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'first_name'   => $this->first_name,
-            'last_name'    => $this->last_name,
-            'class_name'   => $this->class_name,
-            'subject_name' => $this->subject_name
+            'first_name'              => $this->student->sfirst_name,
+            'last_name'               => $this->student->slast_name,
+            'class_name'              => $this->classRoom->class_name,
+            'subject_name'            => $this->subjects->subject_name,
+            'subject_code'            => $this->subjects->subject_code,
+            'teacher_first_name'      => $this->teacher->efirst_name,
+            'teacher_last_name'       => $this->teacher->elast_name
         ];
     }
 }

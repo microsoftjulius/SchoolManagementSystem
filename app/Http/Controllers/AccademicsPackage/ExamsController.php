@@ -32,15 +32,13 @@ class ExamsController extends Controller
     }
 
     protected function getExamMarksForStudents(){
-        ExamMarksResource::collection(ExamMarks::join('students','students.id','exam_marks.student_id')
-        ->join('class_rooms','class_rooms.id','exam_marks.class_id')
-        ->join('users','users.id','exam_marks.created_by')->get());
+        $collection = ExamMarksResource::collection(ExamMarks::all());
+        return $collection;
     }
 
     protected function getMarksForParticularStudent(ExamMarks $exam, $id){
-        ExamMarksResource::collection(ExamMarks::join('students','students.id','exam_marks.student_id')
-        ->join('class_rooms','class_rooms.id','exam_marks.class_id')
-        ->join('users','users.id','exam_marks.created_by')->where('students.id',$id)->get());
+        $collection = new ExamMarksResource(ExamMarks::find($id));
+        return $collection;
     }
 
     protected function deleteMarksForStudent(ExamMarks $exam, $id){

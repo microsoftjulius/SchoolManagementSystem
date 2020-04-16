@@ -23,7 +23,8 @@ class ParentsResource extends JsonResource
             'District'      => $this->District,
             'Village'       => $this->Village,
             'national_id'   => $this->NIN,
-            'Telephone'     => $this->Telephone 
+            'Telephone'     => $this->Telephone,
+            'created_by'    => $this->user->name 
         ];
     }
 }

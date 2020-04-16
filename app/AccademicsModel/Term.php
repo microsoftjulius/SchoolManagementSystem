@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Term extends Model
 {
     protected $fillable = ['term','year','duration'];
+
+    public function fees(){
+        return $this->hasMany('App\AccountinsModel\Fees');
+    }
 }

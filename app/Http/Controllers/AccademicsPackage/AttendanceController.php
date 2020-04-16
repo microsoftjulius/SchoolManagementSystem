@@ -28,26 +28,14 @@ class AttendanceController extends Controller
     }
 
     protected function getDailyAttendance($date){
-        return AttendanceResource::collection(Attendance::join('students','students.id','attendances.student_id')
-        ->join('class_rooms','class_rooms.id','attendances.class_id')
-        ->join('subjects','subjects.id','attendances.subject_id')
-        ->join('employees','employees.id','attendances.teacher_id')
-        ->where('attendances.created_at',$date)->where('attendance_status','yes')->get());
+        return AttendanceResource::collection(Attendance::whereDate('attendances.created_at',$date)->where('attendance_status','yes')->get());
     }
 
     protected function getDailyAbsentees($date){
-        return AttendanceResource::collection(Attendance::join('students','students.id','attendances.student_id')
-        ->join('class_rooms','class_rooms.id','attendances.class_id')
-        ->join('subjects','subjects.id','attendances.subject_id')
-        ->join('employees','employees.id','attendances.teacher_id')
-        ->where('attendances.created_at',$date)->where('attendance_status','no')->get());
+        return AttendanceResource::collection(Attendance::whewhereDatere('attendances.created_at',$date)->where('attendance_status','no')->get());
     }
 
     protected function getDailyAtendeesAndAbsentees($date){
-        return AttendanceResource::collection(Attendance::join('students','students.id','attendances.student_id')
-        ->join('class_rooms','class_rooms.id','attendances.class_id')
-        ->join('subjects','subjects.id','attendances.subject_id')
-        ->join('employees','employees.id','attendances.teacher_id')
-        ->where('attendances.created_at',$date)->get());
+        return AttendanceResource::collection(Attendance::whereDate('attendances.created_at',$date)->get());
     }
 }

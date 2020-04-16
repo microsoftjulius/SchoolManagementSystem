@@ -20,9 +20,9 @@ class StudentsResource extends JsonResource
             'date_of_birth' => $this->date_of_birth,
             'image_path'    => $this->image_path,
             'former_school' => $this->former_school,
-            'pfirst_name'   => $this->pfirst_name,
-            'plast_name'    => $this->plast_name,
-            'class_name'    => $this->class_name,
+            'pfirst_name'   => $this->guardian->pfirst_name,
+            'plast_name'    => $this->guardian->plast_name,
+            'class_name'    => $this->classRooms->class_name,
             'status'        => $this->status,
         ];
     }

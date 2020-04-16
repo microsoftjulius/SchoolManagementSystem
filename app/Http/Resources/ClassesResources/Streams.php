@@ -16,7 +16,7 @@ class Streams extends JsonResource
     {
         return [
             'stream_name'    => $this->stream_name,
-            'creators_name'  => $this->name,
+            'creators_name'  => $this->users->name,
             'status'         => $this->status
         ];
     }

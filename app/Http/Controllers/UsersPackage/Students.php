@@ -43,10 +43,9 @@ class Students extends Controller
     }
 
     protected function getAllStudents(){
-        $collection = StudentsResource::collection(Student::join('class_rooms','class_rooms.students_id','students.id')
-        ->join('parents','parents.id','students.guardian_id')
-        ->get());
-        return view('admin_pages.students',compact('collection'));
+        $collection = StudentsResource::collection(Student::all());
+        return $collection;
+        //return view('admin_pages.students',compact('collection'));
     }
 
     protected function getIndividualStudent($id){

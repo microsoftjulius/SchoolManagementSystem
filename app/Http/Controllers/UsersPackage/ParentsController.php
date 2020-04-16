@@ -5,7 +5,7 @@ namespace App\Http\Controllers\UsersPackage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\PersonsResources\ParentsResource;
-use App\UsersPackage\Parentsmodel;
+use App\UsersPackage\ParentsModel;
 use App\User;
 
 class ParentsController extends Controller
@@ -18,7 +18,7 @@ class ParentsController extends Controller
         $this->register->registerUser();
         $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
-        $parent = new Parentsmodel();
+        $parent = new ParentsModel();
         $parent->user_id       = $user_id;
         $parent->created_by    = 1;
         $parent->first_name    = $this->person->getFirstName();
@@ -33,16 +33,16 @@ class ParentsController extends Controller
         $parent->save();   
     }
 
-    protected function editParent(Parentsmodel $parent, $id){
+    protected function editParent(ParentsModel $parent, $id){
         $parent->find($id)->update(array('first_name' => 'Joan'));
     }
 
     protected function getAllParents(){
-        return ParentsResource::collection(Parentsmodel::all());
+        return ParentsResource::collection(ParentsModel::all());
     }
 
     protected function getIndividualParent($id){
-        return new ParentsResource(Parentsmodel::find($id));
+        return new ParentsResource(ParentsModel::find($id));
     }
 
     protected function validateParent(){

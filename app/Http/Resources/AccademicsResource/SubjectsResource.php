@@ -17,8 +17,8 @@ class SubjectsResource extends JsonResource
         return [
             'subject_name'       => $this->subject_name,
             'subject_code'       => $this->subject_code,
-            'teacher_first_name' => $this->first_name,
-            'teacher_first_name' => $this->last_name
+            'teacher_first_name' => $this->teachers->efirst_name,
+            'teacher_last_name'  => $this->teachers->elast_name,
         ];
     }
 }

@@ -8,15 +8,16 @@ class Fees extends Model
 {
     protected $fillable = ['student_id','term_id','amount','created_by'];
 
-    public function students(){
-        return $this->belongsTo('App\UserPackage\Students');
+    public function student(){
+        return $this->belongsTo('App\UsersPackage\Students');
     }
 
     public function term(){
         return $this->belongsTo('App\AccademicsModel\Term');
     }
 
-    public function userCreating(){
-        return $this->belongsTo('App\User');
+    //We use singilar funcitons.
+    public function user(){
+        return $this->belongsTo('App\User', 'created_by');
     }
 }

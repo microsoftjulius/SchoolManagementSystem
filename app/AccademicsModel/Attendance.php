@@ -13,16 +13,14 @@ class Attendance extends Model
     }
 
     public function classRoom(){
-        return $this->belongsTo('App\ClassesModels\ClassRooms');
+        return $this->belongsTo('App\ClassesModels\ClassRooms', 'class_id');
     }
 
     public function subjects(){
-        return $this->belongsTo('App\Accademics\Subjects');
+        return $this->belongsTo('App\AccademicsModel\Subject', 'subject_id');
     }
 
-    public function teachers(){
-        return $this->belongsTo('App\UsersPackage\Employees');
+    public function teacher(){
+        return $this->belongsTo('App\UsersPackage\Employeesmodel');
     }
-
-    
 }

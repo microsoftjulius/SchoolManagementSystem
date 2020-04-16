@@ -29,7 +29,7 @@
                 </a>
                 <div class="collapse" id="collapseAccounting" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                        <a class="nav-link" href="/fees-payments">Fees</a>
+                        <a class="nav-link" href="/get-all-fees-payments">Fees</a>
                         <a class="nav-link" href="/sms-balance">Sms Balance</a>
                     </nav>
                 </div>

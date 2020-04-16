@@ -15,9 +15,9 @@ class CreateParentsmodelsTable extends Migration
     {
         Schema::create('parents', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
+            //$table->unsignedBigInteger('created_by');
             //$table->foreign('created_by')->references('id')->on('users');
             $table->string('pfirst_name');
             $table->string('plast_name');

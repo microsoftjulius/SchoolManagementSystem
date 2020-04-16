@@ -15,9 +15,9 @@ class CreateTeachersmodelsTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
+            //$table->unsignedBigInteger('created_by');
             //$table->foreign('created_by')->references('id')->on('users');
             $table->string('efirst_name');
             $table->string('elast_name');
