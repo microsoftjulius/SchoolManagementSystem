@@ -36,4 +36,11 @@ class ClassRooms extends Model
         return $this->hasMany('App\AccademicsModel\ExamMarks');
     }
 
+    public function pastPapers(){
+        return $this->hasMany('App\AccademicsModel\PastPapers');
+    }
+
+    public function homeWorks(){
+        return $this->hasMany('App\AccademicsModel\HomeWork');
+    }
 }

@@ -15,4 +15,16 @@ class HomeWork extends Model
     public function classRooms(){
         return $this->belongsTo('App\ClassesModels\ClassRooms');
     }
+
+    public function user(){
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    public function subject(){
+        return $this->belongsTo('App\AccademicsModel\Subject', 'subject_id');
+    }
+
+    public function classRoom(){
+        return $this->belongsTo('App\ClassesModels\ClassRooms', 'class_id');
+    }
 }

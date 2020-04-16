@@ -15,10 +15,9 @@ class TimeTablesResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'class_name'      => $this->class_name,
+            'class_name'      => $this->classroom->class_name,
             'time_table_link' => $this->time_table,
-            'first_name'      => $this->first_name,
-            'last_name'       => $this->last_name
+            'created_by'      => $this->user->name,
         ];
     }
 }

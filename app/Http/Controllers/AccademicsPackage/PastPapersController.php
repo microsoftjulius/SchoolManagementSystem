@@ -38,7 +38,7 @@ class PastPapersController extends Controller
     }
 
     protected function downloadSinglePastPaper(PastPaper $past_paper, $id){
-        $file_name = $past_paper->find($id)->value('time_table');
+        $file_name = $past_paper->find($id)->value('paper_path');
         $file = public_path(). "/home_work/$file_name";
         if(file_exists($file)){
             return response()->download($file);;

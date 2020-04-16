@@ -14,6 +14,10 @@ class ActivitiesResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'created_by' => $this->user->name,
+            'activity'   => $this->activity,
+            'date'       => $this->date
+        ];
     }
 }

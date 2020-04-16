@@ -14,6 +14,12 @@ class DutyResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'created_by'            => $this->user->name,
+            'teacher_first_name'    => $this->teacher->efirst_name,
+            'teacher_last_name'     => $this->teacher->elast_name,
+            'term'                  => $this->term->term,
+            'week'                  => $this->week
+        ];
     }
 }

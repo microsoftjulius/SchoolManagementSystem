@@ -60,4 +60,20 @@ class User extends Authenticatable
     public function examMarks(){
         return $this->hasMany('App\AccademicsModel\ExamMarks');
     }
+
+    public function pastPapers(){
+        return $this->hasMany('App\AccademicsModel\PastPapers');
+    }
+
+    public function timeTables(){
+        return $this->hasMany('App\AccademicsModel\TimeTables');
+    }
+    
+    public function coCurricularActivities(){
+        return $this->hasMany('App\ActivitiesPackage\CocuricularActivitesModel');
+    }
+
+    public function publicDays(){
+        return $this->hasMany('App\ActivitiesPackage\PublicDaysModel');
+    }
 }

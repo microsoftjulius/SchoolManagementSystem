@@ -16,9 +16,9 @@ class PastPapersResource extends JsonResource
     {
         return [
             'year'       => $this->year,
-            'class_id'   => $this->class_id,
-            'subject_id' => $this->subject_id,
-            'created_by' => $this->created_by,
+            'class_id'   => $this->classRoom->class_name,
+            'subject_id' => $this->subject->subject_name,
+            'created_by' => $this->user->name,
             'paper_path' => $this->paper_path
         ];
     }

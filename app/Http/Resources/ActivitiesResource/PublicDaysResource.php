@@ -14,6 +14,10 @@ class PublicDaysResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'public_day' => $this->public_day,
+            'date'       => $this->date,
+            'created_by' => $this->user->name
+        ];
     }
 }

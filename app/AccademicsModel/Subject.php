@@ -19,4 +19,12 @@ class Subject extends Model
     public function examMarks(){
         return $this->hasMany('App\AccademicsModel\ExamMarks');
     }
+
+    public function pastPapers(){
+        return $this->hasMany('App\AccademicsModel\PastPapers');
+    }
+
+    public function homeWorks(){
+        return $this->hasMany('App\AccademicsModel\HomeWork');
+    }
 }

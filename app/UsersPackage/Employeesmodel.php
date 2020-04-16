@@ -30,4 +30,8 @@ class Employeesmodel extends Model
     public function attendaces(){
         return $this->hasMany('App\AccademicsModel\Attendance');
     }
+
+    public function activities(){
+        return $this->hasMany('App\ActivitiesPackage\DutiesModel');
+    }
 }
