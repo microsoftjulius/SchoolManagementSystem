@@ -8,7 +8,7 @@ class Employeesmodel extends Model
 {
     protected $table = 'employees';
 
-    protected $fillable = ['first_name','last_name','date_of_birth','image_path','status',
+    protected $fillable = ['efirst_name','elast_name','date_of_birth','image_path','status',
                             'District','Village','NIN','Telephone','role_id','status','level_of_education','certificates'];
                             
     public function classRoom(){

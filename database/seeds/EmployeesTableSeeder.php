@@ -15,8 +15,8 @@ class EmployeesTableSeeder extends Seeder
             array(
                 'user_id'=>1,
                 'created_by'=>1,
-                'first_name'=>'Alex',
-                'last_name'=>'Mujjuni',
+                'efirst_name'=>'Alex',
+                'elast_name'=>'Mujjuni',
                 'date_of_birth'  => '1994-03-10 12:00:00',
                 'image_path' => 'alex.png',
                 'role_id' => 1,
@@ -31,8 +31,8 @@ class EmployeesTableSeeder extends Seeder
             array(
                 'user_id'=>1,
                 'created_by'=>1,
-                'first_name'=>'Joseph',
-                'last_name'=>'Katende',
+                'efirst_name'=>'Joseph',
+                'elast_name'=>'Katende',
                 'date_of_birth'  => '1997-10-10 12:00:00',
                 'image_path' => 'joseph.png',
                 'role_id' => 1,
@@ -47,8 +47,8 @@ class EmployeesTableSeeder extends Seeder
             array(
                 'user_id'=>1,
                 'created_by'=>1,
-                'first_name'=>'Julius',
-                'last_name'=>'Ssemakula',
+                'efirst_name'=>'Julius',
+                'elast_name'=>'Ssemakula',
                 'date_of_birth'  => '1994-10-10 12:00:00',
                 'image_path' => 'julius.png',
                 'role_id' => 1,

@@ -32,7 +32,6 @@ class Students extends Controller
         $student->date_of_birth  = $this->person->getDateOfBirth();
         $student->image_path     = $this->person->getUserPhoto();
         $student->guardian_id    = request()->guardian_id;
-        $student->class_id       = request()->class_id;
         $student->save(); 
     }
 
@@ -44,7 +43,10 @@ class Students extends Controller
     }
 
     protected function getAllStudents(){
-        return StudentsResource::collection(Student::all());
+        $collection = StudentsResource::collection(Student::join('class_rooms','class_rooms.students_id','students.id')
+        ->join('parents','parents.id','students.guardian_id')
+        ->get());
+        return view('admin_pages.students',compact('collection'));
     }
 
     protected function getIndividualStudent($id){
@@ -69,7 +71,6 @@ class Students extends Controller
         elseif(empty($this->person->getDateOfBirth())){ return redirect()->back()->withErrors("Date Of Birth is required"); }
         elseif(empty($this->person->getUserPhoto())){ return redirect()->back()->withErrors("Image is required"); }
         elseif(empty(request()->guardian_id)){ return redirect()->back()->withErrors("please attach a guardian to this student"); }
-        elseif(empty(request()->class_id)){ return redirect()->back()->withErrors("Please attach a class to this student"); }
         else{ return $this->createStudent();}
     }
 }

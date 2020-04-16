@@ -15,8 +15,8 @@ class ParentsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'first_name'    => $this->first_name,
-            'last_name'     => $this->last_name,
+            'pfirst_name'   => $this->pfirst_name,
+            'plast_name'    => $this->plast_name,
             'date_of_birth' => $this->date_of_birth,
             'image_path'    => $this->image_path,
             'RelationShip'  => $this->RelationShip,

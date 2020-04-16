@@ -46,7 +46,8 @@ class EmployeesController extends Controller
     }
 
     protected function getAllEmployees(){
-        return EmployeesResource::collection(Employee::all());
+        $collection = EmployeesResource::collection(Employee::join('users','users.id','employees.created_by')->get());
+        return view('admin_pages.employees',compact('collection'));
     }
 
     protected function getIndividualEmployee($id){

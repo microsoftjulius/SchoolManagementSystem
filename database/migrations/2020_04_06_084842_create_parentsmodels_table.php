@@ -19,8 +19,8 @@ class CreateParentsmodelsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('created_by');
             //$table->foreign('created_by')->references('id')->on('users');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('pfirst_name');
+            $table->string('plast_name');
             $table->string('date_of_birth');
             $table->string('image_path');
             $table->string('RelationShip');

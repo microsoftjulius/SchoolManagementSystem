@@ -3,7 +3,7 @@
         <div class="sidenav-menu">
             <div class="nav accordion" id="accordionSidenav">
                 <div class="sidenav-menu-heading"></div>
-                <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                <a class="nav-link" href="/">
                     <div class="nav-link-icon"><i class="fa fa-dashboard"></i></div>
                     Dashboard 
                 </a>
@@ -75,8 +75,8 @@
                 </a>
                 <div class="collapse" id="collapseUsers" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                        <a class="nav-link" href="/students">Students</a>
-                        <a class="nav-link" href="/employees">Employees</a>
+                        <a class="nav-link" href="/get-all-students">Students</a>
+                        <a class="nav-link" href="/get-all-employees">Employees</a>
                         <a class="nav-link" href="/parents">Parents</a>
                     </nav>
                 </div>

@@ -15,8 +15,8 @@ class ParentsTableSeeder extends Seeder
             array(
                 'user_id'=>1,
                 'created_by'=>1,
-                'first_name'=>'Jane',
-                'last_name'=>'Nabuyondo',
+                'pfirst_name'=>'Jane',
+                'plast_name'=>'Nabuyondo',
                 'date_of_birth' => '1973-10-09 12:00:00',
                 'RelationShip'  => 'Mother',
                 'image_path'    => 'jane.png',
@@ -28,8 +28,8 @@ class ParentsTableSeeder extends Seeder
             array(
                 'user_id'=>1,
                 'created_by'=>1,
-                'first_name'=>'Charles',
-                'last_name'=>'Mayanja',
+                'pfirst_name'=>'Charles',
+                'plast_name'=>'Mayanja',
                 'date_of_birth' => '1964-10-09 12:00:00',
                 'RelationShip'  => 'Father',
                 'image_path'    => 'charles.png',
@@ -41,8 +41,8 @@ class ParentsTableSeeder extends Seeder
             array(
                 'user_id'=>1,
                 'created_by'=>1,
-                'first_name'=>'Ruth',
-                'last_name'=>'Namakula',
+                'pfirst_name'=>'Ruth',
+                'plast_name'=>'Namakula',
                 'date_of_birth' => '1991-10-09 12:00:00',
                 'RelationShip'  => 'Mother',
                 'image_path'    => 'ruth.png',
