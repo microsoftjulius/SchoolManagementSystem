@@ -65,6 +65,18 @@ class User extends Authenticatable
         return $this->hasMany('App\AccademicsModel\PastPapers');
     }
 
+    public function students(){
+        return $this->hasMany('App\UsersPackage\Students');
+    }
+
+    public function personalGroups(){
+        return $this->hasMany('App\UsersPackage\PersonalGroups');
+    }
+
+    public function messages(){
+        return $this->hasMany('App\MessagesPackage\MessagesModel');
+    }
+
     public function timeTables(){
         return $this->hasMany('App\AccademicsModel\TimeTables');
     }

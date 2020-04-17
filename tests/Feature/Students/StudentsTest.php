@@ -39,7 +39,7 @@ class StudentsTest extends TestCase
         $this->assertEquals(2,Students::first()->guardian_id);
     }
 
-    /** @test */
+    /**@test */
     public function getAllStudents(){
         $this->createStudent();
         $response = $this->get('/get-all-students');
@@ -65,7 +65,7 @@ class StudentsTest extends TestCase
         $this->assertEquals('expelled',Students::first()->status);
     }
 
-    /** @test */
+    /**@test */
     public function getParticularStudent(){
         $this->createStudent();
         $student = Students::first();

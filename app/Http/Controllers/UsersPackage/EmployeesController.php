@@ -25,10 +25,9 @@ class EmployeesController extends Controller
         $certificates = implode(",",request()->certificates);
 
         $employee = new Employee();
-        $employee->first_name         = $this->person->getFirstName();
-        $employee->user_id            = $user_id;
+        $employee->efirst_name        = $this->person->getFirstName();
         $employee->created_by         = 1;
-        $employee->last_name          = $this->person->getLastname();
+        $employee->elast_name         = $this->person->getLastname();
         $employee->date_of_birth      = $this->person->getDateOfBirth();
         $employee->image_path         = $this->person->getUserPhoto();     
         $employee->District           = $this->person->getDistrict();     
@@ -42,7 +41,7 @@ class EmployeesController extends Controller
     }
 
     protected function editEmployee(Employee $employee, $id){
-        $employee->find($id)->update(array('first_name' => 'Joan'));
+        $employee->find($id)->update(array('efirst_name' => 'Joan'));
     }
 
     protected function getAllEmployees(){

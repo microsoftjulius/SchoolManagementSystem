@@ -19,10 +19,9 @@ class ParentsController extends Controller
         $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
         $parent = new ParentsModel();
-        $parent->user_id       = $user_id;
         $parent->created_by    = 1;
-        $parent->first_name    = $this->person->getFirstName();
-        $parent->last_name     = $this->person->getLastname();
+        $parent->pfirst_name    = $this->person->getFirstName();
+        $parent->plast_name     = $this->person->getLastname();
         $parent->date_of_birth = $this->person->getDateOfBirth();
         $parent->image_path    = $this->person->getUserPhoto();     
         $parent->RelationShip  = $this->person->getRelationShip();
@@ -34,7 +33,7 @@ class ParentsController extends Controller
     }
 
     protected function editParent(ParentsModel $parent, $id){
-        $parent->find($id)->update(array('first_name' => 'Joan'));
+        $parent->find($id)->update(array('pfirst_name' => 'Joan'));
     }
 
     protected function getAllParents(){

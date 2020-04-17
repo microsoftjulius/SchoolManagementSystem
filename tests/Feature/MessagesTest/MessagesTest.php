@@ -46,7 +46,7 @@ class MessagesTest extends TestCase
         $this->assertEquals('deleted',Messages::first()->status);
     }
 
-    /** @test */
+    /**@test */
     public function getAllMessages(){
         $this->createMessage();
         $response = $this->get('/get-all-messages');

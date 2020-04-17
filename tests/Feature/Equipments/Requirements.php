@@ -33,7 +33,7 @@ class Requirements extends TestCase
         $this->assertEquals(34,Requirement::first()->number_bought);
     }
 
-    /** @test */
+    /**@test */
     public function getAllRequirements(){
         $this->createRequirement();
         $response = $this->get('/get-all-requirements');

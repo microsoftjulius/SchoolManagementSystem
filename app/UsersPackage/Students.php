@@ -12,6 +12,11 @@ class Students extends Model
         return $this->belongsTo('App\UsersPackage\ParentsModel');
     }
 
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+
     public function fees(){
         return $this->hasMany('App\AccountingsModel\Fees');
     }

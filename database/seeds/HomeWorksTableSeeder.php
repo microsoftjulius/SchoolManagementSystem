@@ -15,7 +15,7 @@ class HomeWorksTableSeeder extends Seeder
             array(
                 'year'=>'2018',
                 'class_id'=>2,
-                'subject_id'=>1,
+                'subject_id'=>2,
                 'created_by'=>1,
                 'paper_path' => 'science2019.pdf'
         ),
@@ -29,7 +29,7 @@ class HomeWorksTableSeeder extends Seeder
             array(
                 'year'=>'2018',
                 'class_id'=>2,
-                'subject_id'=>1,
+                'subject_id'=>3,
                 'created_by'=>1,
                 'paper_path' => 'sst2019.pdf'  
             )

@@ -32,7 +32,7 @@ class AttendanceController extends Controller
     }
 
     protected function getDailyAbsentees($date){
-        return AttendanceResource::collection(Attendance::whewhereDatere('attendances.created_at',$date)->where('attendance_status','no')->get());
+        return AttendanceResource::collection(Attendance::whereDate('attendances.created_at',$date)->where('attendance_status','no')->get());
     }
 
     protected function getDailyAtendeesAndAbsentees($date){

@@ -12,7 +12,7 @@ class SendingMessage extends Controller
     
     public function sendMessage(){
         $msgData_array = [];
-        if(request()->recievers_group == 'parents'){
+        if(request()->recievers_group == 3){
             $get_contacts = Parents::all();
             foreach($get_contacts as $contact){
                 if(in_array(array('number' => $contact, 'message' => request()->message, 'senderid' => 'Good'), $msgData_array)){
@@ -22,7 +22,7 @@ class SendingMessage extends Controller
                 }
             }
         }
-        elseif(request()->recievers_group == 'employees'){
+        elseif(request()->recievers_group == 2){
             $get_contacts = Employee::all();
             foreach($get_contacts as $contact){
                 if(in_array(array('number' => $contact, 'message' => request()->message, 'senderid' => 'Good'), $msgData_array)){

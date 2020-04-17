@@ -42,7 +42,7 @@ class MessagesController extends Controller
     }
 
     protected function getAllMessages(){
-        return MessagesResource::collection(Message::join('employees','employees.id','messages.recievers_group')->get());
+        return MessagesResource::collection(Message::all());
     }
 
     protected function validateMessage(){

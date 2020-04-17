@@ -33,14 +33,14 @@ class TermsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    /**@test */
     public function getAllTerms(){
         $this->createTerm();
         $response = $this->get('/get-all-terms');
         $response->assertOk();
     }
 
-    /** @test */
+    /**@test */
     public function getSingleTerm(){
         $this->createTerm();
         $term = Terms::first();

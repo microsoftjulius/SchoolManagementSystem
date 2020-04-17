@@ -33,7 +33,7 @@ class Furniture extends TestCase
         $this->assertEquals(34,Furniture::first()->number_bought);
     }
 
-    /** @test */
+    /**@test */
     public function getAllFurnitures(){
         $this->createFurniture();
         $response = $this->get('/get-all-furniture');

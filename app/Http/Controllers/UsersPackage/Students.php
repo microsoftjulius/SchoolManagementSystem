@@ -24,11 +24,10 @@ class Students extends Controller
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
         
         $student = new Student(); // creating an object of student
-        $student->user_id        = $user_id;
         $student->created_by     = 1;
         $student->former_school  = request()->former_school;
-        $student->first_name     = $this->person->getFirstName();
-        $student->last_name      = $this->person->getLastname();
+        $student->sfirst_name     = $this->person->getFirstName();
+        $student->slast_name      = $this->person->getLastname();
         $student->date_of_birth  = $this->person->getDateOfBirth();
         $student->image_path     = $this->person->getUserPhoto();
         $student->guardian_id    = request()->guardian_id;

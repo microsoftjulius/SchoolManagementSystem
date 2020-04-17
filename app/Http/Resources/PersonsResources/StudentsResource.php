@@ -24,6 +24,7 @@ class StudentsResource extends JsonResource
             'plast_name'    => $this->guardian->plast_name,
             'class_name'    => $this->classRooms->class_name,
             'status'        => $this->status,
+            'created_by'    => $this->user->name
         ];
     }
 }

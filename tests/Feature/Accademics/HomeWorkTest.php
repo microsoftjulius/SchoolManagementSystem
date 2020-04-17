@@ -38,14 +38,14 @@ class HomeWorkTest extends TestCase
         $this->assertEquals('2019', HomeWork::first()->year);
     }
 
-    /** @test */
+    /**@test */
     public function getAllHomeWork(){
         $this->createHomeWork();
         $response = $this->get('/get-all-home-works');
         $response->assertOk();
     }
 
-    /** @test */
+    /**@test */
     public function getSingleHomeWork(){
         $this->createHomeWork();
         $home_work = HomeWork::first();

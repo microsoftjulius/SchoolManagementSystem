@@ -36,7 +36,7 @@ class DutyTest extends TestCase
         $this->assertEquals('2', Duty::first()->teacher_id);
     }
 
-    /** @test */
+    /**@test */
     public function getAllDuties(){
         $this->createDuty();
         $response = $this->get('/get-all-duties');

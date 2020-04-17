@@ -13,7 +13,6 @@ class ParentsTableSeeder extends Seeder
     {
         DB::table('parents')->insert(array(
             array(
-                'user_id'=>1,
                 'created_by'=>1,
                 'pfirst_name'=>'Jane',
                 'plast_name'=>'Nabuyondo',
@@ -26,7 +25,6 @@ class ParentsTableSeeder extends Seeder
                 'Telephone'     => '256753630441'
         ),
             array(
-                'user_id'=>1,
                 'created_by'=>1,
                 'pfirst_name'=>'Charles',
                 'plast_name'=>'Mayanja',
@@ -39,7 +37,6 @@ class ParentsTableSeeder extends Seeder
                 'Telephone'     => '256777630441'   
             ),
             array(
-                'user_id'=>1,
                 'created_by'=>1,
                 'pfirst_name'=>'Ruth',
                 'plast_name'=>'Namakula',

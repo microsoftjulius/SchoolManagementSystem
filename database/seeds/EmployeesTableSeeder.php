@@ -13,7 +13,6 @@ class EmployeesTableSeeder extends Seeder
     {
         DB::table('employees')->insert(array(
             array(
-                'user_id'=>1,
                 'created_by'=>1,
                 'efirst_name'=>'Alex',
                 'elast_name'=>'Mujjuni',
@@ -29,7 +28,6 @@ class EmployeesTableSeeder extends Seeder
                 'status'             =>'active'
         ),
             array(
-                'user_id'=>1,
                 'created_by'=>1,
                 'efirst_name'=>'Joseph',
                 'elast_name'=>'Katende',
@@ -45,7 +43,6 @@ class EmployeesTableSeeder extends Seeder
                 'status'             =>'active' 
             ),
             array(
-                'user_id'=>1,
                 'created_by'=>1,
                 'efirst_name'=>'Julius',
                 'elast_name'=>'Ssemakula',

@@ -34,7 +34,7 @@ class PublicDaysTest extends TestCase
         $this->assertEquals('Easter Sunday',PublicDays::first()->public_day);
     }
 
-    /** @test */
+    /**@test */
     public function getAllActivities(){
         $this->createPublicDay();
         $response = $this->get('/get-all-public-days');

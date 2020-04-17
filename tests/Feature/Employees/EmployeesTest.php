@@ -27,7 +27,7 @@ class EmployeesTest extends TestCase
             'level_of_education' => 'S6',
             'certificates'       => ['path one','path two','Part three']
         ]);
-        $this->assertDatabaseHas('employees',['first_name'=>'Ruth']);
+        $this->assertDatabaseHas('employees',['efirst_name'=>'Ruth']);
     }
 
     /** @test */
@@ -35,12 +35,12 @@ class EmployeesTest extends TestCase
         $this->createEmployee();
         $employee = Employee::first();
         $response = $this->patch('/edit-employee/'.$employee->id,[
-            'first_name' => 'Joan',
+            'efirst_name' => 'Joan',
         ]);
-        $this->assertEquals('Joan',Employee::first()->first_name);
+        $this->assertEquals('Joan',Employee::first()->efirst_name);
     }
 
-    /** @test */
+    /**@test */
     public function getAllEmployees(){
         $this->createEmployee();
         $response = $this->get('/get-all-employees');
@@ -77,7 +77,7 @@ class EmployeesTest extends TestCase
         $this->assertEquals('4',Employee::first()->role_id);
     }
 
-    /** @test */
+    /**@test */
     public function getParticularEmployee(){
         $this->createEmployee();
         $employee = Employee::first();

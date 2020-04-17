@@ -25,7 +25,7 @@ class ParentsTest extends TestCase
             'NIN'           => 'CMP323124RE2',
             'Telephone'     => '256777630441',
         ]);
-        $this->assertDatabaseHas('parents',['first_name'=>'Jane']);
+        $this->assertDatabaseHas('parents',['pfirst_name'=>'Jane']);
     }
 
     /** @test */
@@ -33,19 +33,19 @@ class ParentsTest extends TestCase
         $this->createParent();
         $parent = Parents::first();
         $response = $this->patch('/edit-parent/'.$parent->id,[
-            'first_name' => 'Joan',
+            'pfirst_name' => 'Joan',
         ]);
-        $this->assertEquals('Joan',Parents::first()->first_name);
+        $this->assertEquals('Joan',Parents::first()->pfirst_name);
     }
 
-    /** @test */
+    /**@test */
     public function getAllParents(){
         $this->createParent();
         $response = $this->get('/get-all-parents');
         $this->assertCount(1,Parents::all());
     }
 
-    /** @test */
+    /**@test */
     public function getParticularParent(){
         $this->createParent();
         $parent = Parents::first();

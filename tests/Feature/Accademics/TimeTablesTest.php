@@ -34,14 +34,14 @@ class TimeTablesTest extends TestCase
         $this->assertEquals('path_to_time_table2',TimeTables::first()->time_table);
     }
 
-    /** @test */
+    /**@test */
     public function getAllTimeTables(){
         $this->createTimeTable();
         $response = $this->get('/get-all-time-tables');
         $response->assertOk();
     }
 
-    /** @test */
+    /**@test */
     public function getSingleTimeTable(){
         $this->createTimeTable();
         $timetable = TimeTables::first();

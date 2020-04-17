@@ -35,7 +35,7 @@ class ClassRoomsTest extends TestCase
         $this->assertEquals('Primary Two',ClassRooms::first()->class_name);
     }
 
-    /** @test */
+    /**@test */
     public function getAllClassRooms(){
         $this->createClassRoom();
         $response = $this->get('/get-all-class-rooms');
@@ -60,7 +60,7 @@ class ClassRoomsTest extends TestCase
         $this->assertCount(0,ClassRooms::all());
     }
 
-    /** @test */
+    /**@test */
     public function getParticularClassRoom(){
         $this->createClassRoom();
         $class_id = ClassRooms::first();

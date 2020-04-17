@@ -17,8 +17,8 @@ class MessagesResource extends JsonResource
         return [
             'message'         => $this->message,
             'date_of_sending' => $this->date_of_sending,
-            'recievers_group' => $this->recievers_group,
-            'senders_id'      => $this->senders_id
+            'recievers_group' => $this->personalGroup->group_name,
+            'senders_id'      => $this->user->name
         ];
     }
 }

@@ -32,7 +32,7 @@ class StreamsTest extends TestCase
         $this->assertEquals('East',Streams::first()->stream_name);
     }
 
-    /** @test */
+    /**@test */
     public function getAllStreams(){
         $this->createStream();
         $response = $this->get('/get-all-streams');
@@ -57,7 +57,7 @@ class StreamsTest extends TestCase
         $this->assertCount(0,Streams::all());
     }
 
-    /** @test */
+    /**@test */
     public function getParticularStream(){
         $this->createStream();
         $stream_id = Streams::first();

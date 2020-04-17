@@ -10,7 +10,11 @@ class MessagesModel extends Model
 
     protected $fillable = ['message','date_of_sending','recievers_group','senders_id','status'];
 
-    public function employees(){
-        return $this->belongsTo('App\UsersPackage\Employeesmodel');
+    public function personalGroup(){
+        return $this->belongsTo('App\PersonGroups', 'recievers_group');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User','senders_id');
     }
 }

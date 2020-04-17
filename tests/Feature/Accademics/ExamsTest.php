@@ -40,14 +40,14 @@ class ExamsTest extends TestCase
         $this->assertEquals(77,ExamMarks::first()->marks);
     }
 
-    /** @test */
+    /**@test */
     public function getAllExams(){
         $this->createExamMarks();
         $response = $this->get('/get-all-exam-marks-for-students');
         $response->assertOk();
     }
 
-    /** @test */
+    /**@test */
     public function getSingleExamMarks(){
         $this->createExamMarks();
         $exam_marks = ExamMarks::first();

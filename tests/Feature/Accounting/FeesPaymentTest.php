@@ -35,13 +35,13 @@ class FeesPaymentTest extends TestCase
         ]);
         $this->assertEquals(270000, Fees::first()->amount);
     }
-        /** @test */
+        /**@test */
     public function getAllFeesPayments(){
         $this->createFeesPayment();
         $response = $this->get('/get-all-fees-payments');
         $response->assertOk();
     }
-        /** @test */
+        /**@test */
     public function getFeesForOneIndividual(){
         $this->createFeesPayment();
         $fees = Fees::first();

@@ -34,7 +34,7 @@ class CoCurricularTest extends TestCase
         $this->assertEquals('Soccer',CoCurricularActivities::first()->activity);
     }
 
-    /** @test */
+    /**@test */
     public function getAllActivities(){
         $this->createActivity();
         $response = $this->get('/get-all-activities');

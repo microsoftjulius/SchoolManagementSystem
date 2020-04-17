@@ -39,14 +39,14 @@ class PastPapersTest extends TestCase
         $this->assertEquals('2019', PastPaper::first()->year);
     }
 
-    /** @test */
+    /**@test */
     public function getAllPastPapers(){
         $this->createPastPaper();
         $response = $this->get('/get-all-past-papers');
         $response->assertOk();
     }
 
-    /** @test */
+    /**@test */
     public function getSinglePastPaper(){
         $this->createPastPaper();
         $past_paper = PastPaper::first();

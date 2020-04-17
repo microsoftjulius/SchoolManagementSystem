@@ -33,14 +33,14 @@ class SubjectsTest extends TestCase
         $this->assertDatabaseHas('subjects',['subject_code'=>'UI782Ps']);
     }
 
-    /** @test */
+    /**@test */
     public function getAllSubjects(){
         $this->createSubject();
         $response = $this->get('/get-all-subjects');
         $response->assertOk();
     }
 
-    /** @test */
+    /**@test */
     public function getSingleSubject(){
         $this->createSubject();
         $subject = Subject::first();
