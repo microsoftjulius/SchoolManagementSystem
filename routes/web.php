@@ -141,3 +141,9 @@ Route::post('/send-messages','MessagesPackage\MessagesController@validateMessage
 Route::patch('/edit-scheduled-message/{id}','MessagesPackage\MessagesController@editScheduledMessage');
 Route::patch('/delete-message/{id}','MessagesPackage\MessagesController@deleteMessage');
 Route::get('/get-all-messages','MessagesPackage\MessagesController@getAllMessages');
+
+############### Furniture Module ############################################
+Route::post('/create-furniture','EquipmentsPackage\FurnitureController@validateFurniture');
+Route::patch('/edit-furniture/{id}','EquipmentsPackage\FurnitureController@updateFurniture');
+Route::get('/get-all-furniture','EquipmentsPackage\FurnitureController@getAllFurniture');
+Route::delete('/delete-furniture/{id}','EquipmentsPackage\FurnitureController@deleteFurniture');

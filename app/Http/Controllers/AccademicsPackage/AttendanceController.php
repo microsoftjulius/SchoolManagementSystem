@@ -38,4 +38,11 @@ class AttendanceController extends Controller
     protected function getDailyAtendeesAndAbsentees($date){
         return AttendanceResource::collection(Attendance::whereDate('attendances.created_at',$date)->get());
     }
+
+    /**
+     * @OA\Get(
+     *     path="/attendance",
+     *     @OA\Response(response="200", description="This shows the attendance.")
+     * )
+     */
 }

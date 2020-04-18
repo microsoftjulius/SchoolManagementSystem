@@ -88,4 +88,8 @@ class User extends Authenticatable
     public function publicDays(){
         return $this->hasMany('App\ActivitiesPackage\PublicDaysModel');
     }
+
+    public function furniture(){
+        return $this->hasMany('App\EquipmentsPackage\Furniture');
+    }
 }

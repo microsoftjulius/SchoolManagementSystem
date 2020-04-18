@@ -4,9 +4,10 @@ namespace Tests\Feature\Equipments;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\EquipmentsPackage\Furniture;
 use Tests\TestCase;
 
-class Furniture extends TestCase
+class FurnitureTest extends TestCase
 {
     use RefreshDatabase;
     
@@ -25,7 +26,7 @@ class Furniture extends TestCase
     public function editFurniture(){
         $this->createFurniture();
         $furniture = Furniture::first();
-        $response = $this->post('/edit-furniture/'.$furniture->id,[
+        $response = $this->patch('/edit-furniture/'.$furniture->id,[
             'furniture_name' => 'bench',
             'number_bought'  => 34,
             'created_by'     => 1
