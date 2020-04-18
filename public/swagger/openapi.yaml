@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  title: 'School Management System API'
+  version: '0.1'
+paths:
+  /attendance:
+    get:
+      responses:
+        '200':
+          description: 'This shows the attendance.'

@@ -32,4 +32,8 @@ class Students extends Model
     public function examMarks(){
         return $this->hasMany('App\AccademicsModel\ExamMarks');
     }
+
+    public function requirements(){
+        return $this->hasMany('App\EquipmentsPackage\Requirement');
+    }
 }

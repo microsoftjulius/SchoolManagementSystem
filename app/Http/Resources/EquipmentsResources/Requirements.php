@@ -4,7 +4,7 @@ namespace App\Http\Resources\EquipmentsResources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Furniture extends JsonResource
+class Requirements extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,10 @@ class Furniture extends JsonResource
     {
         return [
             'created_by' => $this->user->name,
-            'furniture_name' => $this->furniture_name,
-            'number_of_items'=> $this->number_bought 
+            'requirement_name'      => $this->requirement_name,
+            'number_of_items'       => $this->number_bought,
+            'student_first_name'    => $this->student->sfirst_name,
+            'student_last_name'     => $this->student->slast_name
         ];
     }
 }

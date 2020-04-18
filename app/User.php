@@ -92,4 +92,8 @@ class User extends Authenticatable
     public function furniture(){
         return $this->hasMany('App\EquipmentsPackage\Furniture');
     }
+
+    public function requirement(){
+        return $this->hasMany('App\EquipmentsPackage\Requirement');
+    }
 }

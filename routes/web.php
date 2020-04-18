@@ -147,3 +147,9 @@ Route::post('/create-furniture','EquipmentsPackage\FurnitureController@validateF
 Route::patch('/edit-furniture/{id}','EquipmentsPackage\FurnitureController@updateFurniture');
 Route::get('/get-all-furniture','EquipmentsPackage\FurnitureController@getAllFurniture');
 Route::delete('/delete-furniture/{id}','EquipmentsPackage\FurnitureController@deleteFurniture');
+
+############### Requiremenst Module #########################################
+Route::post('/create-requirement','EquipmentsPackage\RequirementsController@validateRequirement');
+Route::patch('/edit-requirement/{id}','EquipmentsPackage\RequirementsController@updateRequirement');
+Route::get('/get-all-requirements','EquipmentsPackage\RequirementsController@getAllRequirements');
+Route::delete('/delete-requirement/{id}','EquipmentsPackage\RequirementsController@deleteRequirement');

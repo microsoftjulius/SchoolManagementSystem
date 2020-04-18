@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
 Route::post('/create-stream','ClassesPackage\Streams@createClassStream');
+Route::post('/create-furniture','EquipmentsPackage\FurnitureController@validateFurniture');
+Route::post('/create-requirement','EquipmentsPackage\RequirementsController@validateRequirement');
