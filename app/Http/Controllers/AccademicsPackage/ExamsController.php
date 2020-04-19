@@ -33,7 +33,7 @@ class ExamsController extends Controller
 
     protected function getExamMarksForStudents(){
         $collection = ExamMarksResource::collection(ExamMarks::all());
-        return $collection;
+        return view('admin_pages.exams',compact('collection'));
     }
 
     protected function getMarksForParticularStudent(ExamMarks $exam, $id){

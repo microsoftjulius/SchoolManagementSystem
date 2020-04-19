@@ -12,6 +12,10 @@ class Subject extends Model
         return $this->belongsTo('App\UsersPackage\Employeesmodel', 'teacher_id');
     }
 
+    public function user(){
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
     public function attendaces(){
         return $this->hasMany('App\AccademicsModel\Attendance');
     }

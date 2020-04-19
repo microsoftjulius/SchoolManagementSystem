@@ -15,9 +15,10 @@ class TermsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'term'     => $this->term,
-            'year'     => $this->year,
-            'duration' => $this->duration
+            'term'          => $this->term,
+            'year'          => $this->year,
+            'duration'      => $this->duration,
+            'created_at'    => $this->created_at
         ];
     }
 }

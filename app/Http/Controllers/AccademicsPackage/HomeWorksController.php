@@ -30,9 +30,8 @@ class HomeWorksController extends Controller
     }
 
     protected function getAllHomeWorks(HomeWork $home_work){
-        return HomeWorksResource::collection(HomeWork::join('class_rooms','class_rooms.id','home_works.class_id')
-        ->join('subjects','subjects.id','home_works.subject_id')
-        ->join('users','users.id','home_works.created_by')->get());
+        $collection = HomeWorksResource::collection(HomeWork::all());
+        return view('admin_pages.home_work',compact('collection'));
     }
 
     protected function getSingleHomeWork($id){

@@ -19,7 +19,8 @@ class PastPapersResource extends JsonResource
             'class_id'   => $this->classRoom->class_name,
             'subject_id' => $this->subject->subject_name,
             'created_by' => $this->user->name,
-            'paper_path' => $this->paper_path
+            'paper_path' => $this->paper_path,
+            'created_at' => $this->created_at
         ];
     }
 }

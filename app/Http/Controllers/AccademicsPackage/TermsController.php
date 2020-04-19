@@ -26,7 +26,9 @@ class TermsController extends Controller
     }
 
     protected function getAllTerms(Term $term){
-        return TermsResource::collection(Term::all());
+        
+        $collection = TermsResource::collection(Term::all());
+        return view('admin_pages.terms',compact('collection'));
     }
 
     protected function getSingleTerm(Term $term, $id){

@@ -14,12 +14,12 @@
                 </a>
                 <div class="collapse" id="collapseAccademics" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                        <a class="nav-link" href="/attendance">Attendance</a>
-                        <a class="nav-link" href="/time-tables">Time Tables</a>
-                        <a class="nav-link" href="/subjects-and-terms">Subjects and Terms</a>
-                        <a class="nav-link" href="/home-work">Home Work</a>
-                        <a class="nav-link" href="/exam-marks">Exam Marks</a>
-                        <a class="nav-link" href="/past-papers">Past Papers</a>
+                        <a class="nav-link" href="/get-all-time-tables">Time Tables</a>
+                        <a class="nav-link" href="/get-all-subjects">Subjects</a>
+                        <a class="nav-link" href="/get-all-home-works">Home Work</a>
+                        <a class="nav-link" href="/get-all-exam-marks-for-students">Exam Marks</a>
+                        <a class="nav-link" href="/get-all-past-papers">Past Papers</a>
+                        <a class="nav-link" href="/get-all-terms">Terms</a>
                     </nav>
                 </div>
                 <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseAccounting" aria-expanded="false" aria-controls="collapseDashboards">

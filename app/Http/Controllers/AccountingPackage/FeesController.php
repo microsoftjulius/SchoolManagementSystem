@@ -28,7 +28,8 @@ class FeesController extends Controller
     }
 
     protected function getAllFeesPayments(){
-        return FeesResource::collection(Fees::all());
+        $collection = FeesResource::collection(Fees::all());
+        return view('admin_pages.fees',compact('collection'));
     }
 
 

@@ -96,4 +96,8 @@ class User extends Authenticatable
     public function requirement(){
         return $this->hasMany('App\EquipmentsPackage\Requirement');
     }
+
+    public function subjects(){
+        return $this->hasMany('App\AccademicsModel\Subject');
+    }
 }

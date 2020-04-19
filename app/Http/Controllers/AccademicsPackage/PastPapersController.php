@@ -30,7 +30,8 @@ class PastPapersController extends Controller
     }
 
     protected function getAllPastPapers(PastPaper $past_paper){
-        return PastPapersResource::collection(PastPaper::all());
+        $collection = PastPapersResource::collection(PastPaper::all());
+        return view('admin_pages.past_papers',compact('collection'));
     }
 
     protected function getSinglePastPaper($id){

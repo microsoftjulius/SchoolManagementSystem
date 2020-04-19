@@ -25,7 +25,8 @@ class SubjectsController extends Controller
     }
 
     protected function getAllSubjects(){
-        return SubjectsResource::collection(Subject::all());
+        $collection = SubjectsResource::collection(Subject::all());
+        return view('admin_pages.subjects',compact('collection'));
     }
 
     protected function getSingleSubject($id){

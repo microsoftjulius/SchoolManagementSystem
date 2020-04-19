@@ -31,8 +31,9 @@ class TimeTablesController extends Controller
     }
 
     protected function getAllTimeTables(){
-        return TimeTablesResource::collection(TimeTables::join('class_rooms','class_rooms.id','time_tables.class_id')
-        ->join('users','users.id','time_tables.created_by')->get());
+        $collection = TimeTablesResource::collection(TimeTables::all());
+
+        return view('admin_pages.time_tables',compact('collection'));
     }
 
     protected function getSingleTimeTable($id){

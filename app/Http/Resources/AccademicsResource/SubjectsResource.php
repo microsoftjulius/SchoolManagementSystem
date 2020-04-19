@@ -19,6 +19,7 @@ class SubjectsResource extends JsonResource
             'subject_code'       => $this->subject_code,
             'teacher_first_name' => $this->teachers->efirst_name,
             'teacher_last_name'  => $this->teachers->elast_name,
+            'created_by'         => $this->user->name
         ];
     }
 }
