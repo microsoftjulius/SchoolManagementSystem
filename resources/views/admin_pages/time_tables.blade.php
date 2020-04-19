@@ -12,7 +12,7 @@
                         </div>
                     </div><br>
                     <div class="container-fluid mt-n10">
-                        {{-- @include('admin_layouts.cards') --}}
+                        @include('admin_layouts.cards')
                         @include('admin_layouts.data_tables')
                     </div>
                 </main>
