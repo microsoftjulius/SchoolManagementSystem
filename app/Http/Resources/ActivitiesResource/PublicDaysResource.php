@@ -17,7 +17,8 @@ class PublicDaysResource extends JsonResource
         return [
             'public_day' => $this->public_day,
             'date'       => $this->date,
-            'created_by' => $this->user->name
+            'created_by' => $this->user->name,
+            'created_at' => $this->created_at
         ];
     }
 }

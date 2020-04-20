@@ -18,7 +18,8 @@ class MessagesResource extends JsonResource
             'message'         => $this->message,
             'date_of_sending' => $this->date_of_sending,
             'recievers_group' => $this->personalGroup->group_name,
-            'senders_id'      => $this->user->name
+            'senders_id'      => $this->user->name,
+            'created_at'      => $this->created_at
         ];
     }
 }

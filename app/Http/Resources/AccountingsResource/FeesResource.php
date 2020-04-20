@@ -18,7 +18,7 @@ class FeesResource extends JsonResource
             'first_name'  => $this->student->sfirst_name,
             'last_name'   => $this->student->slast_name,
             'term'        => $this->term['term'],
-            'amount'      => $this->amount,
+            'amount'      => number_format($this->amount),
             'recieved_by' => $this->user->name
         ];
     }

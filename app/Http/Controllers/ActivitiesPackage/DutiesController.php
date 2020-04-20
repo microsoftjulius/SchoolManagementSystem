@@ -28,7 +28,8 @@ class DutiesController extends Controller
     }
 
     protected function getAllDuties(){
-        return DutyResource::collection(Duty::all());
+        $collection = DutyResource::collection(Duty::all());
+        return view('admin_pages.duties',compact('collection'));
     }
 
     protected function deleteDuty(Duty $duty, $id){

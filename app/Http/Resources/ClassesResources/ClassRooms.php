@@ -15,9 +15,14 @@ class ClassRooms extends JsonResource
     public function toArray($request)
     {
         return [
-            'stream_name'    => $this->streams->stream_name,
-            'creators_name'  => $this->users->name,
-            'status'         => $this->status
+            'stream_name'     => $this->streams->stream_name,
+            'creators_name'   => $this->users['name'],
+            'fclass_teacher'  => $this->teachers['efirst_name'],
+            'lclass_teacher'  => $this->teachers['elast_name'],
+            'sfirst_name'     => $this->students->sfirst_name,
+            'slast_name'      => $this->students->slast_name,
+            'fees_amount'     => number_format($this->fees_amount),
+            'status'          => $this->status,
         ];
     }
 }

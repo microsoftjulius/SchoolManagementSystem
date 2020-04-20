@@ -26,7 +26,8 @@ class CocuricularActivitiesController extends Controller
     }
 
     protected function getAllActivities(){
-        return ActivitiesResource::collection(Activity::all());
+        $collection = ActivitiesResource::collection(Activity::all());
+        return view('admin_pages.co_curricular_activities',compact('collection'));
     }
 
     protected function deleteActivity(Activity $activity, $id){

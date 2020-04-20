@@ -20,7 +20,8 @@ class Streams extends Controller
     }
 
     protected function getAllStreams(){
-        return StreamsResource::collection(StreamsModel::all());
+        $collection = StreamsResource::collection(StreamsModel::all());
+        return view('admin_pages.streams',compact('collection'));
     }
 
     protected function getParticularStream($id){

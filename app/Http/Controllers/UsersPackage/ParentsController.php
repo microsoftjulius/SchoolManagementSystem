@@ -37,7 +37,8 @@ class ParentsController extends Controller
     }
 
     protected function getAllParents(){
-        return ParentsResource::collection(ParentsModel::all());
+        $collection = ParentsResource::collection(ParentsModel::all());
+        return view('admin_pages.parents',compact('collection'));
     }
 
     protected function getIndividualParent($id){

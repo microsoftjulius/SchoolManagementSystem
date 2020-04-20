@@ -19,7 +19,8 @@ class DutyResource extends JsonResource
             'teacher_first_name'    => $this->teacher->efirst_name,
             'teacher_last_name'     => $this->teacher->elast_name,
             'term'                  => $this->term->term,
-            'week'                  => $this->week
+            'week'                  => $this->week,
+            'created_at'            => $this->created_at
         ];
     }
 }

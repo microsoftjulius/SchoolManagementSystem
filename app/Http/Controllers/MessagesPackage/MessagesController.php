@@ -42,7 +42,8 @@ class MessagesController extends Controller
     }
 
     protected function getAllMessages(){
-        return MessagesResource::collection(Message::all());
+        $collection = MessagesResource::collection(Message::all());
+        return view('admin_pages.sms_balance',compact('collection'));
     }
 
     protected function validateMessage(){

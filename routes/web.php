@@ -18,7 +18,7 @@ Route::get('/',function(){ return view('admin_pages.template');});
 ###################Streams Routes #############################################
 Route::post('/create-stream','ClassesPackage\Streams@createClassStream');
 Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
-Route::get('/get-all-streams','ClassesPackage\Streams@getAllStreams');
+Route::get('/get-all-streams','ClassesPackage\Streams@getAllStreams')->name("Streams");
 Route::patch('/delete-stream/{id}','ClassesPackage\Streams@deleteStreamTemporarily');
 Route::delete('/parmanetly-delete-stream/{id}','ClassesPackage\Streams@deleteStreamParmanetly');
 Route::get('/get-particular-stream/{id}','ClassesPackage\Streams@getParticularStream');
@@ -26,7 +26,7 @@ Route::get('/get-particular-stream/{id}','ClassesPackage\Streams@getParticularSt
 ######################Class Rooms routes #######################################
 Route::post('/create-class-room','ClassesPackage\ClassRooms@createClassRoom');
 Route::patch('/edit-class-name/{id}','ClassesPackage\ClassRooms@editClassRoomName');
-Route::get('/get-all-class-rooms','ClassesPackage\ClassRooms@getAllClassRooms');
+Route::get('/get-all-class-rooms','ClassesPackage\ClassRooms@getAllClassRooms')->name("Class Rooms");
 Route::patch('/delete-class/{id}','ClassesPackage\ClassRooms@deleteClassTemporarily');
 Route::delete('/parmanetly-delete-class/{id}','ClassesPackage\ClassRooms@deleteClassParmanetly');
 Route::get('/get-particular-class-room/{id}','ClassesPackage\ClassRooms@getParticularClassRoom');
@@ -40,7 +40,7 @@ Route::patch('/expel-person/{id}','UsersPackage\GeneralPerson@expelPerson');
 ####################Students #################################################
 Route::post('/create-student','UsersPackage\Students@validateStudent');
 Route::patch('/edit-student/{id}','UsersPackage\Students@editStudent');
-Route::get('/get-all-students','UsersPackage\Students@getAllStudents');
+Route::get('/get-all-students','UsersPackage\Students@getAllStudents')->name("Students");
 Route::patch('/suspend-student/{id}','UsersPackage\Students@suspendStudent');
 Route::patch('/expel-student/{id}','UsersPackage\Students@expellStudent');
 Route::get('/get-particular-student/{id}','UsersPackage\Students@getIndividualStudent');
@@ -48,7 +48,7 @@ Route::get('/get-particular-student/{id}','UsersPackage\Students@getIndividualSt
 ###################Parents####################################################
 Route::post('/create-parent','UsersPackage\ParentsController@validateParent');
 Route::patch('/edit-parent/{id}','UsersPackage\ParentsController@editParent');
-Route::get('/get-all-parents','UsersPackage\ParentsController@getAllParents');
+Route::get('/get-all-parents','UsersPackage\ParentsController@getAllParents')->name('Parents');
 Route::get('/get-particular-parent/{id}','UsersPackage\ParentsController@getIndividualParent');
 
 ##################Employees ###################################################
@@ -121,26 +121,26 @@ Route::get('/get-fees-for-particular-student/{id}','AccountingPackage\FeesContro
 ################## Co-Curricular activities #####################################
 Route::post('/create-co-curricular-activity','ActivitiesPackage\CocuricularActivitiesController@validateActivities');
 Route::patch('/update-co-curricular-activity/{id}','ActivitiesPackage\CocuricularActivitiesController@updateActivity');
-Route::get('/get-all-activities','ActivitiesPackage\CocuricularActivitiesController@getAllActivities');
+Route::get('/get-all-activities','ActivitiesPackage\CocuricularActivitiesController@getAllActivities')->name('Activity');
 Route::delete('/delete-activity/{id}','ActivitiesPackage\CocuricularActivitiesController@deleteActivity');
 
 ##################### Duties Module ############################################
 Route::post('/create-duty','ActivitiesPackage\DutiesController@validateDuty');
 Route::patch('/edit-duty-information/{id}','ActivitiesPackage\DutiesController@updateDuty');
-Route::get('/get-all-duties','ActivitiesPackage\DutiesController@getAllDuties');
+Route::get('/get-all-duties','ActivitiesPackage\DutiesController@getAllDuties')->name('Duties');
 Route::delete('/delete-duty-information/{id}','ActivitiesPackage\DutiesController@deleteDuty');
 
 ################## Public Days ################################################
 Route::post('/create-public-day','ActivitiesPackage\PublicDaysController@validatePublicDay');
 Route::patch('/update-public-day/{id}','ActivitiesPackage\PublicDaysController@updatePublicDay');
-Route::get('/get-all-public-days','ActivitiesPackage\PublicDaysController@getAllPublicDays');
+Route::get('/get-all-public-days','ActivitiesPackage\PublicDaysController@getAllPublicDays')->name('Public Days');
 Route::delete('/delete-public-day/{id}','ActivitiesPackage\PublicDaysController@deletePublicDay');
 
 ################## Messages Module ##########################################
 Route::post('/send-messages','MessagesPackage\MessagesController@validateMessage');
 Route::patch('/edit-scheduled-message/{id}','MessagesPackage\MessagesController@editScheduledMessage');
 Route::patch('/delete-message/{id}','MessagesPackage\MessagesController@deleteMessage');
-Route::get('/get-all-messages','MessagesPackage\MessagesController@getAllMessages');
+Route::get('/get-all-messages','MessagesPackage\MessagesController@getAllMessages')->name('Messages');
 
 ############### Furniture Module ############################################
 Route::post('/create-furniture','EquipmentsPackage\FurnitureController@validateFurniture');

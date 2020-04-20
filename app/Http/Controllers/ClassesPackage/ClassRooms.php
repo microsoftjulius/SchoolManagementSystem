@@ -20,7 +20,8 @@ class ClassRooms extends Controller
     }
 
     protected function getAllClassRooms(){
-        return ClassesResource::collection(ClassRoomsModel::all());
+        $collection = ClassesResource::collection(ClassRoomsModel::all());
+        return view('admin_pages.class_rooms',compact('collection'));
     }
 
     protected function getParticularClassRoom($id){

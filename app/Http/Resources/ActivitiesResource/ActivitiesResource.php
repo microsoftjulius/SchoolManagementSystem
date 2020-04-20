@@ -17,7 +17,8 @@ class ActivitiesResource extends JsonResource
         return [
             'created_by' => $this->user->name,
             'activity'   => $this->activity,
-            'date'       => $this->date
+            'date'       => $this->date,
+            'created_at' => $this->created_at
         ];
     }
 }

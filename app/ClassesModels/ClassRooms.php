@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class ClassRooms extends Model
 {
-    protected $fillable = ['class_name','class_teacher_id','students_id','stream_id','status','fees_amount'];
+    protected $fillable = ['class_name','class_teacher_id','students_id','stream_id','status','fees_amount','created_by'];
 
     public function streams(){
         return $this->belongsTo('App\ClassesModels\Streams','stream_id');
     }
 
     public function students(){
-        return $this->hasMany('App\UsersPackage\Students');
+        return $this->belongsTo('App\UsersPackage\Students');
     }
 
     public function teachers(){
-        return $this->belongsToMany('App\UsersPackage\TeachersModel');
+        return $this->belongsTo('App\UsersPackage\Employeesmodel', 'class_teacher_id');
     }
 
     public function timeTables(){

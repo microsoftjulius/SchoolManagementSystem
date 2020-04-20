@@ -43,8 +43,8 @@ class Students extends Controller
 
     protected function getAllStudents(){
         $collection = StudentsResource::collection(Student::all());
-        return $collection;
-        //return view('admin_pages.students',compact('collection'));
+        //return $collection;
+        return view('admin_pages.students',compact('collection'));
     }
 
     protected function getIndividualStudent($id){

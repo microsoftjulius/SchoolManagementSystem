@@ -30,7 +30,7 @@
                 <div class="collapse" id="collapseAccounting" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                         <a class="nav-link" href="/get-all-fees-payments">Fees</a>
-                        <a class="nav-link" href="/sms-balance">Sms Balance</a>
+                        <a class="nav-link" href="/get-all-messages">Sms Balance</a>
                     </nav>
                 </div>
                 <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseActivities" aria-expanded="false" aria-controls="collapseDashboards">
@@ -40,9 +40,9 @@
                 </a>
                 <div class="collapse" id="collapseActivities" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                        <a class="nav-link" href="/cocurricular-activities">Co Curricular Activities</a>
-                        <a class="nav-link" href="/teacher-duty">Teachers Duties</a>
-                        <a class="nav-link" href="/public-days">Public Days</a>
+                        <a class="nav-link" href="/get-all-activities">Co Curricular Activities</a>
+                        <a class="nav-link" href="/get-all-duties">Teachers Duties</a>
+                        <a class="nav-link" href="/get-all-public-days">Public Days</a>
                     </nav>
                 </div>
                 <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseClasses" aria-expanded="false" aria-controls="collapseDashboards">
@@ -52,11 +52,11 @@
                 </a>
                 <div class="collapse" id="collapseClasses" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                        <a class="nav-link" href="/class-rooms">Class Rooms</a>
-                        <a class="nav-link" href="/streams">Streams</a>
+                        <a class="nav-link" href="/get-all-class-rooms">Class Rooms</a>
+                        <a class="nav-link" href="/get-all-streams">Streams</a>
                     </nav>
                 </div>
-                <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseMessages" aria-expanded="false" aria-controls="collapseDashboards">
+                {{-- <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseMessages" aria-expanded="false" aria-controls="collapseDashboards">
                     <div class="nav-link-icon"><i class="fa fa-envelope-open"></i></div>
                     Messages 
                     <div class="sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
@@ -67,7 +67,7 @@
                         <a class="nav-link" href="/sent-messages">Sent Messages</a>
                         <a class="nav-link" href="/pending-messages">Pending Messages</a>
                     </nav>
-                </div>
+                </div> --}}
                 <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="false" aria-controls="collapseDashboards">
                     <div class="nav-link-icon"><i class="fa fa-users"></i></div>
                     Users 
@@ -77,7 +77,7 @@
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                         <a class="nav-link" href="/get-all-students">Students</a>
                         <a class="nav-link" href="/get-all-employees">Employees</a>
-                        <a class="nav-link" href="/parents">Parents</a>
+                        <a class="nav-link" href="/get-all-parents">Parents</a>
                     </nav>
                 </div>
                 <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseSecurity" aria-expanded="false" aria-controls="collapseDashboards">

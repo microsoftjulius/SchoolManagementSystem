@@ -26,7 +26,8 @@ class PublicDaysController extends Controller
     }
 
     protected function getAllPublicDays(){
-        return PublicDaysResource::collection(PublicDaysModel::all());
+        $collection = PublicDaysResource::collection(PublicDaysModel::all());
+        return view('admin_pages.public_days',compact('collection'));
     }
 
     protected function deletePublicDay(PublicDaysModel $public_days, $id){

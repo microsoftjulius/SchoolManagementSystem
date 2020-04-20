@@ -22,9 +22,9 @@ class StudentsResource extends JsonResource
             'former_school' => $this->former_school,
             'pfirst_name'   => $this->guardian->pfirst_name,
             'plast_name'    => $this->guardian->plast_name,
-            'class_name'    => $this->classRooms->class_name,
+            'class_name'    => $this->classRooms,
             'status'        => $this->status,
-            'created_by'    => $this->user->name
+            'created_by'    => $this->users
         ];
     }
 }

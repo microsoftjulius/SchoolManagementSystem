@@ -12,7 +12,7 @@ class Employeesmodel extends Model
                             'District','Village','NIN','Telephone','role_id','status','level_of_education','certificates'];
                             
     public function classRoom(){
-        return $this->belongsToMany('App\ClassesModels\ClassRooms');
+        return $this->hasMany('App\ClassesModels\ClassRooms');
     }
 
     public function subject(){
