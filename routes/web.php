@@ -153,3 +153,6 @@ Route::post('/create-requirement','EquipmentsPackage\RequirementsController@vali
 Route::patch('/edit-requirement/{id}','EquipmentsPackage\RequirementsController@updateRequirement');
 Route::get('/get-all-requirements','EquipmentsPackage\RequirementsController@getAllRequirements');
 Route::delete('/delete-requirement/{id}','EquipmentsPackage\RequirementsController@deleteRequirement');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

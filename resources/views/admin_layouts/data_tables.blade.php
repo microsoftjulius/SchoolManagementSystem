@@ -84,6 +84,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subjects">Add Subject</button>
     </div>
 </div>
 @endif
