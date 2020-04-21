@@ -37,6 +37,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#timetables">Add New Time Table</button>
     </div>
 </div>
 @endif
@@ -787,3 +788,5 @@
     </div>
 </div>
 @endif
+
+@include('admin_layouts.modals')
