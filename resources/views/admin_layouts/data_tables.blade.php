@@ -99,7 +99,7 @@
                     <tr>
                         <th>No</th>
                         <th>Activity Name</th>
-                        <th>Date</th>
+                        <th>Taking Place At</th>
                         <th>Created By</th>
                         <th>Created At</th>
                         <th>Actions</th>
@@ -109,7 +109,7 @@
                     <tr>
                         <th>No</th>
                         <th>Activity Name</th>
-                        <th>Date</th>
+                        <th>Taking Place At</th>
                         <th>Created By</th>
                         <th>Created At</th>
                         <th>Actions</th>
@@ -119,7 +119,7 @@
                     @foreach ($collection as $index=> $item)
                     <tr>
                         <td>{{ $index+1 }}</td>
-                        <td>{{ $item->activity }}</td>
+                        <td style="text-transform:capitalize">{{ $item->activity }}</td>
                         <td>{{ $item->date }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->created_at }}</td>
@@ -131,6 +131,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#activity">Add New Activity</button>
     </div>
 </div>
 @endif
@@ -238,6 +239,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#homework">Add Home Work</button>
     </div>
 </div>
 @endif
@@ -277,7 +279,7 @@
                         <td>{{ $item->duration }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-pencil-square-o"></i></button>
                         </td>
                     </tr>
                     @endforeach
@@ -382,6 +384,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fees">Record Fees Payment</button>
     </div>
 </div>
 @endif
@@ -398,7 +401,7 @@
                         <th>Subject Name</th>
                         <th>Student</th>
                         <th>Score</th>
-                        <th>Commect</th>
+                        <th>Comment</th>
                         <th>Class</th>
                         <th>Created By</th>
                         <th>Actions</th>
@@ -410,7 +413,7 @@
                         <th>Subject Name</th>
                         <th>Student</th>
                         <th>Score</th>
-                        <th>Commect</th>
+                        <th>Comment</th>
                         <th>Class</th>
                         <th>Created By</th>
                         <th>Actions</th>
@@ -434,6 +437,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exammarks">Add Marks</button>
     </div>
 </div>
 @endif
@@ -566,7 +570,7 @@
                     @foreach ($collection as $index=> $item)
                     <tr>
                         <td>{{ $index+1 }}</td>
-                        <td>{{ $item->public_day }}</td>
+                        <td style="text-transform:capitalize">{{ $item->public_day }}</td>
                         <td>{{ $item->date }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->created_at }}</td>
@@ -578,6 +582,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#publicday">Add Public Day</button>
     </div>
 </div>
 @endif

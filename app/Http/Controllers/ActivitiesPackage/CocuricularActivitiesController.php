@@ -11,10 +11,12 @@ class CocuricularActivitiesController extends Controller
 {
     protected function createCoCurricularActivities(){
         $activity = new Activity();
-        $activity->activity   = request()->activity;
+        $activity->activity   = strtolower(request()->activity);
         $activity->date       = request()->date;
-        $activity->created_by = 1;
+        $activity->created_by = request()->created_by;
         $activity->save();
+
+        return redirect()->back()->with('msg',"Activity has been created successfully");
     }
 
     protected function updateActivity(Activity $activity, $id){
@@ -40,6 +42,8 @@ class CocuricularActivitiesController extends Controller
         }
         if(empty(request()->date)){
             return redirect()->back()->withErrors('Please attach attach a date to this activity');
+        }elseif(Activity::where('activity',strtolower(request()->activity))->exists()){
+            return redirect()->back()->withErrors("The added activity already exists");
         }else{
             return $this->createCoCurricularActivities();
         }

@@ -11,10 +11,11 @@ class PublicDaysController extends Controller
 {
     protected function createPublicDays(){
         $public_days = new PublicDaysModel();
-        $public_days->public_day = request()->public_day;
+        $public_days->public_day = strtolower(request()->public_day);
         $public_days->date       = request()->date;
-        $public_days->created_by    = request()->created_by;
+        $public_days->created_by = request()->created_by;
         $public_days->save();
+        return redirect()->back()->with('msg',"New public day has been created successfully");
     }
 
     protected function updatePublicDay(PublicDaysModel $public_days, $id){
@@ -40,6 +41,8 @@ class PublicDaysController extends Controller
         }
         if(empty(request()->date)){
             return redirect()->back()->withErrors("Please add a week number");
+        }elseif(PublicDaysModel::where('public_day',strtolower(request()->public_day))->exists()){
+            return redirect()->back()->withErrors("The added Public Activity already exists");
         }else{
             return $this->createPublicDays();
         }
