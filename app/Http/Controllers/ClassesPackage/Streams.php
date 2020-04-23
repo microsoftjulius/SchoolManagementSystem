@@ -10,7 +10,8 @@ use App\Http\Resources\ClassesResources\Streams as StreamsResource;
 class Streams extends Controller
 {
     protected function createClassStream(StreamsModel $stream){
-        return $stream->create($this->validateStreamOnCreation());
+        $stream->create($this->validateStreamOnCreation());
+        return redirect()->back()->with('msg',"New stream has been created successfully");
     }
 
     protected function editStreamName(StreamsModel $stream, $id){
@@ -41,7 +42,7 @@ class Streams extends Controller
     protected function validateStreamOnCreation(){
         return request()->validate([
             'stream_name'        => 'required',
-            'created_by'         => '',
+            'created_by'         => 'required',
             'status'             => ''
         ]);
     }

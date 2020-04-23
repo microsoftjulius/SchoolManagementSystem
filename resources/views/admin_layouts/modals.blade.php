@@ -302,3 +302,133 @@
     </div>
 </form>
 @endif
+
+@if(request()->route()->getName() == "Duties")
+<form action="/create-duty" method="post" enctype="multipart/form-data">
+    @csrf
+    <div class="modal fade" id="duties" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Assign Duty A Teacher</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="SubjectName">Teacher</label>
+                        <input type="text" name="teacher_names" class="form-control" list="teachers" autocomplete="off">
+                        <datalist id="teachers">
+                        @foreach ($teachers as $item)
+                            <option value="{{ $item->efirst_name }} {{ $item->elast_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Term</label>
+                        <input type="text" name="term" class="form-control" list="terms" autocomplete="off">
+                        <datalist id="terms">
+                        @foreach ($terms as $item)
+                            <option value="{{ $item->term }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="ActivityName">Week Number</label>
+                        <input type="text" name="week" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="created_by" class="form-control" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif
+
+@if(request()->route()->getName() == "Class Rooms")
+<form action="/create-class-room" method="post" enctype="multipart/form-data">
+    @csrf
+    <div class="modal fade" id="classrooms" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create New Class Room</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Class Teacher</label>
+                        <input type="text" name="teacher_names" class="form-control" list="teachers" autocomplete="off">
+                        <datalist id="teachers">
+                        @foreach ($teachers as $item)
+                            <option value="{{ $item->efirst_name }} {{ $item->elast_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Class Name</label>
+                        <input type="text" name="class_name" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="ActivityName">Stream</label>
+                        <input type="text" name="stream_name" class="form-control" list="streams" autocomplete="off">
+                        <datalist id="streams">
+                        @foreach ($streams as $item)
+                            <option value="{{ $item->stream_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="ActivityName">Amount Of Fees To Pay</label>
+                        <input type="number" name="fees_amount" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="created_by" class="form-control" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif
+
+@if(request()->route()->getName() == "Streams")
+<form action="/create-stream" method="post">
+    @csrf
+    <div class="modal fade" id="classrooms" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create New Stream</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="SubjectName">Stream Name</label>
+                        <input type="text" name="stream_name" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="created_by" class="form-control" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif

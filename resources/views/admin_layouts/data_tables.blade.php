@@ -536,6 +536,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#duties">Add Teachers Duty</button>
     </div>
 </div>
 @endif
@@ -635,6 +636,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#classrooms">Add New Class Room</button>
     </div>
 </div>
 @endif
@@ -681,6 +683,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#classrooms">Add New Stream</button>
     </div>
 </div>
 @endif
