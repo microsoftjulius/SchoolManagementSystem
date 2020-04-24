@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users');
-            //$table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('student_id')->nullable();
             //$table->foreign('created_by')->references('id')->on('users');
             $table->string('sfirst_name');
             $table->string('slast_name');

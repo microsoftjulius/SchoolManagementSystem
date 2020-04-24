@@ -19,16 +19,16 @@ class ParentsController extends Controller
         $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
         $parent = new ParentsModel();
-        $parent->created_by    = 1;
+        $parent->created_by     = 1;
         $parent->pfirst_name    = $this->person->getFirstName();
         $parent->plast_name     = $this->person->getLastname();
-        $parent->date_of_birth = $this->person->getDateOfBirth();
-        $parent->image_path    = $this->person->getUserPhoto();     
-        $parent->RelationShip  = $this->person->getRelationShip();
-        $parent->District      = $this->person->getDistrict();     
-        $parent->Village       = $this->person->getVillage();      
-        $parent->NIN           = $this->person->getNationalIdentificationNumber();        
-        $parent->Telephone     = $this->person->getTelephoneNumber();
+        $parent->date_of_birth  = $this->person->getDateOfBirth();
+        $parent->image_path     = $this->person->getUserPhoto();     
+        $parent->RelationShip   = $this->person->getRelationShip();
+        $parent->District       = $this->person->getDistrict();     
+        $parent->Village        = $this->person->getVillage();      
+        $parent->NIN            = $this->person->getNationalIdentificationNumber();        
+        $parent->Telephone      = $this->person->getTelephoneNumber();
         $parent->save();   
     }
 

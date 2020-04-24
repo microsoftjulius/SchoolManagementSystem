@@ -5,6 +5,7 @@ namespace App\Http\Controllers\UsersPackage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\UsersPackage\Employeesmodel as Employee;
+use App\ClassesModels\ClassRooms as ClassRoomsModel;
 use App\Http\Controllers\UsersPackage\GeneralPerson;
 use App\Http\Resources\PersonsResources\EmployeesResource;
 use App\User;
@@ -46,7 +47,8 @@ class EmployeesController extends Controller
 
     protected function getAllEmployees(){
         $collection = EmployeesResource::collection(Employee::all());
-        return view('admin_pages.employees',compact('collection'));
+        $classes = ClassRoomsModel::all();
+        return view('admin_pages.employees',compact('collection','classes'));
         //return $collection;
     }
 

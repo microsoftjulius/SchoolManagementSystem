@@ -487,6 +487,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#employees">Add New Stream</button>
     </div>
 </div>
 @endif
@@ -702,7 +703,7 @@
                         <th>Former School</th>
                         <th>Photograph</th>
                         <th>Parent/Guardian</th>
-                        <th>Class Name</th>
+                        <th>Class</th>
                         <th>Created By</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -716,7 +717,7 @@
                         <th>Former School</th>
                         <th>Photograph</th>
                         <th>Parent/Guardian</th>
-                        <th>Class Name</th>
+                        <th>Class</th>
                         <th>Created By</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -731,7 +732,7 @@
                         <td>{{ $item->former_school }}</td>
                         <td>{{ $item->image_path }}</td>
                         <td>{{ $item->guardian->pfirst_name }} {{ $item->guardian->plast_name }}</td>
-                        <td>{{ $item->classRooms->class_name }}</td>
+                        <td>{{ $item->classRooms["class_name"] }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->status }}</td>
                         <td>
@@ -742,6 +743,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#student">Add New Student</button>
     </div>
 </div>
 @endif

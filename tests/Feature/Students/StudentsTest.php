@@ -18,6 +18,7 @@ class StudentsTest extends TestCase
             'guardian_id'   => 1,
             'class_id'      => 1,
             'first_name'    => 'Jackson',
+            'student_id'    => '1',
             'last_name'     => 'Ssemakula',
             'date_of_birth' => '10/10/1994',
             'image'         => 'images/path',

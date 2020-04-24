@@ -432,3 +432,144 @@
     </div>
 </form>
 @endif
+
+@if(request()->route()->getName() == "Students")
+<form action="/create-student" method="post">
+    @csrf
+    <div class="modal fade" id="student" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Student</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="SubjectName">First Name</label>
+                        <input type="text" name="first_name" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Date Of Birth</label>
+                        <input type="date" name="date_of_birth" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Former School</label>
+                        <input type="text" name="former_school" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Student's Photo</label>
+                        <input type="file" name="image" class="form-control" list="teachers" autocomplete="off" accept="image/*">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Parent / Guardian</label>
+                        <input type="text" name="parent_names" class="form-control" list="parents" autocomplete="off">
+                        <datalist id="parents">
+                        @foreach ($parents as $item)
+                            <option value="{{ $item->pfirst_name }} {{ $item->plast_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-12">
+                        <label for="SubjectName">Class</label>
+                        <input type="text" name="class_name" class="form-control" list="classes" autocomplete="off">
+                        <datalist id="classes">
+                        @foreach ($classes as $item)
+                            <option value="{{ $item->class_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="created_by" class="form-control" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif
+
+@if(request()->route()->getName() == "Employees")
+<form action="/create-student" method="post">
+    @csrf
+    <div class="modal fade" id="employees" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Teacher</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="SubjectName">First Name</label>
+                        <input type="text" name="first_name" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Date Of Birth</label>
+                        <input type="date" name="date_of_birth" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Photo</label>
+                        <input type="file" name="former_school" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">District</label>
+                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" accept="image/*">
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Village</label>
+                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" accept="image/*">
+                    </div>
+                    
+                    <div class="col-lg-12">
+                        <label for="SubjectName">Class</label>
+                        <input type="text" name="class_name" class="form-control" list="classes" autocomplete="off">
+                        <datalist id="classes">
+                        @foreach ($classes as $item)
+                            <option value="{{ $item->class_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">National Id Number</label>
+                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" >
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Telephone Number</label>
+                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" >
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Level Of Education</label>
+                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" >
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Certificate</label>
+                        <input type="file" name="image" class="form-control" list="teachers" autocomplete="off" accept="application/pdf">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="created_by" class="form-control" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif
