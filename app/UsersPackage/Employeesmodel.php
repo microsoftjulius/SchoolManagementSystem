@@ -8,8 +8,8 @@ class Employeesmodel extends Model
 {
     protected $table = 'employees';
 
-    protected $fillable = ['efirst_name','elast_name','date_of_birth','image_path','status','created_by',
-                            'District','Village','NIN','Telephone','role_id','status','level_of_education','certificates'];
+    protected $fillable = ['efirst_name','elast_name','date_of_birth','image_path','status','created_by','employee_id',
+                            'District','Village','NIN','Telephone','role_id','status','level_of_education','certificates','class_id'];
                             
     public function classRoom(){
         return $this->hasMany('App\ClassesModels\ClassRooms');

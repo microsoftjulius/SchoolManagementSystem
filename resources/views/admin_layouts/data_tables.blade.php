@@ -1,3 +1,4 @@
+@include('admin_layouts.message')
 @if(request()->route()->getName() == "Time Tables")
 <div class="card mb-4">
     <div class="card-header">{{ request()->route()->getName() }}</div>
@@ -487,7 +488,7 @@
                 </tbody>
             </table>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#employees">Add New Stream</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#employees">Add New Employee</button>
     </div>
 </div>
 @endif
@@ -599,7 +600,6 @@
                     <tr>
                         <th>No</th>
                         <th>Class Name</th>
-                        <th>Class Teacher</th>
                         <th>Stream</th>
                         <th>Total Fees</th>
                         <th>Created By</th>
@@ -611,7 +611,6 @@
                     <tr>
                         <th>No</th>
                         <th>Class Name</th>
-                        <th>Class Teacher</th>
                         <th>Stream</th>
                         <th>Total Fees</th>
                         <th>Created By</th>
@@ -624,7 +623,6 @@
                     <tr>
                         <td>{{ $index+1 }}</td>
                         <td>{{ $item->class_name }}</td>
-                        <td>{{ $item->teachers['efirst_name'] }} {{ $item->teachers['elast_name'] }}</td>
                         <td>{{ $item->streams->stream_name }}</td>
                         <td>{{ $item->fees_amount }}</td>
                         <td>{{ $item->users['name'] }}</td>
@@ -796,6 +794,7 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#parents">Add New Parent</button>
     </div>
 </div>
 @endif

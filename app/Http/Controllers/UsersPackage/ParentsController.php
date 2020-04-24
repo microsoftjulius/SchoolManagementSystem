@@ -15,11 +15,15 @@ class ParentsController extends Controller
         $this->register = new RegistrationController();
     }
     protected function createParent(){
+        if(User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
+        ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->exists()){
+            return redirect()->back()->withErrors("Parent Already Exists");
+        }        
         $this->register->registerUser();
         $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
         $parent = new ParentsModel();
-        $parent->created_by     = 1;
+        $parent->created_by     = request()->created_by;
         $parent->pfirst_name    = $this->person->getFirstName();
         $parent->plast_name     = $this->person->getLastname();
         $parent->date_of_birth  = $this->person->getDateOfBirth();
@@ -30,6 +34,7 @@ class ParentsController extends Controller
         $parent->NIN            = $this->person->getNationalIdentificationNumber();        
         $parent->Telephone      = $this->person->getTelephoneNumber();
         $parent->save();   
+        return redirect()->back()->with('msg','New Parent created Successfully');
     }
 
     protected function editParent(ParentsModel $parent, $id){

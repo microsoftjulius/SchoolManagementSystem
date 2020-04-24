@@ -49,3 +49,7 @@
         </p>
         <h3>Attendance</h3>
         <p>Attendance is a module where a user can request to see the general attendance of a class. for achieving the attendance of a day, they are requested to click on a day (Proposed calender) and then the attendance is achieved. To achieve the absentees, the same is done. The reports can be downloaded on the page using javascript unlike the pastpapers that will be downloaded with php</p>
+
+        <h3>
+            <p>For a school that has no streams, they are required to create a stream as default</p>
+        </h3>

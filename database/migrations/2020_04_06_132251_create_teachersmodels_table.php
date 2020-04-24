@@ -17,13 +17,14 @@ class CreateTeachersmodelsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users');
-            //$table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('class_id');
+            $table->unsignedBigInteger('employee_id');
             //$table->foreign('created_by')->references('id')->on('users');
             $table->string('efirst_name');
             $table->string('elast_name');
             $table->string('date_of_birth');
             $table->string('image_path');
-            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('role_id')->nullable();
             //$table->foreign('role_id')->references('id')->on('roles');
             $table->string('District');
             $table->string('Village');

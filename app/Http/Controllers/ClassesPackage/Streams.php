@@ -10,7 +10,11 @@ use App\Http\Resources\ClassesResources\Streams as StreamsResource;
 class Streams extends Controller
 {
     protected function createClassStream(StreamsModel $stream){
-        $stream->create($this->validateStreamOnCreation());
+        if(StreamsModel::where('stream_name', request()->stream_name)->exists()){
+            return redirect()->back()->withErrors("stream name already Exists");
+        }else{
+            $stream->create($this->validateStreamOnCreation());
+        }
         return redirect()->back()->with('msg',"New stream has been created successfully");
     }
 

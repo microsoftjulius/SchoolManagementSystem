@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware' => ['auth']], function () {
 ################### General Routes ############################################
-Route::get('/',function(){ return view('admin_pages.template');});
+Route::get('/home',function(){ return view('admin_pages.template');});
 ###################Streams Routes #############################################
 Route::post('/create-stream','ClassesPackage\Streams@createClassStream');
 Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
@@ -153,6 +154,7 @@ Route::post('/create-requirement','EquipmentsPackage\RequirementsController@vali
 Route::patch('/edit-requirement/{id}','EquipmentsPackage\RequirementsController@updateRequirement');
 Route::get('/get-all-requirements','EquipmentsPackage\RequirementsController@getAllRequirements');
 Route::delete('/delete-requirement/{id}','EquipmentsPackage\RequirementsController@deleteRequirement');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+});
+Route::get('/',function(){ return redirect('/login');});
+Auth::routes();

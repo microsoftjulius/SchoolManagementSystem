@@ -12,17 +12,11 @@ use App\Http\Resources\ClassesResources\ClassRooms as ClassesResource;
 class ClassRooms extends Controller
 {
     protected function createClassRoom(ClassRoomsModel $class_name){
-
-        $teacher_id = Employee::where('efirst_name',explode(' ',request()->teacher_names)[0])
-        ->where('elast_name',explode(' ',request()->teacher_names)[1])->value('id');
-        if(empty($teacher_id)){ return redirect()->back()->withErrors("Please Select a Teacher from the list");}
-
         $stream_id = StreamsModel::where('stream_name',request()->stream_name)->value('id');
-        if(empty($stream_id)){ return redirect()->back()->withErrors("Please Select a Stream from the list");}
+        if(empty($stream_id)){ $stream_id = null; }
 
         $class = new ClassRoomsModel();
         $class->class_name       = request()->class_name;
-        $class->class_teacher_id = $teacher_id;
         $class->stream_id        = $stream_id;
         $class->fees_amount      = request()->fees_amount;
         $class->created_by       = request()->created_by;
@@ -59,12 +53,8 @@ class ClassRooms extends Controller
     }
 
     protected function validateClassRoomOnCreation(){
-        if(empty(request()->teacher_names)){
-            return redirect()->back()->withErrors("Please select a teacher to continue");
-        }elseif(empty(request()->class_name)){
+        if(empty(request()->class_name)){
             return redirect()->back()->withErrors("Please select a class to continue");
-        }elseif(empty(request()->stream_name)){
-            return redirect()->back()->withErrors("Please select a stream to continue");
         }elseif(empty(request()->fees_amount)){
             return redirect()->back()->withErrors("Please add a fees amount to continue");
         }else{

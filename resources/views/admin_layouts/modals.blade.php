@@ -61,7 +61,7 @@
                         </datalist>
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                         </datalist>
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
                     </div>
                     
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -221,7 +221,7 @@
                         </datalist>
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -255,7 +255,7 @@
                         <input type="date" name="date" class="form-control" autocomplete="off">
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -289,7 +289,7 @@
                         <input type="date" name="date" class="form-control" autocomplete="off">
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -337,7 +337,7 @@
                         <input type="text" name="week" class="form-control" autocomplete="off">
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -362,16 +362,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <label for="SubjectName">Class Teacher</label>
-                        <input type="text" name="teacher_names" class="form-control" list="teachers" autocomplete="off">
-                        <datalist id="teachers">
-                        @foreach ($teachers as $item)
-                            <option value="{{ $item->efirst_name }} {{ $item->elast_name }}"></option>
-                        @endforeach
-                        </datalist>
-                    </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <label for="SubjectName">Class Name</label>
                         <input type="text" name="class_name" class="form-control" autocomplete="off">
                     </div>
@@ -389,7 +380,7 @@
                         <input type="number" name="fees_amount" class="form-control" autocomplete="off">
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -419,7 +410,7 @@
                         <input type="text" name="stream_name" class="form-control" list="teachers" autocomplete="off">
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -483,7 +474,7 @@
                         </datalist>
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>
@@ -498,7 +489,7 @@
 @endif
 
 @if(request()->route()->getName() == "Employees")
-<form action="/create-student" method="post">
+<form action="/create-employee" method="post">
     @csrf
     <div class="modal fade" id="employees" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -522,16 +513,16 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">Photo</label>
-                        <input type="file" name="former_school" class="form-control" list="teachers" autocomplete="off">
+                        <input type="file" name="image" class="form-control" list="teachers" autocomplete="off">
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">District</label>
-                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" accept="image/*">
+                        <input type="text" name="District" class="form-control" list="teachers" autocomplete="off" accept="image/*">
                     </div>
 
                     <div class="col-lg-6">
                         <label for="SubjectName">Village</label>
-                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" accept="image/*">
+                        <input type="text" name="Village" class="form-control" list="teachers" autocomplete="off" accept="image/*">
                     </div>
                     
                     <div class="col-lg-12">
@@ -545,22 +536,85 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">National Id Number</label>
-                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" >
+                        <input type="text" name="NIN" class="form-control" list="teachers" autocomplete="off" >
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">Telephone Number</label>
-                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" >
+                        <input type="text" name="Telephone" class="form-control" list="teachers" autocomplete="off" >
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">Level Of Education</label>
-                        <input type="text" name="image" class="form-control" list="teachers" autocomplete="off" >
+                        <input type="text" name="level_of_education" class="form-control" list="teachers" autocomplete="off" >
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">Certificate</label>
-                        <input type="file" name="image" class="form-control" list="teachers" autocomplete="off" accept="application/pdf">
+                        <input type="file" name="certificates[]" class="form-control" list="teachers" autocomplete="off" accept="application/pdf">
                     </div>
                     <div class="col-lg-6">
-                        <input type="hidden" name="created_by" class="form-control" value="1">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif
+
+@if(request()->route()->getName() == "Parents")
+<form action="/create-parent" method="post">
+    @csrf
+    <div class="modal fade" id="parents" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Parent</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="SubjectName">First Name</label>
+                        <input type="text" name="first_name" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Date Of Birth</label>
+                        <input type="date" name="date_of_birth" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Photo</label>
+                        <input type="file" name="image" class="form-control" list="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">District</label>
+                        <input type="text" name="District" class="form-control" list="teachers" autocomplete="off" accept="image/*">
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Village</label>
+                        <input type="text" name="Village" class="form-control" list="teachers" autocomplete="off" accept="image/*">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">National Id Number</label>
+                        <input type="text" name="NIN" class="form-control" list="teachers" autocomplete="off" >
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Telephone Number</label>
+                        <input type="text" name="Telephone" class="form-control" list="teachers" autocomplete="off" >
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Role Played</label>
+                        <input type="text" name="RelationShip" class="form-control" autocomplete="off" placeholder="eg. mother">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
                 </div>
             </div>

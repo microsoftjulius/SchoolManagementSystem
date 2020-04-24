@@ -18,16 +18,32 @@ class EmployeesController extends Controller
     }
 
     protected function createEmployee(){
+
+        if(User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
+        ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->exists()){
+            return redirect()->back()->withErrors("Employee Already exists");
+        }
+
         $this->register->registerUser();
         $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
 
+
+        $employee_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
+        ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
+        if(Employee::where('employee_id',$employee_id)->exists()){ return redirect()->back()->withErrors("Employee already exists");}
         //creating comma separated certificate
         $certificates = implode(",",request()->certificates);
 
+        $class_id = ClassRoomsModel::where('class_name', request()->class_name)->value('id');
+        if(empty($class_id)){
+            return redirect()->back()->withErrors("Please Select a class to continue");}
+
         $employee = new Employee();
         $employee->efirst_name        = $this->person->getFirstName();
-        $employee->created_by         = 1;
+        $employee->created_by         = request()->created_by;
+        $employee->employee_id        = $employee_id;
+        $employee->class_id           = $class_id;
         $employee->elast_name         = $this->person->getLastname();
         $employee->date_of_birth      = $this->person->getDateOfBirth();
         $employee->image_path         = $this->person->getUserPhoto();     
@@ -39,6 +55,8 @@ class EmployeesController extends Controller
         $employee->level_of_education = request()->level_of_education;
         $employee->certificates       = $certificates;
         $employee->save();   
+
+        return redirect()->back()->with('msg',"New Employee has been added to the team");
     }
 
     protected function editEmployee(Employee $employee, $id){
@@ -85,8 +103,6 @@ class EmployeesController extends Controller
             return redirect()->back()->withErrors("Please attach your N.I.N"); 
         }elseif(empty($this->person->getTelephoneNumber())){ 
             return redirect()->back()->withErrors("Please attach your phone number"); 
-        }elseif(empty(request()->role_id)){ 
-            return redirect()->back()->withErrors("Please attach a role to this Employee"); 
         }elseif(empty(request()->level_of_education)){ 
             return redirect()->back()->withErrors("Please Add a level of Education"); 
         }else{ 
