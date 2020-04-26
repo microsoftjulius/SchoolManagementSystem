@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             //$table->foreign('created_by')->references('id')->on('users');
             $table->string('sfirst_name');
             $table->string('slast_name');
+            $table->enum('gender',['Male','Female'])->default('Male');
             $table->date('date_of_birth');
             $table->string('former_school')->nullable();
             $table->string('image_path');

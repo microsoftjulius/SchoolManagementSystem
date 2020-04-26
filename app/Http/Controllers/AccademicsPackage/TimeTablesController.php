@@ -58,6 +58,7 @@ class TimeTablesController extends Controller
 
     protected function deleteTimeTable(TimeTables $time_table, $id){
         $time_table->find($id)->delete();
+        return redirect()->back()->with('msg',"A Time Table has been deleted successfully");
     }
     protected function validateTimeTable(){
         if(empty(request()->time_table)){

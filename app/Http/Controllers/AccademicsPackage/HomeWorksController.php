@@ -65,6 +65,8 @@ class HomeWorksController extends Controller
 
     protected function deleteHomeWork(HomeWork $home_work, $id){
         $home_work->find($id)->delete();
+
+        return redirect()->back()->with('msg',"A home work has been deleted successfully");
     }
 
     protected function validateHomeWork(){

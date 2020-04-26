@@ -23,7 +23,7 @@ class ExamsController extends Controller
         if(empty($student_id)){ return redirect()->back()->withErrors('Please select a Class to continue');}
 
         $subject_id = Subject::where('subject_name',request()->subject_name)->value('id');
-        if(empty($subject_id)){ return redirect()->back()->withErrors('Please select a Class to continue');}
+        if(empty($subject_id)){ return redirect()->back()->withErrors('Please select a Subject to continue');}
 
         if(ExamMarks::where('student_id', $student_id)->where('subject_id', $subject_id)
         ->where('class_id', $class_id)->exists()){
@@ -66,6 +66,7 @@ class ExamsController extends Controller
 
     protected function deleteMarksForStudent(ExamMarks $exam, $id){
         $exam->find($id)->delete();
+        return redirect()->back()->with('msg',"A Stundet's Mark has been deleted successfully");
     }
 
     protected function validateExam(){

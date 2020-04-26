@@ -9,3 +9,8 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('bootstrap/assets/img/favicon.png') }}" />
     <script src="https://use.fontawesome.com/290e12bed0.js"></script>
 </head>
+<style type="text/css">
+    .ui-datepicker-calendar {
+        display: none;
+    }
+</style>

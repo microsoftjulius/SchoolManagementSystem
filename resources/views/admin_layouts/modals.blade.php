@@ -167,11 +167,10 @@
                         <input type="number" name="marks" class="form-control" autocomplete="off">
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <label for="SubjectName">Comment</label>
                         <input type="text" name="comment" class="form-control" autocomplete="off">
                     </div>
-                    
                     <div class="col-lg-6">
                         <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
                     </div>
@@ -464,7 +463,7 @@
                         @endforeach
                         </datalist>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <label for="SubjectName">Class</label>
                         <input type="text" name="class_name" class="form-control" list="classes" autocomplete="off">
                         <datalist id="classes">
@@ -472,6 +471,15 @@
                             <option value="{{ $item->class_name }}"></option>
                         @endforeach
                         </datalist>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Gender</label>
+                        <select name="gender" class="form-control">
+                            <option>Select Gender </option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>   
                     </div>
                     <div class="col-lg-6">
                         <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
@@ -612,6 +620,58 @@
                     <div class="col-lg-6">
                         <label for="SubjectName">Role Played</label>
                         <input type="text" name="RelationShip" class="form-control" autocomplete="off" placeholder="eg. mother">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif
+
+@if(request()->route()->getName() == "Past Papers")
+<form action="/create-past-paper" method="post">
+    @csrf
+    <div class="modal fade" id="pastpapers" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Past Paper</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Subject</label>
+                        <input type="text" name="subject_id" class="form-control" list="subjects" autocomplete="off">
+                        <datalist id="subjects">
+                        @foreach ($subjects as $item)
+                            <option value="{{ $item->subject_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Class</label>
+                        <input type="text" name="class_id" class="form-control" list="classes" autocomplete="off">
+                        <datalist id="classes">
+                        @foreach ($class_rooms as $item)
+                            <option value="{{ $item->class_name }}"></option>
+                        @endforeach
+                        </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Year</label>
+                        <input type="number" name="year" class="form-control" id="teachers" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Paper</label>
+                        <input type="file" name="paper_path" class="form-control" list="teachers" autocomplete="off" accept="application/pdf">
                     </div>
                     <div class="col-lg-6">
                         <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">

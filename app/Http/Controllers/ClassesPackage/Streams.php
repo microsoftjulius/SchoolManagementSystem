@@ -25,7 +25,7 @@ class Streams extends Controller
     }
 
     protected function getAllStreams(){
-        $collection = StreamsResource::collection(StreamsModel::all());
+        $collection = StreamsResource::collection(StreamsModel::where('status','!=','removed')->get());
         return view('admin_pages.streams',compact('collection'));
     }
 
@@ -37,6 +37,7 @@ class Streams extends Controller
         $editStream = $stream->find($id)->update(array(
             'status' => 'removed'
         )); 
+        return redirect()->back()->with('msg',"A stream has been deleted successfully");
     }
 
     protected function deleteStreamParmanetly(StreamsModel $stream, $id){

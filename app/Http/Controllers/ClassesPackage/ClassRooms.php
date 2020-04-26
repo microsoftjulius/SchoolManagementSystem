@@ -32,7 +32,7 @@ class ClassRooms extends Controller
     }
 
     protected function getAllClassRooms(){
-        $collection = ClassesResource::collection(ClassRoomsModel::all());
+        $collection = ClassesResource::collection(ClassRoomsModel::where('status','!=','removed')->get());
         $teachers   = Employee::all();
         $streams    = StreamsModel::all();
         return view('admin_pages.class_rooms',compact('collection','teachers','streams'));
@@ -46,6 +46,7 @@ class ClassRooms extends Controller
         $editClassRoom = $class_name->find($id)->update(array(
             'status' => 'removed'
         ));
+        return redirect()->back()->with('msg',"A class room has been deleted successfully");
     }
 
     protected function deleteClassParmanetly(ClassRoomsModel $class_name, $id){

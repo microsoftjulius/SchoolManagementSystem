@@ -31,7 +31,9 @@
                         <td>{{ $item->time_table }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-time-table/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -78,7 +80,9 @@
                         <td>{{ $item->teachers->efirst_name }} {{ $item->teachers->elast_name }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-subject/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -125,7 +129,9 @@
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-activity/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -184,7 +190,7 @@
                         @endif
                         <td>{{ $item->created_at }}</td>                        
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
                     @endforeach
@@ -233,7 +239,9 @@
                         <td>{{ $item->paper_path }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-home-work/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -332,13 +340,16 @@
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-past-paper/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pastpapers">Add New Past Paper</button>
     </div>
 </div>
 @endif
@@ -378,7 +389,7 @@
                         <td>{{ $item->amount }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button><button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
                         </td>
                     </tr>
                     @endforeach
@@ -431,7 +442,9 @@
                         <td>{{ $item->classRooms->class_name }}</td>
                         <td>{{ $item->users->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-single-exam-marks/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -457,6 +470,7 @@
                         <th>Village</th>
                         <th>Telephone</th>
                         <th>Created By</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -468,6 +482,7 @@
                         <th>Village</th>
                         <th>Telephone</th>
                         <th>Created By</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </tfoot>
@@ -480,8 +495,21 @@
                         <td>{{ $item->Village }}</td>
                         <td>{{ $item->Telephone }}</td>
                         <td>{{ $item->user->name }}</td>
+                        @if( $item->status == "suspended")
+                        <td><div class="badge badge-warning badge-pill">{{ $item->status }}</div></td>
+                        @else
+                        <td><div class="badge badge-success badge-pill">{{ $item->status }}</div></td>
+                        @endif
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/suspend-employee/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-warning" title="suspend employee"><i class="fa fa-times"></i></button>
+                            </a>
+                            <a href="/expel-employee/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger" title="expel employee"><i class="fa fa-trash"></i></button>
+                            </a>
+                            <a href="/get-particular-employee/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-info" title="view employee info"><i class="fa fa-info"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -531,7 +559,9 @@
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-duty-information/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -578,7 +608,9 @@
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-public-day/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -628,7 +660,10 @@
                         <td>{{ $item->users['name'] }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-class/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                            <button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
                         </td>
                     </tr>
                     @endforeach
@@ -675,7 +710,9 @@
                         <td>{{ $item->status }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/delete-stream/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -697,7 +734,6 @@
                     <tr>
                         <th>No</th>
                         <th>Names</th>
-                        <th>Date Of Birth</th>
                         <th>Former School</th>
                         <th>Photograph</th>
                         <th>Parent/Guardian</th>
@@ -711,7 +747,6 @@
                     <tr>
                         <th>No</th>
                         <th>Names</th>
-                        <th>Date Of Birth</th>
                         <th>Former School</th>
                         <th>Photograph</th>
                         <th>Parent/Guardian</th>
@@ -726,15 +761,26 @@
                     <tr>
                         <td>{{ $index+1 }}</td>
                         <td>{{ $item->sfirst_name }} {{ $item->slast_name }}</td>
-                        <td>{{ $item->date_of_birth }}</td>
                         <td>{{ $item->former_school }}</td>
                         <td>{{ $item->image_path }}</td>
                         <td>{{ $item->guardian->pfirst_name }} {{ $item->guardian->plast_name }}</td>
                         <td>{{ $item->classRooms["class_name"] }}</td>
                         <td>{{ $item->user->name }}</td>
-                        <td>{{ $item->status }}</td>
+                        @if( $item->status == "suspended")
+                        <td><div class="badge badge-warning badge-pill">{{ $item->status }}</div></td>
+                        @else
+                        <td><div class="badge badge-success badge-pill">{{ $item->status }}</div></td>
+                        @endif
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <a href="/suspend-student/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-warning" title="suspend student"><i class="fa fa-times"></i></button>
+                            </a>
+                            <a href="/expel-student/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-danger" title="expel student"><i class="fa fa-trash"></i></button>
+                            </a>
+                            <a href="/get-particular-student/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-info" title="view student info"><i class="fa fa-info"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -787,7 +833,10 @@
                         <td>{{ $item->Telephone }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i class="fa fa-trash"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
+                            <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button>
+                            <a href="/get-particular-parent/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach

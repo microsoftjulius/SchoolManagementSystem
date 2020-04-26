@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Students extends Model
 {
-    protected $fillable = ['sfirst_name','slast_name','date_of_birth','image_path','guardian_id','status','created_by','former_school','student_id','class_id'];
+    protected $fillable = ['sfirst_name','slast_name','date_of_birth','image_path','guardian_id','status','created_by','former_school','student_id','class_id','gender'];
 
     public function guardian(){
         return $this->belongsTo('App\UsersPackage\ParentsModel');

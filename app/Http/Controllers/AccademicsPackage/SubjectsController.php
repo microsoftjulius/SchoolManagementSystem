@@ -46,6 +46,7 @@ class SubjectsController extends Controller
 
     protected function deleteSubject(Subject $subject, $id){
         $subject->find($id)->delete();
+        return redirect()->back()->with('msg',"A Subject has been deleted Successfully");
     }
 
     protected function validateSubject(){

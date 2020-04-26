@@ -33,6 +33,7 @@ class PublicDaysController extends Controller
 
     protected function deletePublicDay(PublicDaysModel $public_days, $id){
         $public_days->find($id)->delete();
+        return redirect()->back()->with('msg',"A public day has been deleted successfully");
     }
 
     protected function validatePublicDay(){

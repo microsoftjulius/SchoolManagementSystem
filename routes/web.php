@@ -20,7 +20,7 @@ Route::get('/home',function(){ return view('admin_pages.template');});
 Route::post('/create-stream','ClassesPackage\Streams@createClassStream');
 Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
 Route::get('/get-all-streams','ClassesPackage\Streams@getAllStreams')->name("Streams");
-Route::patch('/delete-stream/{id}','ClassesPackage\Streams@deleteStreamTemporarily');
+Route::get('/delete-stream/{id}','ClassesPackage\Streams@deleteStreamTemporarily');
 Route::delete('/parmanetly-delete-stream/{id}','ClassesPackage\Streams@deleteStreamParmanetly');
 Route::get('/get-particular-stream/{id}','ClassesPackage\Streams@getParticularStream');
 
@@ -28,7 +28,7 @@ Route::get('/get-particular-stream/{id}','ClassesPackage\Streams@getParticularSt
 Route::post('/create-class-room','ClassesPackage\ClassRooms@createClassRoom');
 Route::patch('/edit-class-name/{id}','ClassesPackage\ClassRooms@editClassRoomName');
 Route::get('/get-all-class-rooms','ClassesPackage\ClassRooms@getAllClassRooms')->name("Class Rooms");
-Route::patch('/delete-class/{id}','ClassesPackage\ClassRooms@deleteClassTemporarily');
+Route::get('/delete-class/{id}','ClassesPackage\ClassRooms@deleteClassTemporarily');
 Route::delete('/parmanetly-delete-class/{id}','ClassesPackage\ClassRooms@deleteClassParmanetly');
 Route::get('/get-particular-class-room/{id}','ClassesPackage\ClassRooms@getParticularClassRoom');
 
@@ -42,8 +42,8 @@ Route::patch('/expel-person/{id}','UsersPackage\GeneralPerson@expelPerson');
 Route::post('/create-student','UsersPackage\Students@validateStudent');
 Route::patch('/edit-student/{id}','UsersPackage\Students@editStudent');
 Route::get('/get-all-students','UsersPackage\Students@getAllStudents')->name("Students");
-Route::patch('/suspend-student/{id}','UsersPackage\Students@suspendStudent');
-Route::patch('/expel-student/{id}','UsersPackage\Students@expellStudent');
+Route::get('/suspend-student/{id}','UsersPackage\Students@suspendStudent');
+Route::get('/expel-student/{id}','UsersPackage\Students@expellStudent');
 Route::get('/get-particular-student/{id}','UsersPackage\Students@getIndividualStudent');
 
 ###################Parents####################################################
@@ -56,8 +56,8 @@ Route::get('/get-particular-parent/{id}','UsersPackage\ParentsController@getIndi
 Route::post('/create-employee','UsersPackage\EmployeesController@validateEmployee');
 Route::patch('/edit-employee/{id}','UsersPackage\EmployeesController@editEmployee');
 Route::get('/get-all-employees','UsersPackage\EmployeesController@getAllEmployees')->name("Employees");
-Route::patch('/suspend-employee/{id}','UsersPackage\EmployeesController@suspendEmployee');
-Route::patch('/expel-employee/{id}','UsersPackage\EmployeesController@expelEmployee');
+Route::get('/suspend-employee/{id}','UsersPackage\EmployeesController@suspendEmployee');
+Route::get('/expel-employee/{id}','UsersPackage\EmployeesController@expelEmployee');
 Route::patch('/assign-role-to-employee/{id}','UsersPackage\EmployeesController@assignRole');
 Route::get('/get-particular-employee/{id}','UsersPackage\EmployeesController@getIndividualEmployee');
 
@@ -73,14 +73,14 @@ Route::post('/create-subject','AccademicsPackage\SubjectsController@validateSubj
 Route::patch('/edit-subject/{id}','AccademicsPackage\SubjectsController@editSubject');
 Route::get('/get-all-subjects','AccademicsPackage\SubjectsController@getAllSubjects')->name("Subjects");
 Route::get('/get-single-subject/{id}','AccademicsPackage\SubjectsController@getSingleSubject');
-Route::delete('/delete-subject/{id}','AccademicsPackage\SubjectsController@deleteSubject');
+Route::get('/delete-subject/{id}','AccademicsPackage\SubjectsController@deleteSubject');
 
 ################# Exams Module ####################################################
 Route::post('/create-exam-marks','AccademicsPackage\ExamsController@validateExam');
 Route::patch('/update-exam-marks/{id}','AccademicsPackage\ExamsController@updateExam');
 Route::get('/get-all-exam-marks-for-students','AccademicsPackage\ExamsController@getExamMarksForStudents')->name('Examination Marks');
 Route::get('/get-single-exam-marks-for-one-student/{id}','AccademicsPackage\ExamsController@getMarksForParticularStudent');
-Route::delete('/delete-single-exam-marks/{id}','AccademicsPackage\ExamsController@deleteMarksForStudent');
+Route::get('/delete-single-exam-marks/{id}','AccademicsPackage\ExamsController@deleteMarksForStudent');
 
 ################### Past Papers Module ############################################
 Route::post('/create-past-paper','AccademicsPackage\PastPapersController@validatePastPapers');
@@ -88,7 +88,7 @@ Route::patch('/update-past-paper/{id}','AccademicsPackage\PastPapersController@u
 Route::get('/get-all-past-papers','AccademicsPackage\PastPapersController@getAllPastPapers')->name("Past Papers");
 Route::get('/get-single-past-paper/{id}','AccademicsPackage\PastPapersController@getSinglePastPaper');
 Route::get('/download-past-paper/{id}','AccademicsPackage\PastPapersController@downloadSinglePastPaper');
-Route::delete('/delete-past-paper/{id}','AccademicsPackage\PastPapersController@deletePastPaper');
+Route::get('/delete-past-paper/{id}','AccademicsPackage\PastPapersController@deletePastPaper');
 
 #################### Time Tables Module ############################################
 Route::post('/create-time-table','AccademicsPackage\TimeTablesController@validateTimeTable');
@@ -96,7 +96,7 @@ Route::patch('/update-time-table/{id}','AccademicsPackage\TimeTablesController@u
 Route::get('/get-all-time-tables','AccademicsPackage\TimeTablesController@getAllTimeTables')->name("Time Tables");
 Route::get('/get-single-time-table/{id}','AccademicsPackage\TimeTablesController@getSingleTimeTable');
 Route::get('/download-time-table/{id}','AccademicsPackage\TimeTablesController@downloadTimeTable');
-Route::delete('/delete-time-table/{id}','AccademicsPackage\TimeTablesController@deleteTimeTable');
+Route::get('/delete-time-table/{id}','AccademicsPackage\TimeTablesController@deleteTimeTable');
 
 ################### Terms Module #################################################
 Route::post('/create-term','AccademicsPackage\TermsController@validateTerm');
@@ -111,7 +111,7 @@ Route::patch('/update-home-work/{id}','AccademicsPackage\HomeWorksController@upd
 Route::get('/get-all-home-works','AccademicsPackage\HomeWorksController@getAllHomeWorks')->name('Home Works');
 Route::get('/get-single-home-work/{id}','AccademicsPackage\HomeWorksController@getSingleHomeWork');
 Route::get('/download-home-work/{id}','AccademicsPackage\HomeWorksController@downloadHomeWork');
-Route::delete('/delete-home-work/{id}','AccademicsPackage\HomeWorksController@deleteHomeWork');
+Route::get('/delete-home-work/{id}','AccademicsPackage\HomeWorksController@deleteHomeWork');
 
 ################### Feed Module ##################################################
 Route::post('/make-fees-payment','AccountingPackage\FeesController@validateFeesPayment');
@@ -123,19 +123,19 @@ Route::get('/get-fees-for-particular-student/{id}','AccountingPackage\FeesContro
 Route::post('/create-co-curricular-activity','ActivitiesPackage\CocuricularActivitiesController@validateActivities');
 Route::patch('/update-co-curricular-activity/{id}','ActivitiesPackage\CocuricularActivitiesController@updateActivity');
 Route::get('/get-all-activities','ActivitiesPackage\CocuricularActivitiesController@getAllActivities')->name('Activity');
-Route::delete('/delete-activity/{id}','ActivitiesPackage\CocuricularActivitiesController@deleteActivity');
+Route::get('/delete-activity/{id}','ActivitiesPackage\CocuricularActivitiesController@deleteActivity');
 
 ##################### Duties Module ############################################
 Route::post('/create-duty','ActivitiesPackage\DutiesController@validateDuty');
 Route::patch('/edit-duty-information/{id}','ActivitiesPackage\DutiesController@updateDuty');
 Route::get('/get-all-duties','ActivitiesPackage\DutiesController@getAllDuties')->name('Duties');
-Route::delete('/delete-duty-information/{id}','ActivitiesPackage\DutiesController@deleteDuty');
+Route::get('/delete-duty-information/{id}','ActivitiesPackage\DutiesController@deleteDuty');
 
 ################## Public Days ################################################
 Route::post('/create-public-day','ActivitiesPackage\PublicDaysController@validatePublicDay');
 Route::patch('/update-public-day/{id}','ActivitiesPackage\PublicDaysController@updatePublicDay');
 Route::get('/get-all-public-days','ActivitiesPackage\PublicDaysController@getAllPublicDays')->name('Public Days');
-Route::delete('/delete-public-day/{id}','ActivitiesPackage\PublicDaysController@deletePublicDay');
+Route::get('/delete-public-day/{id}','ActivitiesPackage\PublicDaysController@deletePublicDay');
 
 ################## Messages Module ##########################################
 Route::post('/send-messages','MessagesPackage\MessagesController@validateMessage');

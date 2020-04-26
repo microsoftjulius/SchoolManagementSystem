@@ -45,6 +45,7 @@ class DutiesController extends Controller
 
     protected function deleteDuty(Duty $duty, $id){
         $duty->find($id)->delete();
+        return redirect()->back()->with('msg',"A teachers duty has been deleted Successfully");
     }
 
     protected function validateDuty(){

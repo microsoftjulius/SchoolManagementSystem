@@ -23,7 +23,6 @@ class Students extends Controller
             return redirect()->back()->withErrors("The Student being registered already exists. Consider using the Other name if he / she doesn't exist");
         }
         $this->register->registerUser();
-
         //getting the account id and mapping it to the table
         $students_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
@@ -45,6 +44,7 @@ class Students extends Controller
         $student->date_of_birth  = $this->person->getDateOfBirth();
         $student->class_id       = $class_id;
         $student->image_path     = $this->person->getUserPhoto();
+        $student->gender         = request()->gender;
         $student->guardian_id    = $parent_id;
         $student->save(); 
 
@@ -59,7 +59,7 @@ class Students extends Controller
     }
 
     protected function getAllStudents(){
-        $collection = StudentsResource::collection(Student::all());
+        $collection = StudentsResource::collection(Student::where('status','!=','expelled')->get());
         $parents = ParentsModel::all();
         $classes = ClassRoomsModel::all();
         //return $collection;
@@ -74,12 +74,14 @@ class Students extends Controller
         $student->find($id)->update(array(
             'status' => 'suspended',
         ));
+        return redirect()->back()->with('msg',"Student has been suspended successfully");
     }
 
     protected function expellStudent(Student $student, $id){
         $student->find($id)->update(array(
             'status' => 'expelled',
         ));
+        return redirect()->back()->with('msg',"Student has been expelled Successfully");
     }
 
     protected function validateStudent(){

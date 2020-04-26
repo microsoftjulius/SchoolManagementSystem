@@ -9,3 +9,9 @@
 <script src="https://themes.startbootstrap.com/sb-admin-pro/assets/demo/datatables-demo.js"></script>
 
 <script src="https://themes.startbootstrap.com/sb-admin-pro/js/sb-customizer.js"></script>
+
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker({dateFormat: 'yy'});
+    });​
+</script>

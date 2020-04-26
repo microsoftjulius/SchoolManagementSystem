@@ -24,6 +24,7 @@ class EmployeesResource extends JsonResource
             'NIN'           => $this->NIN,
             'Telephone'     => $this->Telephone,
             'role'          => $this->role,
+            'status'        => $this->status,
             'created_by'    => $this->user->name
         ];
     }

@@ -25,6 +25,7 @@ class CreateTeachersmodelsTable extends Migration
             $table->string('date_of_birth');
             $table->string('image_path');
             $table->unsignedBigInteger('role_id')->nullable();
+            $table->enum('gender',['Male','Female'])->default('Male');
             //$table->foreign('role_id')->references('id')->on('roles');
             $table->string('District');
             $table->string('Village');

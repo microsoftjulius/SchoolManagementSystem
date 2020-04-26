@@ -34,6 +34,7 @@ class CocuricularActivitiesController extends Controller
 
     protected function deleteActivity(Activity $activity, $id){
         $activity->find($id)->delete();
+        return redirect()->back()->with('msg',"A Co-Curricular activity has been deleted successfully");
     }
     
     protected function validateActivities(){

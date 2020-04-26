@@ -52,6 +52,7 @@ class EmployeesController extends Controller
         $employee->NIN                = $this->person->getNationalIdentificationNumber();        
         $employee->Telephone          = $this->person->getTelephoneNumber();
         $employee->role_id            = request()->role_id;
+        $student->gender              = request()->gender;
         $employee->level_of_education = request()->level_of_education;
         $employee->certificates       = $certificates;
         $employee->save();   
@@ -64,7 +65,7 @@ class EmployeesController extends Controller
     }
 
     protected function getAllEmployees(){
-        $collection = EmployeesResource::collection(Employee::all());
+        $collection = EmployeesResource::collection(Employee::where('status','!=','expelled')->get());
         $classes = ClassRoomsModel::all();
         return view('admin_pages.employees',compact('collection','classes'));
         //return $collection;
@@ -76,10 +77,12 @@ class EmployeesController extends Controller
 
     protected function suspendEmployee(Employee $employee, $id){
         $employee->find($id)->update(array('status' => 'suspended'));
+        return redirect()->back()->with('msg',"Employee has been suspended successfully");
     }
 
     protected function expelEmployee(Employee $employee, $id){
         $employee->find($id)->update(array('status' => 'expelled'));
+        return redirect()->back()->with('msg',"Employee has been Expelled Successfully");
     }
 
     protected function assignRole(Employee $employee, $id){
