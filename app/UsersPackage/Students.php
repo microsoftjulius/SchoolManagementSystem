@@ -18,7 +18,7 @@ class Students extends Model
 
 
     public function fees(){
-        return $this->hasMany('App\AccountingsModel\Fees');
+        return $this->hasMany('App\AccountingsModel\Fees', 'student_id');
     }
 
     public function classRooms(){

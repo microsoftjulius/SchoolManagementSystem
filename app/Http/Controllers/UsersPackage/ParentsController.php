@@ -22,12 +22,17 @@ class ParentsController extends Controller
         $this->register->registerUser();
         $user_id = User::where('name',($this->person->getFirstName() . " " . $this->person->getLastname()))
                         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
+
+        $image =  $this->person->getUserPhoto();
+        $image_path = $image->getClientOriginalName();
+        $image->move('bootstrap/parents',$image_path);
+
         $parent = new ParentsModel();
         $parent->created_by     = request()->created_by;
         $parent->pfirst_name    = $this->person->getFirstName();
         $parent->plast_name     = $this->person->getLastname();
         $parent->date_of_birth  = $this->person->getDateOfBirth();
-        $parent->image_path     = $this->person->getUserPhoto();     
+        $parent->image_path     = $image_path;     
         $parent->RelationShip   = $this->person->getRelationShip();
         $parent->District       = $this->person->getDistrict();     
         $parent->Village        = $this->person->getVillage();      

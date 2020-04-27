@@ -44,7 +44,7 @@ Route::patch('/edit-student/{id}','UsersPackage\Students@editStudent');
 Route::get('/get-all-students','UsersPackage\Students@getAllStudents')->name("Students");
 Route::get('/suspend-student/{id}','UsersPackage\Students@suspendStudent');
 Route::get('/expel-student/{id}','UsersPackage\Students@expellStudent');
-Route::get('/get-particular-student/{id}','UsersPackage\Students@getIndividualStudent');
+Route::get('/get-particular-student/{id}','UsersPackage\Students@getIndividualStudent')->name("Student Information");
 
 ###################Parents####################################################
 Route::post('/create-parent','UsersPackage\ParentsController@validateParent');
@@ -154,7 +154,6 @@ Route::post('/create-requirement','EquipmentsPackage\RequirementsController@vali
 Route::patch('/edit-requirement/{id}','EquipmentsPackage\RequirementsController@updateRequirement');
 Route::get('/get-all-requirements','EquipmentsPackage\RequirementsController@getAllRequirements');
 Route::delete('/delete-requirement/{id}','EquipmentsPackage\RequirementsController@deleteRequirement');
-
 });
 Route::get('/',function(){ return redirect('/login');});
 Auth::routes();

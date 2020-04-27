@@ -834,9 +834,9 @@
                         <td>{{ $item->user->name }}</td>
                         <td>
                             <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button>
-                            <a href="/get-particular-parent/{{ $item->id }}" style="text-decoration:none">
+                            {{-- <a href="/get-particular-parent/{{ $item->id }}" style="text-decoration:none">
                                 <button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
-                            </a>
+                            </a> --}}
                         </td>
                     </tr>
                     @endforeach
@@ -848,4 +848,43 @@
 </div>
 @endif
 
+@if(request()->route()->getName() == "Student Information")
+<div class="card mb-4">
+    <div class="card-header">{{ request()->route()->getName() }}</div>
+    <div class="card-body">
+        <div class="datatable table-responsive">
+            <table class="table table-bordered table-hover table-primary" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Student Names</th>
+                        <th>Gender</th>
+                        <th>Parent / Guardian</th>
+                        <th>Student Class</th>
+                        <th>Student former School</th>
+                        <th>District</th>
+                        <th>Village</th>
+                        <th>Telephone</th>
+                        <th>Studying Status</th>
+                        <th>Created By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ $collection->sfirst_name }} {{ $collection->slast_name }} </td>
+                        <td>{{ $collection->gender }}</td>
+                        <td>{{ $collection->guardian->pfirst_name }} {{ $collection->guardian->plast_name }}</td>
+                        <td>{{ $collection->classRooms->class_name }}</td>
+                        <td>{{ $collection->former_school }}</td>
+                        <td>{{ $collection->guardian->District }}</td>
+                        <td>{{ $collection->guardian->Village }}</td>
+                        <td>{{ $collection->guardian->Telephone }}</td>
+                        <td>{{ $collection->status }}</td>
+                        <td>{{ $collection->user->name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endif
 @include('admin_layouts.modals')

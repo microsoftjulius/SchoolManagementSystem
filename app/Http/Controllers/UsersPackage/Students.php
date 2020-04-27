@@ -35,6 +35,11 @@ class Students extends Controller
         if(empty($class_id)){
             return redirect()->back()->withErrors("Please Select a class to continue");}
 
+        
+        $image = $this->person->getUserPhoto();
+        $image_path = $image->getClientOriginalName();
+        $image->move('bootstrap/students',$image_path);
+    
         $student = new Student(); // creating an object of student
         $student->created_by     = 1;
         $student->student_id     = $students_id;
@@ -43,10 +48,12 @@ class Students extends Controller
         $student->slast_name     = $this->person->getLastname();
         $student->date_of_birth  = $this->person->getDateOfBirth();
         $student->class_id       = $class_id;
-        $student->image_path     = $this->person->getUserPhoto();
+        $student->image_path     = $image_path;
         $student->gender         = request()->gender;
         $student->guardian_id    = $parent_id;
         $student->save(); 
+
+        
 
         return redirect()->back()->with('msg',"New Student has been created Successfully");
     }
@@ -67,7 +74,9 @@ class Students extends Controller
     }
 
     protected function getIndividualStudent($id){
-        return new StudentsResource(Student::find($id));
+        $collection = new StudentsResource(Student::find($id));
+        $meta = $collection->with('meta');
+        return view('admin_pages.report', compact('collection'))->with('meta', $meta);
     }
 
     protected function suspendStudent(Student $student, $id){

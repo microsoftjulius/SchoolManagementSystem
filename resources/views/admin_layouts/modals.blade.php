@@ -424,7 +424,7 @@
 @endif
 
 @if(request()->route()->getName() == "Students")
-<form action="/create-student" method="post">
+<form action="/create-student" method="post" enctype="multipart/form-data">
     @csrf
     <div class="modal fade" id="student" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -574,7 +574,7 @@
 @endif
 
 @if(request()->route()->getName() == "Parents")
-<form action="/create-parent" method="post">
+<form action="/create-parent" method="post" enctype="multipart/form-data">
     @csrf
     <div class="modal fade" id="parents" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
