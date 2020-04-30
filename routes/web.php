@@ -79,7 +79,7 @@ Route::get('/delete-subject/{id}','AccademicsPackage\SubjectsController@deleteSu
 Route::post('/create-exam-marks','AccademicsPackage\ExamsController@validateExam');
 Route::patch('/update-exam-marks/{id}','AccademicsPackage\ExamsController@updateExam');
 Route::get('/get-all-exam-marks-for-students','AccademicsPackage\ExamsController@getExamMarksForStudents')->name('Examination Marks');
-Route::get('/get-single-exam-marks-for-one-student/{id}','AccademicsPackage\ExamsController@getMarksForParticularStudent');
+Route::get('/get-single-exam-marks-for-one-student/{id}','AccademicsPackage\ExamsController@getMarksForParticularStudent')->name('My Marks');
 Route::get('/delete-single-exam-marks/{id}','AccademicsPackage\ExamsController@deleteMarksForStudent');
 
 ################### Past Papers Module ############################################

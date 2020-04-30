@@ -1,11 +1,11 @@
 <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
     <a class="navbar-brand d-none d-sm-block" href="index-2.html">School Management System</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
     <ul class="navbar-nav align-items-center ml-auto">
-        <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+        {{-- <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
             <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-bell btn btn-sm btn-warning" aria-hidden="true"></i>
             </a>
-            <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
+            {{-- <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
                 <h6 class="dropdown-header dropdown-notifications-header"><i class="mr-2" data-feather="bell"></i>Alerts Center</h6>
                 <a class="dropdown-item dropdown-notifications-item" href="#!"
                     ><div class="dropdown-notifications-item-icon bg-warning"><i data-feather="activity"></i></div>
@@ -32,9 +32,9 @@
                         <div class="dropdown-notifications-item-content-text">New user request. Woody has requested access to the organization.</div>
                     </div></a
                 ><a class="dropdown-item dropdown-notifications-footer" href="#!">View All Alerts</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+            </div> 
+        </li> --}}
+        {{-- <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
             <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-comments-o btn btn-sm btn-info"></i></a>
             <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownMessages">
                 <h6 class="dropdown-header dropdown-notifications-header">
@@ -53,7 +53,7 @@
                     </div></a
                 ><a class="dropdown-item dropdown-notifications-footer" href="#!">Read All Messages</a>
             </div>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown no-caret mr-3 dropdown-user">
             <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"/></a>
             <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">

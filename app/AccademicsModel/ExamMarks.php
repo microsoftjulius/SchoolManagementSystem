@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExamMarks extends Model
 {
-    protected $fillable = ['subject_id','student_id','marks','comment','created_by','class_id'];
+    protected $fillable = ['subject_id','student_id','marks','comment','created_by','class_id','term_id'];
 
     public function subjects(){
         return $this->belongsTo('App\AccademicsModel\Subject', 'subject_id');

@@ -19,6 +19,7 @@ class CreateExamMarksTable extends Migration
             //$table->foreign('subject_id')->references('id')->on('subjects');
             $table->unsignedBigInteger('student_id');
             //$table->foreign('student_id')->references('id')->on('students');
+            $table->unsignedBigInteger('term_id');
             $table->Integer('marks');
             $table->string('comment');
             $table->unsignedBigInteger('created_by');

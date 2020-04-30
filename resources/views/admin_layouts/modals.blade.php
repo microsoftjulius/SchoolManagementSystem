@@ -166,10 +166,18 @@
                         <label for="SubjectName">Marks</label>
                         <input type="number" name="marks" class="form-control" autocomplete="off">
                     </div>
-
                     <div class="col-lg-6">
                         <label for="SubjectName">Comment</label>
                         <input type="text" name="comment" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="term">Term</label>
+                        <input type="text" name="term" list="terms" class="form-control">
+                        <datalist id="terms">
+                            @foreach ($terms as $item)
+                                <option value="{{ $item->term }}"></option>
+                            @endforeach
+                        </datalist>
                     </div>
                     <div class="col-lg-6">
                         <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">

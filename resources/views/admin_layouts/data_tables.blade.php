@@ -760,7 +760,7 @@
                     @foreach ($collection as $index=> $item)
                     <tr>
                         <td>{{ $index+1 }}</td>
-                        <td>{{ $item->sfirst_name }} {{ $item->slast_name }}</td>
+                        <td><a href="/get-single-exam-marks-for-one-student/{{ $item->id }}" style="text-decoration:none">{{ $item->sfirst_name }} {{ $item->slast_name }}</a></td>
                         <td>{{ $item->former_school }}</td>
                         <td>{{ $item->image_path }}</td>
                         <td>{{ $item->guardian->pfirst_name }} {{ $item->guardian->plast_name }}</td>
@@ -882,6 +882,51 @@
                         <td>{{ $collection->user->name }}</td>
                     </tr>
                 </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endif
+
+@if(request()->route()->getName() == "My Marks")
+<div class="card mb-4">
+    <div class="card-header">Report</div>
+    <div class="card-body">
+        <div class="datatable table-responsive">
+            <table class="table table-bordered table-hover table-primary" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Student Names</th>
+                        <th>Class</th>
+                        <th>subject</th>
+                        <th>Term</th>
+                        <th>Marks</th>
+                        <th>Teachers Comment</th>
+                        <th>Created By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($collection as $item)
+                    <tr>
+                        <td>{{ $item->sfirst_name }} {{ $item->slast_name }} </td>
+                        <td>{{ $item->class_name }}</td>
+                        <td>{{ $item->subject_name }}</td>
+                        <td>{{ $item->term }}</td>
+                        <td>{{ $item->marks }}</td>
+                        <td>{{ $item->comment }}</td>
+                        <td>{{ $item->name }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                <tr>
+                    <td>Sum</td>
+                    <td></td>
+                    <td></td>
+                    <td>Total Marks</td>
+                    <td>{{ $sum }}</td>
+                    <td>Position:</td>
+                    <td></td>
+                </tr>
             </table>
         </div>
     </div>
