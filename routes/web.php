@@ -59,7 +59,7 @@ Route::get('/get-all-employees','UsersPackage\EmployeesController@getAllEmployee
 Route::get('/suspend-employee/{id}','UsersPackage\EmployeesController@suspendEmployee');
 Route::get('/expel-employee/{id}','UsersPackage\EmployeesController@expelEmployee');
 Route::patch('/assign-role-to-employee/{id}','UsersPackage\EmployeesController@assignRole');
-Route::get('/get-particular-employee/{id}','UsersPackage\EmployeesController@getIndividualEmployee');
+Route::get('/get-particular-employee/{id}','UsersPackage\EmployeesController@getIndividualEmployee')->name("Employee Info");
 
 ###############Attendance #######################################################
 Route::post('/mark-attendance','AccademicsPackage\AttendanceController@markAttendance');

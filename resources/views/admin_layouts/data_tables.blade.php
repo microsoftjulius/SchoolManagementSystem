@@ -932,4 +932,51 @@
     </div>
 </div>
 @endif
+
+@if(request()->route()->getName() == "Employee Info")
+<div class="card mb-4">
+    <div class="card-header">@if($collection->gender == 'Male') Mr. {{ $collection->elast_name }} {{ $collection->efirst_name }} @else
+        Mrs. {{ $collection->elast_name }} {{ $collection->efirst_name }} @endif
+    </div>
+    <div class="card-body">
+        <div class="datatable table-responsive">
+            <table class="table table-bordered table-hover table-primary" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        {{-- <th>Names</th> --}}
+                        <th>DOB</th>
+                        <th>Gender</th>
+                        <th>District</th>
+                        <th>Village</th>
+                        <th>NIN</th>
+                        <th>Telephone</th>
+                        <th>Level Of Education</th>
+                        <th>Certification</th>
+                        <th>Created By</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {{-- <td>{{ $collection->efirst_name }} {{ $collection->elast_name }}</td> --}}
+                        <td>{{ $collection->date_of_birth }}</td>
+                        <td>{{ $collection->gender }}</td>
+                        <td>{{ $collection->District }}</td>
+                        <td>{{ $collection->Village }}</td>
+                        <td>{{ $collection->NIN }}</td>
+                        <td>{{ $collection->Telephone }}</td>
+                        <td>{{ $collection->level_of_education }}</td>
+                        <td>{{ $collection->certificates }}</td>
+                        <td>{{ $collection->user->name }}</td>
+                        <td>
+                            <button class="btn btn-datatable btn-icon btn-warning"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endif
 @include('admin_layouts.modals')

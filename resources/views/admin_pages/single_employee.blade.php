@@ -15,11 +15,10 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="card" style="width: 18rem; margin-bottom:20px">
-                                    <img class="card-img-top" src={{ asset('bootstrap/employees/'. $image_path) }} style="height:200px;">
+                                    <img class="card-img-top" src={{ asset('bootstrap/employees/'. $collection->image_path) }} style="height:200px;">
                                 </div>
                             </div>
                         </div>
-                        {{-- @include('admin_layouts.cards') --}}
                         @include('admin_layouts.data_tables')
                     </div>
                 </main>
@@ -39,6 +38,4 @@
         </div>
         @include('admin_layouts.javascript')
     </body>
-
-<!-- Mirrored from themes.startbootstrap.com/sb-admin-pro/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Apr 2020 04:43:38 GMT -->
 </html>

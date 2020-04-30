@@ -505,7 +505,7 @@
 @endif
 
 @if(request()->route()->getName() == "Employees")
-<form action="/create-employee" method="post">
+<form action="/create-employee" method="post" enctype="multipart/form-data">
     @csrf
     <div class="modal fade" id="employees" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -541,7 +541,7 @@
                         <input type="text" name="Village" class="form-control" list="teachers" autocomplete="off" accept="image/*">
                     </div>
                     
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <label for="SubjectName">Class</label>
                         <input type="text" name="class_name" class="form-control" list="classes" autocomplete="off">
                         <datalist id="classes">
@@ -549,6 +549,14 @@
                             <option value="{{ $item->class_name }}"></option>
                         @endforeach
                         </datalist>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Gender</label>
+                        <select name="gender" class="form-control">
+                            <option></option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">National Id Number</label>
@@ -564,7 +572,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="SubjectName">Certificate</label>
-                        <input type="file" name="certificates[]" class="form-control" list="teachers" autocomplete="off" accept="application/pdf">
+                        <input type="file" name="certificates" class="form-control" list="teachers" autocomplete="off" accept="application/pdf">
                     </div>
                     <div class="col-lg-6">
                         <input type="hidden" name="created_by" class="form-control" value="{{ Auth::user()->id }}">

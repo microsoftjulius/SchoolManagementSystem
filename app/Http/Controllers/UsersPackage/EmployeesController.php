@@ -33,12 +33,19 @@ class EmployeesController extends Controller
         ->where('email',($this->person->getFirstName() . $this->person->getTelephoneNumber()))->value('id');
         if(Employee::where('employee_id',$employee_id)->exists()){ return redirect()->back()->withErrors("Employee already exists");}
         //creating comma separated certificate
-        $certificates = implode(",",request()->certificates);
 
         $class_id = ClassRoomsModel::where('class_name', request()->class_name)->value('id');
         if(empty($class_id)){
             return redirect()->back()->withErrors("Please Select a class to continue");}
 
+        $image = $this->person->getUserPhoto();
+        $image_path = $image->getClientOriginalName();
+        $image->move('bootstrap/employees',$image_path);
+    
+        $certificate      = request()->certificates;
+        $certificate_path = $certificate->getClientOriginalName();
+        $certificate->move('bootstrap/employees',$certificate_path);
+    
         $employee = new Employee();
         $employee->efirst_name        = $this->person->getFirstName();
         $employee->created_by         = request()->created_by;
@@ -46,15 +53,15 @@ class EmployeesController extends Controller
         $employee->class_id           = $class_id;
         $employee->elast_name         = $this->person->getLastname();
         $employee->date_of_birth      = $this->person->getDateOfBirth();
-        $employee->image_path         = $this->person->getUserPhoto();     
+        $employee->image_path         = $image_path;    
         $employee->District           = $this->person->getDistrict();     
         $employee->Village            = $this->person->getVillage();      
         $employee->NIN                = $this->person->getNationalIdentificationNumber();        
         $employee->Telephone          = $this->person->getTelephoneNumber();
         $employee->role_id            = request()->role_id;
-        $student->gender              = request()->gender;
+        $employee->gender             = request()->gender;
         $employee->level_of_education = request()->level_of_education;
-        $employee->certificates       = $certificates;
+        $employee->certificates       = $certificate;
         $employee->save();   
 
         return redirect()->back()->with('msg',"New Employee has been added to the team");
@@ -72,7 +79,8 @@ class EmployeesController extends Controller
     }
 
     protected function getIndividualEmployee($id){
-        return new EmployeesResource(Employee::find($id));
+        $collection = new EmployeesResource(Employee::find($id));
+        return view('admin_pages.single_employee',compact('collection'));
     }
 
     protected function suspendEmployee(Employee $employee, $id){
