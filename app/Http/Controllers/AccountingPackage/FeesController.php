@@ -46,7 +46,16 @@ class FeesController extends Controller
 
 
     protected function getFeesForOneStudent($id){
-        return new FeesResource(Fees::find($id));
+        $collection = Fees::join('students','students.id','fees.student_id')
+        ->join('terms','terms.id','fees.term_id')
+        ->join('users','users.id','fees.created_by')
+        ->join('class_rooms','students.class_id','class_rooms.id')
+        ->where('fees.student_id',$id)
+        ->select('users.name','students.sfirst_name','students.slast_name','fees.amount','terms.term','class_rooms.class_name','fees.created_at')
+        ->get();
+
+        $sum = Fees::where('student_id',$id)->sum('amount');
+        return view('admin_pages.student_payments',compact('collection','sum'));
     }
 
     protected function validateFeesPayment(){

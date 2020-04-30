@@ -389,7 +389,8 @@
                         <td>{{ $item->amount }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button><button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
+                            <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button>
+                            <a href="/get-fees-for-particular-student/{{ $item->id }}"><button class="btn btn-datatable btn-icon btn-info" title="view payment details"><i class="fa fa-info"></i></button></a>
                         </td>
                     </tr>
                     @endforeach
@@ -974,6 +975,48 @@
                         </td>
                     </tr>
                 </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endif
+
+@if(request()->route()->getName() == "Students Payment")
+<div class="card mb-4">
+    <div class="card-header">Student Payment Records</div>
+    <div class="card-body">
+        <div class="datatable table-responsive">
+            <table class="table table-bordered table-hover table-primary" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Student Names</th>
+                        <th>Class</th>
+                        <th>Payment Dates</th>
+                        <th>Amount</th>
+                        <th>Term</th>
+                        <th>Recieved By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($collection as $item)
+                    <tr>
+                        <td>{{ $item->sfirst_name }} {{ $item->slast_name }} </td>
+                        <td>{{ $item->class_name }}</td>
+                        <td>{{ $item->created_at }}</td>
+                        <td>{{ number_format($item->amount) }} /=</td>
+                        <td>{{ $item->term }}</td>
+                        <td>{{ $item->name }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total Amount Paid</td>
+                    <td>{{ number_format($sum) }} /=</td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </table>
         </div>
     </div>

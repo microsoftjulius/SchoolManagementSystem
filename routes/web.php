@@ -117,7 +117,7 @@ Route::get('/delete-home-work/{id}','AccademicsPackage\HomeWorksController@delet
 Route::post('/make-fees-payment','AccountingPackage\FeesController@validateFeesPayment');
 Route::patch('/edit-fees-payment/{id}','AccountingPackage\FeesController@updateFees');
 Route::get('/get-all-fees-payments','AccountingPackage\FeesController@getAllFeesPayments')->name("Fees");
-Route::get('/get-fees-for-particular-student/{id}','AccountingPackage\FeesController@getFeesForOneStudent');
+Route::get('/get-fees-for-particular-student/{id}','AccountingPackage\FeesController@getFeesForOneStudent')->name('Students Payment');
 
 ################## Co-Curricular activities #####################################
 Route::post('/create-co-curricular-activity','ActivitiesPackage\CocuricularActivitiesController@validateActivities');
