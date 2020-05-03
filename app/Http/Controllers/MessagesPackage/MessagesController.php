@@ -25,7 +25,11 @@ class MessagesController extends Controller
         $message->recievers_group   = request()->recievers_group;
         $message->senders_id        = request()->senders_id;
         $message->save();
-        return $this->send_message->sendMessage();
+        if(empty($date_of_sending)){ return $this->send_message->sendMessage();  }
+        else{ 
+            Message::where('message',request()->message)->where('recievers_group',request()->recievers_group)->update(array('status'=>'scheduled'));
+            return redirect()->back()->with('msg',"Your Message has been scheduled and it will be sent on ". $date_of_sending);
+        }
     }
 
     protected function editScheduledMessage(Message $message, $id){
@@ -42,7 +46,7 @@ class MessagesController extends Controller
     }
 
     protected function getAllMessages(){
-        $collection = MessagesResource::collection(Message::all());
+        $collection = MessagesResource::collection(Message::orderBy('id','Desc')->get());
         return view('admin_pages.sms_balance',compact('collection'));
     }
 

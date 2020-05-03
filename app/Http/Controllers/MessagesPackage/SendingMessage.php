@@ -6,6 +6,7 @@ use App\UsersPackage\Employeesmodel as Employee;
 use App\UsersPackage\Parentsmodel as Parents;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\MessagesPackage\MessagesModel as Message;
 
 class SendingMessage extends Controller
 {
@@ -15,20 +16,20 @@ class SendingMessage extends Controller
         if(request()->recievers_group == 3){
             $get_contacts = Parents::all();
             foreach($get_contacts as $contact){
-                if(in_array(array('number' => $contact, 'message' => request()->message, 'senderid' => 'Good'), $msgData_array)){
+                if(in_array(array('number' => $contact->Telephone, 'message' => request()->message, 'senderid' => 'Good'), $msgData_array)){
                     continue;
                 }else{
-                    array_push($msgData_array, array('number' => $contact, 'message' => request()->message, 'senderid' => 'Good'));
+                    array_push($msgData_array, array('number' => $contact->Telephone, 'message' => request()->message, 'senderid' => 'Good'));
                 }
             }
         }
         elseif(request()->recievers_group == 2){
             $get_contacts = Employee::all();
             foreach($get_contacts as $contact){
-                if(in_array(array('number' => $contact, 'message' => request()->message, 'senderid' => 'Good'), $msgData_array)){
+                if(in_array(array('number' => $contact->Telephone, 'message' => request()->message, 'senderid' => 'Good'), $msgData_array)){
                     continue;
                 }else{
-                    array_push($msgData_array, array('number' => $contact, 'message' => request()->message, 'senderid' => 'Good'));
+                    array_push($msgData_array, array('number' => $contact->Telephone, 'message' => request()->message, 'senderid' => 'Good'));
                 }
             }
         }
@@ -36,7 +37,7 @@ class SendingMessage extends Controller
             return redirect()->back()->withErrors("You have insuffucient balance on your account to send this messages to the selected category,
                 Once you have bought messages this message will be sent Automatically");
         }else{
-            $data = array('method' => 'SendSms', 'userdata' => array('username' => 'microsoftjulius','password' => 123456),'msgdata' => $msgData_array);
+            $data = array('method' => 'SendSms', 'userdata' => array('username' => 'microsoft','password' => 123456),'msgdata' => $msgData_array);
             $json_builder = json_encode($data);
             $ch = curl_init('http://www.egosms.co/api/v1/json/');
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -47,8 +48,10 @@ class SendingMessage extends Controller
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             $ch_result = curl_exec($ch);
             curl_close($ch);
+
+            Message::where('message',request()->message)->where('recievers_group',request()->recievers_group)->update(array('status'=>'sent'));
         }
-        return redirect()->back()->withErrors("Message Sending Was Successful");
+        return redirect()->back()->with('msg',"Message Sending Was Successful");
     }
 
     public function getMessagesAccountBalance(){

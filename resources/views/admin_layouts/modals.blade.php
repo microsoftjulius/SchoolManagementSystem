@@ -703,3 +703,46 @@
     </div>
 </form>
 @endif
+
+
+@if(request()->route()->getName() == "Messages")
+<form action="/send-messages" method="get">
+    @csrf
+    <div class="modal fade" id="messages" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Type A Message To Send</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="SubjectName">Message</label>
+                        <textarea name="message" id="" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="Recievers">Select Recieving Category</label>
+                        <select name="recievers_group" id="" class="form-control">
+                            <option value=""></option>
+                            <option value="2">Employees</option>
+                            <option value="3">Parents</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="SubjectName">Date Of Sending</label>
+                        <input type="date" name="date_of_sending" class="form-control">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="hidden" name="senders_id" value="{{ Auth::user()->id }}">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endif

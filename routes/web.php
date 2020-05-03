@@ -138,7 +138,7 @@ Route::get('/get-all-public-days','ActivitiesPackage\PublicDaysController@getAll
 Route::get('/delete-public-day/{id}','ActivitiesPackage\PublicDaysController@deletePublicDay');
 
 ################## Messages Module ##########################################
-Route::post('/send-messages','MessagesPackage\MessagesController@validateMessage');
+Route::get('/send-messages','MessagesPackage\MessagesController@validateMessage');
 Route::patch('/edit-scheduled-message/{id}','MessagesPackage\MessagesController@editScheduledMessage');
 Route::patch('/delete-message/{id}','MessagesPackage\MessagesController@deleteMessage');
 Route::get('/get-all-messages','MessagesPackage\MessagesController@getAllMessages')->name('Messages');
