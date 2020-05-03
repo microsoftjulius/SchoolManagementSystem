@@ -47,7 +47,10 @@ class MessagesController extends Controller
 
     protected function getAllMessages(){
         $collection = MessagesResource::collection(Message::orderBy('id','Desc')->get());
-        return view('admin_pages.sms_balance',compact('collection'));
+        $count_sent_messages = Message::where('status','sent')->count();
+        $count_pending_messages = Message::where('status','pending')->count();
+        $count_scheduled_messages = Message::where('status','scheduled')->count();
+        return view('admin_pages.sms_balance',compact('collection','count_sent_messages','count_scheduled_messages','count_pending_messages'));
     }
 
     protected function validateMessage(){

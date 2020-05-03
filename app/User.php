@@ -100,4 +100,28 @@ class User extends Authenticatable
     public function subjects(){
         return $this->hasMany('App\AccademicsModel\Subject');
     }
+
+    public function getMessagesAccountBalance(){
+        if(!$sock = @fsockopen('www.google.com', 80))
+        {
+            return null;
+        }
+        else
+        {
+            $url = "http://www.egosms.co/api/v1/plain/?method=Balance&username=microsoft&password=123456";
+            return file_get_contents($url);
+        }
+    }
+
+    public function getTotalSmsLeft(){
+        $number_of_sms = $this->getMessagesAccountBalance()/33.3;
+        if(!$sock = @fsockopen('www.google.com', 80))
+        {
+            return null;
+        }
+        else
+        {
+            return floor($number_of_sms);
+        }
+    }
 }
