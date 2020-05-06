@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\UsersPackage\Students as Student;
+use App\UsersPackage\Employeesmodel as Employee;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
 ################### General Routes ############################################
-Route::get('/home',function(){ return view('admin_pages.template');});
+Route::get('/home',function(){
+    $number_of_students  = Student::count();
+    $number_of_girls     = Student::where('gender','Female')->count();
+    $number_of_boys      = Student::where('gender','Male')->count();
+    $number_of_boys      = Student::where('gender','Male')->count();
+    $number_of_employees = Employee::count();
+    return view('admin_pages.template',compact('number_of_students','number_of_girls','number_of_boys','number_of_employees'));});
 ###################Streams Routes #############################################
 Route::post('/create-stream','ClassesPackage\Streams@createClassStream');
 Route::patch('/edit-stream-name/{id}','ClassesPackage\Streams@editStreamName');
@@ -30,7 +38,7 @@ Route::patch('/edit-class-name/{id}','ClassesPackage\ClassRooms@editClassRoomNam
 Route::get('/get-all-class-rooms','ClassesPackage\ClassRooms@getAllClassRooms')->name("Class Rooms");
 Route::get('/delete-class/{id}','ClassesPackage\ClassRooms@deleteClassTemporarily');
 Route::delete('/parmanetly-delete-class/{id}','ClassesPackage\ClassRooms@deleteClassParmanetly');
-Route::get('/get-particular-class-room/{id}','ClassesPackage\ClassRooms@getParticularClassRoom');
+Route::get('/get-particular-class-room/{id}','ClassesPackage\ClassRooms@getParticularClassRoom')->name('Class Students');
 
 #######################General Person #########################################
 Route::post('/create-person','UsersPackage\GeneralPerson@createPerson');
@@ -43,6 +51,7 @@ Route::post('/create-student','UsersPackage\Students@validateStudent');
 Route::patch('/edit-student/{id}','UsersPackage\Students@editStudent');
 Route::get('/get-all-students','UsersPackage\Students@getAllStudents')->name("Students");
 Route::get('/suspend-student/{id}','UsersPackage\Students@suspendStudent');
+Route::get('/activate-student/{id}','UsersPackage\Students@activateStudent');
 Route::get('/expel-student/{id}','UsersPackage\Students@expellStudent');
 Route::get('/get-particular-student/{id}','UsersPackage\Students@getIndividualStudent')->name("Student Information");
 
@@ -57,6 +66,7 @@ Route::post('/create-employee','UsersPackage\EmployeesController@validateEmploye
 Route::patch('/edit-employee/{id}','UsersPackage\EmployeesController@editEmployee');
 Route::get('/get-all-employees','UsersPackage\EmployeesController@getAllEmployees')->name("Employees");
 Route::get('/suspend-employee/{id}','UsersPackage\EmployeesController@suspendEmployee');
+Route::get('/activate-employee/{id}','UsersPackage\EmployeesController@activateEmployee');
 Route::get('/expel-employee/{id}','UsersPackage\EmployeesController@expelEmployee');
 Route::patch('/assign-role-to-employee/{id}','UsersPackage\EmployeesController@assignRole');
 Route::get('/get-particular-employee/{id}','UsersPackage\EmployeesController@getIndividualEmployee')->name("Employee Info");

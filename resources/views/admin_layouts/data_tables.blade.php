@@ -77,7 +77,7 @@
                         <td>{{ $index+1 }}</td>
                         <td>{{ $item->subject_name }}</td>
                         <td>{{ $item->subject_code }}</td>
-                        <td>{{ $item->teachers->efirst_name }} {{ $item->teachers->elast_name }}</td>
+                        <td>{{ $item->teachers["efirst_name"] }} {{ $item->teachers["elast_name"] }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
                             <a href="/delete-subject/{{ $item->id }}" style="text-decoration:none">
@@ -158,7 +158,7 @@
                         <th>Message Sent By</th>
                         <th>Message Status</th>
                         <th>Date Of Creation</th>
-                        <th>Actions</th>
+                        {{-- <th>Actions</th> --}}
                     </tr>
                 </thead>
                 <tfoot>
@@ -170,7 +170,7 @@
                         <th>Message Sent By</th>
                         <th>Message Status</th>
                         <th>Date Of Creation</th>
-                        <th>Actions</th>
+                        {{-- <th>Actions</th> --}}
                     </tr>
                 </tfoot>
                 <tbody>
@@ -189,9 +189,9 @@
                         <td><div class="badge badge-info badge-pill">{{ $item->status }}</div></td>
                         @endif
                         <td>{{ $item->created_at }}</td>                        
-                        <td>
+                        {{-- <td>
                             <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa fa-eye"></i></button>
-                        </td>
+                        </td> --}}
                     </tr>
                     @endforeach
                 </tbody>
@@ -390,8 +390,8 @@
                         <td>{{ $item->amount }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>
-                            <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button>
-                            <a href="/get-fees-for-particular-student/{{ $item->id }}"><button class="btn btn-datatable btn-icon btn-info" title="view payment details"><i class="fa fa-info"></i></button></a>
+                            {{-- <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button> --}}
+                            <a href="/get-fees-for-particular-student/{{ $item->student->id }}"><button class="btn btn-datatable btn-icon btn-info" title="view payment details"><i class="fa fa-info"></i></button></a>
                         </td>
                     </tr>
                     @endforeach
@@ -503,9 +503,15 @@
                         <td><div class="badge badge-success badge-pill">{{ $item->status }}</div></td>
                         @endif
                         <td>
+                            @if( $item->status == "suspended")
+                            <a href="/activate-employee/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-success" title="Activate employee"><i class="fa fa-check"></i></button>
+                            </a>
+                            @else
                             <a href="/suspend-employee/{{ $item->id }}" style="text-decoration:none">
                                 <button class="btn btn-datatable btn-icon btn-warning" title="suspend employee"><i class="fa fa-times"></i></button>
                             </a>
+                            @endif
                             <a href="/expel-employee/{{ $item->id }}" style="text-decoration:none">
                                 <button class="btn btn-datatable btn-icon btn-danger" title="expel employee"><i class="fa fa-trash"></i></button>
                             </a>
@@ -555,7 +561,7 @@
                     @foreach ($collection as $index=> $item)
                     <tr>
                         <td>{{ $index+1 }}</td>
-                        <td>{{ $item->teacher->efirst_name }} {{ $item->teacher->elast_name }}</td>
+                        <td>{{ $item->teacher["efirst_name"] }} {{ $item->teacher["elast_name"] }}</td>
                         <td>{{ $item->term->term }}</td>
                         <td>{{ $item->week }}</td>
                         <td>{{ $item->user->name }}</td>
@@ -665,7 +671,9 @@
                             <a href="/delete-class/{{ $item->id }}" style="text-decoration:none">
                                 <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
                             </a>
-                            <button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
+                            <a href="/get-particular-class-room/{{ $item->id }}">
+                                <button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -774,9 +782,15 @@
                         <td><div class="badge badge-success badge-pill">{{ $item->status }}</div></td>
                         @endif
                         <td>
+                            @if( $item->status == "suspended")
+                            <a href="/activate-student/{{ $item->id }}" style="text-decoration:none">
+                                <button class="btn btn-datatable btn-icon btn-success" title="Activate employee"><i class="fa fa-check"></i></button>
+                            </a>
+                            @else
                             <a href="/suspend-student/{{ $item->id }}" style="text-decoration:none">
                                 <button class="btn btn-datatable btn-icon btn-warning" title="suspend student"><i class="fa fa-times"></i></button>
                             </a>
+                            @endif
                             <a href="/expel-student/{{ $item->id }}" style="text-decoration:none">
                                 <button class="btn btn-datatable btn-icon btn-danger" title="expel student"><i class="fa fa-trash"></i></button>
                             </a>
@@ -809,7 +823,7 @@
                         <th>Village</th>
                         <th>Telephone</th>
                         <th>Created By</th>
-                        <th>Actions</th>
+                        {{-- <th>Actions</th> --}}
                     </tr>
                 </thead>
                 <tfoot>
@@ -821,7 +835,7 @@
                         <th>Village</th>
                         <th>Telephone</th>
                         <th>Created By</th>
-                        <th>Actions</th>
+                        {{-- <th>Actions</th> --}}
                     </tr>
                 </tfoot>
                 <tbody>
@@ -834,12 +848,11 @@
                         <td>{{ $item->Village }}</td>
                         <td>{{ $item->Telephone }}</td>
                         <td>{{ $item->user->name }}</td>
-                        <td>
-                            <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button>
-                            {{-- <a href="/get-particular-parent/{{ $item->id }}" style="text-decoration:none">
+                        {{-- <td> <button class="btn btn-datatable btn-icon btn-primary"><i class="fa fa-edit"></i></button>
+                                <a href="/get-particular-parent/{{ $item->id }}" style="text-decoration:none">
                                 <button class="btn btn-datatable btn-icon btn-info"><i class="fa fa-info"></i></button>
-                            </a> --}}
-                        </td>
+                            </a>
+                        </td> --}}
                     </tr>
                     @endforeach
                 </tbody>
@@ -955,7 +968,7 @@
                         <th>Level Of Education</th>
                         <th>Certification</th>
                         <th>Created By</th>
-                        <th>Action</th>
+                        {{-- <th>Action</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -970,10 +983,10 @@
                         <td>{{ $collection->level_of_education }}</td>
                         <td>{{ $collection->certificates }}</td>
                         <td>{{ $collection->user->name }}</td>
-                        <td>
+                        {{-- <td>
                             <button class="btn btn-datatable btn-icon btn-warning"><i class="fa fa-times"></i></button>
                             <button class="btn btn-datatable btn-icon btn-danger"><i class="fa fa-trash"></i></button>
-                        </td>
+                        </td> --}}
                     </tr>
                 </tbody>
             </table>
@@ -1023,4 +1036,37 @@
     </div>
 </div>
 @endif
+
+@if(request()->route()->getName() == "Class Students")
+<div class="card mb-4">
+    <div class="card-header"> 
+        Total Number of students: {{ count($collection) }}
+    </div>
+    <div class="card-body">
+        <div class="datatable table-responsive"><br>
+            <table class="table table-bordered table-hover table-primary" width="100%" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Student Names</th>
+                        <th>Class</th>
+                        <th>Status</th>
+                        <th>Created By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($collection as $item)
+                    <tr>
+                        <td>{{ $item->sfirst_name }} {{ $item->slast_name }} </td>
+                        <td>{{ $item->class_name }}</td>
+                        <td>{{ $item->status }}</td>
+                        <td>{{ $item->name }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endif
+
 @include('admin_layouts.modals')

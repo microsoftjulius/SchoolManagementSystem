@@ -19,8 +19,7 @@ class ClassRooms extends JsonResource
             'creators_name'   => $this->users['name'],
             'fclass_teacher'  => $this->teachers['efirst_name'],
             'lclass_teacher'  => $this->teachers['elast_name'],
-            'sfirst_name'     => $this->students->sfirst_name,
-            'slast_name'      => $this->students->slast_name,
+            'students'        => $this->students,
             'fees_amount'     => number_format($this->fees_amount),
             'status'          => $this->status,
         ];

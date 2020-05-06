@@ -53,8 +53,6 @@ class Students extends Controller
         $student->guardian_id    = $parent_id;
         $student->save(); 
 
-        
-
         return redirect()->back()->with('msg',"New Student has been created Successfully");
     }
 
@@ -84,6 +82,13 @@ class Students extends Controller
             'status' => 'suspended',
         ));
         return redirect()->back()->with('msg',"Student has been suspended successfully");
+    }
+    
+    protected function activateStudent(Student $student, $id){
+        $student->find($id)->update(array(
+            'status' => 'active',
+        ));
+        return redirect()->back()->with('msg',"Student has been activated Successfully");
     }
 
     protected function expellStudent(Student $student, $id){

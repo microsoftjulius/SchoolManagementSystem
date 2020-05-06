@@ -13,7 +13,7 @@ class ClassRooms extends Model
     }
 
     public function students(){
-        return $this->hasMany('App\UsersPackage\Students');
+        return $this->hasMany('App\UsersPackage\Students','class_id');
     }
 
     public function teachers(){

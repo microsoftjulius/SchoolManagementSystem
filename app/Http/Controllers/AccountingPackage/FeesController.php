@@ -51,7 +51,7 @@ class FeesController extends Controller
         ->join('users','users.id','fees.created_by')
         ->join('class_rooms','students.class_id','class_rooms.id')
         ->where('fees.student_id',$id)
-        ->select('users.name','students.sfirst_name','students.slast_name','fees.amount','terms.term','class_rooms.class_name','fees.created_at')
+        ->select('users.name','students.sfirst_name','students.slast_name','fees.amount','terms.term','class_rooms.class_name','fees.created_at','students.id')
         ->get();
 
         $sum = Fees::where('student_id',$id)->sum('amount');

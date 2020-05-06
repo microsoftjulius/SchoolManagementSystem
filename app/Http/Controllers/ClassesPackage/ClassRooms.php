@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ClassesModels\ClassRooms as ClassRoomsModel;
 use App\UsersPackage\Employeesmodel as Employee;
+use App\UsersPackage\Students as Student;
 use App\ClassesModels\Streams as StreamsModel;
 use App\Http\Resources\ClassesResources\ClassRooms as ClassesResource;
 
@@ -39,7 +40,14 @@ class ClassRooms extends Controller
     }
 
     protected function getParticularClassRoom($id){
-        return new ClassesResource(ClassRoomsModel::find($id));
+        $collection = Student::join('class_rooms','class_rooms.id','students.class_id')
+        ->join('users','users.id','students.created_by')
+        ->where('class_rooms.id',$id)
+        ->where('students.status','!=','expelled')
+        ->select('students.slast_name','students.sfirst_name','users.name','students.id','class_rooms.class_name',
+        'students.status')
+        ->get();
+        return view('admin_pages.class_chidren',compact('collection'));
     }
 
     protected function deleteClassTemporarily(ClassRoomsModel $class_name, $id){

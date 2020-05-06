@@ -22,7 +22,7 @@ class Students extends Model
     }
 
     public function classRooms(){
-        return $this->belongsTo('App\ClassesModels\ClassRooms', 'class_id');
+        return $this->belongsTo('App\ClassesModels\ClassRooms');
     }
 
     public function attendaces(){

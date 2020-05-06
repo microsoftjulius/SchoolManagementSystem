@@ -88,6 +88,12 @@ class EmployeesController extends Controller
         return redirect()->back()->with('msg',"Employee has been suspended successfully");
     }
 
+    protected function activateEmployee(Employee $employee, $id){
+        $employee->find($id)->update(array('status' => 'active'));
+        return redirect()->back()->with('msg',"Employee has been activated Successfully");
+    }
+
+
     protected function expelEmployee(Employee $employee, $id){
         $employee->find($id)->update(array('status' => 'expelled'));
         return redirect()->back()->with('msg',"Employee has been Expelled Successfully");
